@@ -6,8 +6,7 @@
 //  Copyright © 2018 Sticks. All rights reserved.
 //
 
-import Foundation
-import Resources
+import UIKit
 
 // MARK: - ViewWrappingProtocol
 
@@ -143,10 +142,10 @@ class ViewWrapper<Wrapped: UIView>: UIView {
         let arrangedViews: [UIView?] = stackView.arrangedSubviews
         var expectedArrangedViews: [UIView?] = [wrappedView]
         if showDisclosureArrow, expectedArrangedViews.contains(disclosureArrow) == false {
-            disclosureArrow = UIImageView(image: Asset.play.image)
+//            disclosureArrow = UIImageView(image: Asset.play.image)
             disclosureArrow?.useAutoLayout()
             disclosureArrow?.contentMode = .scaleAspectFill
-            disclosureArrow?.activateConstraints(ofSize: Asset.play.image.size)
+//            disclosureArrow?.activateConstraints(ofSize: Asset.play.image.size)
             expectedArrangedViews.append(disclosureArrow)
         } else {
             disclosureArrow = nil
