@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		861A5DD421DAF4A6009357AE /* UITabBarController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861A5DD321DAF4A6009357AE /* UITabBarController+Extensions.swift */; };
 		8697387521D48F5900F5090F /* CommonUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8697386B21D48F5900F5090F /* CommonUI.framework */; };
 		869738C521D48F8900F5090F /* ViewWrapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8697388A21D48F8900F5090F /* ViewWrapping.swift */; };
 		869738C621D48F8900F5090F /* SelectionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8697388B21D48F8900F5090F /* SelectionAnimator.swift */; };
@@ -66,6 +67,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		861A5DD321DAF4A6009357AE /* UITabBarController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+Extensions.swift"; sourceTree = "<group>"; };
 		8697386B21D48F5900F5090F /* CommonUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CommonUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8697387421D48F5900F5090F /* CommonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CommonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8697388621D48F8900F5090F /* CommonUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonUITests.swift; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 				8697389321D48F8900F5090F /* UIImage+Extensions.swift */,
 				8697389421D48F8900F5090F /* UINavigationBar+Extensions.swift */,
 				8697389521D48F8900F5090F /* UITabBar+Extensions.swift */,
+				861A5DD321DAF4A6009357AE /* UITabBarController+Extensions.swift */,
 				8697389621D48F8900F5090F /* NSAttributedString+Extensions.swift */,
 				8697389721D48F8900F5090F /* UINavigationController+Extensions.swift */,
 				8697389821D48F8900F5090F /* CALayer+Extensions.swift */,
@@ -435,6 +438,7 @@
 				869738D721D48F8900F5090F /* UIBezier+Extensions.swift in Sources */,
 				869738DF21D48F8900F5090F /* TouchManager.swift in Sources */,
 				869738CC21D48F8900F5090F /* UIColor+Extensions.swift in Sources */,
+				861A5DD421DAF4A6009357AE /* UITabBarController+Extensions.swift in Sources */,
 				869738D921D48F8900F5090F /* Animation.swift in Sources */,
 				869738EA21D48F8900F5090F /* DefaultFailureViewController.swift in Sources */,
 				869738DC21D48F8900F5090F /* Layout.swift in Sources */,
