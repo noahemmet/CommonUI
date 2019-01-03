@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		861A5DD421DAF4A6009357AE /* UITabBarController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861A5DD321DAF4A6009357AE /* UITabBarController+Extensions.swift */; };
+		864A57FB21DECD4700C40306 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864A57F921DECD4700C40306 /* Label.swift */; };
+		864A57FC21DECD4700C40306 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864A57FA21DECD4700C40306 /* TextView.swift */; };
 		8697387521D48F5900F5090F /* CommonUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8697386B21D48F5900F5090F /* CommonUI.framework */; };
 		869738C521D48F8900F5090F /* ViewWrapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8697388A21D48F8900F5090F /* ViewWrapping.swift */; };
 		869738C621D48F8900F5090F /* SelectionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8697388B21D48F8900F5090F /* SelectionAnimator.swift */; };
@@ -68,6 +70,8 @@
 
 /* Begin PBXFileReference section */
 		861A5DD321DAF4A6009357AE /* UITabBarController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+Extensions.swift"; sourceTree = "<group>"; };
+		864A57F921DECD4700C40306 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
+		864A57FA21DECD4700C40306 /* TextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		8697386B21D48F5900F5090F /* CommonUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CommonUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8697387421D48F5900F5090F /* CommonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CommonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8697388621D48F8900F5090F /* CommonUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonUITests.swift; sourceTree = "<group>"; };
@@ -143,6 +147,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		864A57F821DECD4700C40306 /* UIKit Replacements */ = {
+			isa = PBXGroup;
+			children = (
+				864A57F921DECD4700C40306 /* Label.swift */,
+				864A57FA21DECD4700C40306 /* TextView.swift */,
+			);
+			path = "UIKit Replacements";
+			sourceTree = "<group>";
+		};
 		8697386121D48F5900F5090F = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +190,7 @@
 			children = (
 				8697388A21D48F8900F5090F /* ViewWrapping.swift */,
 				8697388B21D48F8900F5090F /* SelectionAnimator.swift */,
+				864A57F821DECD4700C40306 /* UIKit Replacements */,
 				8697388C21D48F8900F5090F /* UIKit Extensions */,
 				8697389E21D48F8900F5090F /* UICollectionView+ViewWrapping.swift */,
 				8697389F21D48F8900F5090F /* Animation.swift */,
@@ -454,6 +468,7 @@
 				869738D321D48F8900F5090F /* UIStackView+Extensions.swift in Sources */,
 				869738C521D48F8900F5090F /* ViewWrapping.swift in Sources */,
 				869738D421D48F8900F5090F /* UITableView+Extensions.swift in Sources */,
+				864A57FB21DECD4700C40306 /* Label.swift in Sources */,
 				869738E721D48F8900F5090F /* ViewStateController.swift in Sources */,
 				869738DD21D48F8900F5090F /* AppStyle.swift in Sources */,
 				869738CA21D48F8900F5090F /* UIEdgeInsets+Extensions.swift in Sources */,
@@ -473,6 +488,7 @@
 				869738DA21D48F8900F5090F /* ViewBorderable.swift in Sources */,
 				869738D121D48F8900F5090F /* UINavigationController+Extensions.swift in Sources */,
 				869738C621D48F8900F5090F /* SelectionAnimator.swift in Sources */,
+				864A57FC21DECD4700C40306 /* TextView.swift in Sources */,
 				869738E521D48F8900F5090F /* ViewState.swift in Sources */,
 				869738D221D48F8900F5090F /* CALayer+Extensions.swift in Sources */,
 			);
