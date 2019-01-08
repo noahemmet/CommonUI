@@ -45,6 +45,16 @@ open class WrapperCollectionCell<View: UIView>: UICollectionViewCell, ViewWrappi
         
         wrappedView.widthAnchor.constraint(equalToConstant: contentView.frame.width).isActive = true
     }
+	
+	override open func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
+		setNeedsLayout()
+		layoutIfNeeded()
+		let size = contentView.systemLayoutSizeFitting(layoutAttributes.size)
+		var frame = layoutAttributes.frame
+		frame.size.height = ceil(size.height)
+		layoutAttributes.frame = frame
+		return layoutAttributes
+	}
     
     public var isSelectable: Bool { 
         get { return viewWrapper.isSelectable }

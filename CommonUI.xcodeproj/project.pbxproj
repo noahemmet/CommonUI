@@ -156,6 +156,16 @@
 			path = "UIKit Replacements";
 			sourceTree = "<group>";
 		};
+		8686076D21E54B76009AA757 /* ViewWrapping */ = {
+			isa = PBXGroup;
+			children = (
+				8697388A21D48F8900F5090F /* ViewWrapping.swift */,
+				869738A121D48F8900F5090F /* UITableView+ViewWrapping.swift */,
+				8697389E21D48F8900F5090F /* UICollectionView+ViewWrapping.swift */,
+			);
+			path = ViewWrapping;
+			sourceTree = "<group>";
+		};
 		8697386121D48F5900F5090F = {
 			isa = PBXGroup;
 			children = (
@@ -188,14 +198,12 @@
 		8697388921D48F8900F5090F /* CommonUI */ = {
 			isa = PBXGroup;
 			children = (
-				8697388A21D48F8900F5090F /* ViewWrapping.swift */,
+				8686076D21E54B76009AA757 /* ViewWrapping */,
 				8697388B21D48F8900F5090F /* SelectionAnimator.swift */,
 				864A57F821DECD4700C40306 /* UIKit Replacements */,
 				8697388C21D48F8900F5090F /* UIKit Extensions */,
-				8697389E21D48F8900F5090F /* UICollectionView+ViewWrapping.swift */,
 				8697389F21D48F8900F5090F /* Animation.swift */,
 				869738A021D48F8900F5090F /* ViewBorderable.swift */,
-				869738A121D48F8900F5090F /* UITableView+ViewWrapping.swift */,
 				869738A221D48F8900F5090F /* Style */,
 				869738A521D48F8900F5090F /* Touches */,
 				869738A821D48F8900F5090F /* List Controller */,
