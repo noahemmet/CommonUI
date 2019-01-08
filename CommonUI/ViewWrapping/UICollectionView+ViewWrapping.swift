@@ -42,7 +42,8 @@ open class WrapperCollectionCell<View: UIView>: UICollectionViewCell, ViewWrappi
         viewWrapper.preservesSuperviewLayoutMargins = true
         contentView.preservesSuperviewLayoutMargins = true
         preservesSuperviewLayoutMargins = true
-        
+        wrappedView.setContentHuggingPriority(.required, for: .vertical)
+		wrappedView.setContentHuggingPriority(.required, for: .horizontal)
         wrappedView.widthAnchor.constraint(equalToConstant: contentView.frame.width).isActive = true
     }
 	
