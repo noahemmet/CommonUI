@@ -50,6 +50,8 @@ open class WrapperCollectionCell<View: UIView>: UICollectionViewCell, ViewWrappi
     }
 	
 	override open func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
+		wrappedView.setNeedsLayout()
+		wrappedView.layoutIfNeeded()
 		setNeedsLayout()
 		layoutIfNeeded()
 		var frame = layoutAttributes.frame

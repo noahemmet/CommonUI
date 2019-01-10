@@ -22,4 +22,10 @@ public extension UIStackView {
             view.removeFromSuperview()
         }
     }
+	
+	func removeArrangedSubview(at index: Int) {
+		let subview = arrangedSubviews[index]
+		removeArrangedSubview(subview)
+		subview.removeFromSuperview()
+	}
 }
