@@ -24,7 +24,7 @@ public class DefaultFailureViewController: UIViewController, ErrorViewModelConfi
     }
     
     var stackView: UIStackView!
-    var errorLabel: UILabel!
+    var errorView: TextView!
     var reloadButton: UIButton!
     var secondaryButton: UIButton!
     public weak var delegate: DefaultFailureViewControllerDelegate?
@@ -37,8 +37,10 @@ public class DefaultFailureViewController: UIViewController, ErrorViewModelConfi
     public override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = AppStyle.background
-        errorLabel = UILabel(frame: .zero)
-        errorLabel.numberOfLines = 0
+        errorView = TextView(frame: .zero)
+		errorView.isEditable = false
+		errorView.isSelectable = true
+		errorView.isScrollEnabled = true
         reloadButton = UIButton(type: .custom)
         reloadButton.setTitle("Reload", for: .normal)
         reloadButton.setTitleColor(AppStyle.tint, for: .normal)
@@ -51,7 +53,7 @@ public class DefaultFailureViewController: UIViewController, ErrorViewModelConfi
         secondaryButton.setTitleColor(AppStyle.tintHighlight, for: .highlighted)
         secondaryButton.addTarget(self, action: #selector(secondaryButtonTapped), for: .primaryActionTriggered)
 		
-        stackView = UIStackView(arrangedSubviews: [errorLabel, reloadButton, secondaryButton])
+        stackView = UIStackView(arrangedSubviews: [errorView, reloadButton, secondaryButton])
         stackView.axis = .vertical
         stackView.distribution = .fillProportionally
         view.addSubview(stackView)
@@ -59,7 +61,7 @@ public class DefaultFailureViewController: UIViewController, ErrorViewModelConfi
     }
     
     public func configure(with viewModel: CustomSuccessViewStateError) {
-        errorLabel.text = "\(viewModel)"
+        errorView.text = "\(viewModel)"
     }
     
     @objc
