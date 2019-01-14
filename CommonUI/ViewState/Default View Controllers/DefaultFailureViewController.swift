@@ -59,6 +59,7 @@ public class DefaultFailureViewController: UIViewController, ErrorViewModelConfi
         stackView.distribution = .fillProportionally
         view.addSubview(stackView)
         stackView.activateConstraints(toMarginsOf: view)
+		errorView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 2/3).isActive = true
     }
     
     public func configure(with viewModel: CustomSuccessViewStateError) {
