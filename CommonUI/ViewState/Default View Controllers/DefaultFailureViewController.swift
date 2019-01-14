@@ -41,6 +41,7 @@ public class DefaultFailureViewController: UIViewController, ErrorViewModelConfi
 		errorView.isEditable = false
 		errorView.isSelectable = true
 		errorView.isScrollEnabled = true
+		errorView.alwaysBounceVertical = true
         reloadButton = UIButton(type: .custom)
         reloadButton.setTitle("Reload", for: .normal)
         reloadButton.setTitleColor(AppStyle.tint, for: .normal)
