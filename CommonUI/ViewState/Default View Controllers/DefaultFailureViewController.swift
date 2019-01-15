@@ -38,6 +38,8 @@ public class DefaultFailureViewController: UIViewController, ErrorViewModelConfi
         super.viewDidLoad()
         view.backgroundColor = AppStyle.background
         errorView = TextView(frame: .zero)
+		errorView.font = UIFont.preferredFont(forTextStyle: .body)
+		errorView.setContentHuggingPriority(.required, for: .vertical)
 		errorView.isEditable = false
 		errorView.isSelectable = true
 		errorView.isScrollEnabled = true
@@ -55,11 +57,11 @@ public class DefaultFailureViewController: UIViewController, ErrorViewModelConfi
         secondaryButton.addTarget(self, action: #selector(secondaryButtonTapped), for: .primaryActionTriggered)
 		
         stackView = UIStackView(arrangedSubviews: [errorView, reloadButton, secondaryButton])
+		stackView.spacing = 8
+		stackView.isLayoutMarginsRelativeArrangement = true
         stackView.axis = .vertical
-        stackView.distribution = .fillProportionally
         view.addSubview(stackView)
         stackView.activateConstraints(toMarginsOf: view)
-		errorView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 2/3).isActive = true
     }
     
     public func configure(with viewModel: CustomSuccessViewStateError) {
