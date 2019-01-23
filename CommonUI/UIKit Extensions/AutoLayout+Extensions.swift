@@ -163,4 +163,10 @@ public extension NSLayoutConstraint {
     static func constraints(for anchorConstraints: AnchorConstraints) -> [NSLayoutConstraint] {
         return [anchorConstraints.leading, anchorConstraints.trailing, anchorConstraints.top, anchorConstraints.bottom]
     }
+	
+	@discardableResult
+	func activate() -> NSLayoutConstraint {
+		self.isActive = true
+		return self
+	}
 }

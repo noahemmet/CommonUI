@@ -9,22 +9,38 @@
 import Foundation
 
 public enum Layout {
+	/// 4
     public static let spacingSmall: CGFloat = 4
+	/// 8
     public static let spacing: CGFloat = 8
+	/// 16
     public static let spacingMedium: CGFloat = 16
     public static let hMarginInset: CGFloat = spacing
     public static let vMarginInset: CGFloat = spacing
     
     // MARK: - Buttons
+	/// 44
     public static let minButtonSize: CGSize = CGSize(dimension: 44)
+	/// 48
     public static let minButtonSizeSmallMedium: CGSize = CGSize(dimension: 48)
+	/// 54
     public static let minButtonSizeMedium: CGSize = CGSize(dimension: 54)
     
     // MARK: - Cells
+	/// 44
     public static let minEstimatedCellHeight: CGFloat = 44
+	
+	// MARK: - Borders
+	/// 2
+	public static let borderSmall: CGFloat = 2
+	/// 6
+	public static let borderMedium: CGFloat = 6
     
-    // MARK: Style
+    // MARK: — Corners
+	/// 4
     public static let cornerRadiusSmall: CGFloat = 4
+	/// 8
     public static let cornerRadiusMedium: CGFloat = 8
+	/// 16
     public static let cornerRadiusLarge: CGFloat = 16
 }
