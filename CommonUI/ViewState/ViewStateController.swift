@@ -160,26 +160,26 @@ open class ViewStateController<
         case .success(let viewModel):
             let viewController = self.getSuccessViewController()
             viewController.loadViewIfNeeded()
-            successViewControllerDidLoad?(viewController)
             configure(successViewController: viewController, with: viewModel)
+			successViewControllerDidLoad?(viewController)
             return .success(viewController)
         case .failure(let viewModel):
             let viewController = self.getFailureViewController()
             viewController.loadViewIfNeeded()
-            failureViewControllerDidLoad?(viewController)
             configure(failureViewController: viewController, with: viewModel)
+			failureViewControllerDidLoad?(viewController)
             return .failure(viewController)
         case .loading(let viewModel):
             let viewController = getLoadingViewController()
             viewController.loadViewIfNeeded()
-            loadingViewControllerDidLoad?(viewController)
             configure(loadingViewController: viewController, with: viewModel)
+			loadingViewControllerDidLoad?(viewController)
             return .loading(viewController)
         case .empty(let viewModel):
             let viewController = self.getEmptyViewController()
             viewController.loadViewIfNeeded()
-            emptyViewControllerDidLoad?(viewController)
             configure(emptyViewController: viewController, with: viewModel)
+			emptyViewControllerDidLoad?(viewController)
             return .empty(viewController)
         }
     }
