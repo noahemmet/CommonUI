@@ -242,6 +242,11 @@ open class ViewStateController<
 // MARK: - Defaults
 
 extension ViewStateController where LoadingViewController: DefaultLoadingViewController {
+	
+	open func showLoading(animated: Bool) {
+		let loadingViewModel = DefaultLoadingViewController.ViewModel()
+		self.transition(to: .loading(loadingViewModel), from: self.viewState, animated: animated, completion: nil)
+	}
 //    public convenience init() {
 //        let loadingViewState: ViewStateController.ControllerViewState = .loading(DefaultLoadingViewController.ViewModel())
 //        self.init(initialViewState: loadingViewState)
