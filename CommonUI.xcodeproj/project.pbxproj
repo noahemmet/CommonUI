@@ -10,6 +10,8 @@
 		861A5DD421DAF4A6009357AE /* UITabBarController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861A5DD321DAF4A6009357AE /* UITabBarController+Extensions.swift */; };
 		8643465B21FBE685008DAA27 /* DebugNav.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643465A21FBE685008DAA27 /* DebugNav.swift */; };
 		8643465D21FBE6C6008DAA27 /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643465C21FBE6C6008DAA27 /* Platform.swift */; };
+		8643466121FFC287008DAA27 /* UICollectionViewFlowLayout+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643466021FFC287008DAA27 /* UICollectionViewFlowLayout+Extensions.swift */; };
+		8643466321FFCC7E008DAA27 /* IndexPath+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643466221FFCC7E008DAA27 /* IndexPath+Extensions.swift */; };
 		864A57FB21DECD4700C40306 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864A57F921DECD4700C40306 /* Label.swift */; };
 		864A57FC21DECD4700C40306 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864A57FA21DECD4700C40306 /* TextView.swift */; };
 		8697387521D48F5900F5090F /* CommonUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8697386B21D48F5900F5090F /* CommonUI.framework */; };
@@ -74,6 +76,8 @@
 		861A5DD321DAF4A6009357AE /* UITabBarController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+Extensions.swift"; sourceTree = "<group>"; };
 		8643465A21FBE685008DAA27 /* DebugNav.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugNav.swift; sourceTree = "<group>"; };
 		8643465C21FBE6C6008DAA27 /* Platform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
+		8643466021FFC287008DAA27 /* UICollectionViewFlowLayout+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewFlowLayout+Extensions.swift"; sourceTree = "<group>"; };
+		8643466221FFCC7E008DAA27 /* IndexPath+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IndexPath+Extensions.swift"; sourceTree = "<group>"; };
 		864A57F921DECD4700C40306 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		864A57FA21DECD4700C40306 /* TextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		8697386B21D48F5900F5090F /* CommonUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CommonUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -245,7 +249,9 @@
 				8697389921D48F8900F5090F /* UIStackView+Extensions.swift */,
 				8697389A21D48F8900F5090F /* UITableView+Extensions.swift */,
 				8697389B21D48F8900F5090F /* UICollectionView+Extensions.swift */,
+				8643466021FFC287008DAA27 /* UICollectionViewFlowLayout+Extensions.swift */,
 				8697389C21D48F8900F5090F /* AutoLayout+Extensions.swift */,
+				8643466221FFCC7E008DAA27 /* IndexPath+Extensions.swift */,
 				8697389D21D48F8900F5090F /* UIBezier+Extensions.swift */,
 			);
 			path = "UIKit Extensions";
@@ -475,7 +481,9 @@
 				869738E021D48F8900F5090F /* ListController.swift in Sources */,
 				869738C921D48F8900F5090F /* UITouch+Extensions.swift in Sources */,
 				869738F121D48F8900F5090F /* NavigationController.swift in Sources */,
+				8643466321FFCC7E008DAA27 /* IndexPath+Extensions.swift in Sources */,
 				869738CD21D48F8900F5090F /* UIImage+Extensions.swift in Sources */,
+				8643466121FFC287008DAA27 /* UICollectionViewFlowLayout+Extensions.swift in Sources */,
 				869738D821D48F8900F5090F /* UICollectionView+ViewWrapping.swift in Sources */,
 				869738F021D48F8900F5090F /* ViewModelConfigurable.swift in Sources */,
 				869738E821D48F8900F5090F /* DefaultEmptyViewController.swift in Sources */,

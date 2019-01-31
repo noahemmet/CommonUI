@@ -37,29 +37,9 @@ open class WrapperCollectionCell<View: UIView>: UICollectionViewCell, ViewWrappi
     
     private func commonInit() {
         contentView.addSubview(viewWrapper)
-        viewWrapper.translatesAutoresizingMaskIntoConstraints = false
         viewWrapper.activateConstraints(to: contentView)
-        viewWrapper.preservesSuperviewLayoutMargins = true
-        contentView.preservesSuperviewLayoutMargins = true
-        preservesSuperviewLayoutMargins = true
-//		contentView.setContentHuggingPriority(.required, for: .vertical)
-//		contentView.setContentHuggingPriority(.required, for: .horizontal)
-//        wrappedView.setContentHuggingPriority(.required, for: .vertical)
-//		wrappedView.setContentHuggingPriority(.required, for: .horizontal)
         wrappedView.widthAnchor.constraint(equalToConstant: contentView.frame.width).isActive = true
     }
-	
-	override open func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
-		wrappedView.setNeedsLayout()
-		wrappedView.layoutIfNeeded()
-		setNeedsLayout()
-		layoutIfNeeded()
-		var frame = layoutAttributes.frame
-		frame.size.height = ceil(wrappedView.frame.height)
-		frame.size.width = ceil(wrappedView.frame.width)
-		layoutAttributes.frame = frame
-		return layoutAttributes
-	}
 	
     public var isSelectable: Bool { 
         get { return viewWrapper.isSelectable }
