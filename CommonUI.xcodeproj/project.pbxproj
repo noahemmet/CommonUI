@@ -60,6 +60,7 @@
 		869738F021D48F8900F5090F /* ViewModelConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869738BF21D48F8900F5090F /* ViewModelConfigurable.swift */; };
 		869738F121D48F8900F5090F /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869738C021D48F8900F5090F /* NavigationController.swift */; };
 		869738F821D490AE00F5090F /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 869738F721D490AE00F5090F /* Common.framework */; };
+		86C90DE82204FA76009A2983 /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C90DE72204FA76009A2983 /* Keyboard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,6 +134,7 @@
 		869738C021D48F8900F5090F /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		869738C121D48F8900F5090F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		869738F721D490AE00F5090F /* Common.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Common.framework; path = Carthage/Build/iOS/Common.framework; sourceTree = "<group>"; };
+		86C90DE72204FA76009A2983 /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,6 +216,7 @@
 				869738A021D48F8900F5090F /* ViewBorderable.swift */,
 				8643465A21FBE685008DAA27 /* DebugNav.swift */,
 				8643465C21FBE6C6008DAA27 /* Platform.swift */,
+				86C90DE72204FA76009A2983 /* Keyboard.swift */,
 				869738A221D48F8900F5090F /* Style */,
 				869738A521D48F8900F5090F /* Touches */,
 				869738A821D48F8900F5090F /* List Controller */,
@@ -478,6 +481,7 @@
 				869738DC21D48F8900F5090F /* Layout.swift in Sources */,
 				869738CE21D48F8900F5090F /* UINavigationBar+Extensions.swift in Sources */,
 				869738D021D48F8900F5090F /* NSAttributedString+Extensions.swift in Sources */,
+				86C90DE82204FA76009A2983 /* Keyboard.swift in Sources */,
 				869738E021D48F8900F5090F /* ListController.swift in Sources */,
 				869738C921D48F8900F5090F /* UITouch+Extensions.swift in Sources */,
 				869738F121D48F8900F5090F /* NavigationController.swift in Sources */,
