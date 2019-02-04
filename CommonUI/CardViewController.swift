@@ -26,7 +26,13 @@ public class CardViewController<WrappedView: UIView & ViewModelConfigurable>: UI
 		fatalError("init(coder:) has not been implemented")
 	}
 	
-	public func configure(with viewModel: WrappedView.ViewModel) {
-		cardView.configure(with: viewModel as! CardView<WrappedView>.ViewModel)
+	public override func viewDidLoad() {
+		super.viewDidLoad()
+		view.addSubview(cardView)
+		cardView.activateConstraints(to: view)
+	}
+	
+	public func configure(with viewModel: CardView<WrappedView>.ViewModel) {
+		cardView.configure(with: viewModel)
 	}
 }

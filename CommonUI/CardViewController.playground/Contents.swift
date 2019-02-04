@@ -19,10 +19,10 @@ container.addSubview(cardViewController.view)
 cardViewController.view.activateConstraints(toMarginsOf: container)
 
 PlaygroundPage.current.liveView = container
-let colorTheme = CardViewController<WrappedView>.ColorTheme(title: .black,
+let colorTheme = CardView<WrappedView>.ColorTheme(title: .black,
 															titleBackground: #colorLiteral(red: 0.9102776878, green: 0.9102776878, blue: 0.9102776878, alpha: 1),
 															contentBackground: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1),
 															outerBorder: #colorLiteral(red: 0.6595522474, green: 0.6595522474, blue: 0.6595522474, alpha: 1))
 let viewModel = CardViewController<WrappedView>.ViewModel(colorTheme: colorTheme, title: .init(string: "Title"), content: ())
 cardViewController.configure(with: viewModel)
-	
+
