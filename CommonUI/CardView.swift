@@ -69,8 +69,6 @@ public class CardView<WrappedView: UIView>: UIView {
 	
 	func commonInit() {
 		
-		clipsToBounds = true
-		
 		//		titleView.layoutMargins.left = Layout.spacing + Layout.spacingSmall
 		//		titleView.layoutMargins.right = Layout.spacing + Layout.spacingSmall
 		titleView.layoutMargins.top = Layout.spacing
@@ -85,7 +83,7 @@ public class CardView<WrappedView: UIView>: UIView {
 		titleLabel.activateConstraints(toMarginsOf: titleView)
 		
 		contentView.addSubview(wrappedView)
-		wrappedView.activateConstraints(to: contentView)
+		wrappedView.activateConstraints(toMarginsOf: contentView)
 		
 		let stackView = UIStackView(arrangedSubviews: [titleView, contentView])
 		stackView.axis = .vertical
@@ -93,8 +91,10 @@ public class CardView<WrappedView: UIView>: UIView {
 		stackView.activateConstraints(to: self)
 		
 		// Content corners
+		titleView.clipsToBounds = true
 		titleView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
 		titleView.layer.cornerRadius = cornerRadius
+		contentView.clipsToBounds = true
 		contentView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
 		contentView.layer.cornerRadius = cornerRadius
 		
@@ -104,14 +104,14 @@ public class CardView<WrappedView: UIView>: UIView {
 		
 		// Outer shadow
 		layer.shadowOffset = CGSize(width: 0, height: 4)
-		layer.shadowOpacity = 0.8
-		layer.shadowRadius = 8
+		layer.shadowOpacity = 0.2
+		layer.shadowRadius = 4
 		layer.shadowColor = layer.borderColor
 	}
 	
 	public func configure(colorTheme: ColorTheme) {
 		layer.borderColor = colorTheme.outerBorder.cgColor
-		layer.shadowColor = layer.borderColor
+		layer.shadowColor = UIColor.black.cgColor
 		titleView.backgroundColor = colorTheme.titleBackground
 		contentView.backgroundColor = colorTheme.contentBackground
 	}
