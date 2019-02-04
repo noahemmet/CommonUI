@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		8609AAF22207C31600A6D0FB /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8609AAF12207C31600A6D0FB /* CardViewController.swift */; };
-		8609AAF42207C45C00A6D0FB /* CardViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8609AAF32207C45C00A6D0FB /* CardViewController.storyboard */; };
 		861A5DD421DAF4A6009357AE /* UITabBarController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861A5DD321DAF4A6009357AE /* UITabBarController+Extensions.swift */; };
 		8643465B21FBE685008DAA27 /* DebugNav.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643465A21FBE685008DAA27 /* DebugNav.swift */; };
 		8643465D21FBE6C6008DAA27 /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643465C21FBE6C6008DAA27 /* Platform.swift */; };
@@ -77,7 +76,6 @@
 
 /* Begin PBXFileReference section */
 		8609AAF12207C31600A6D0FB /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
-		8609AAF32207C45C00A6D0FB /* CardViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CardViewController.storyboard; sourceTree = "<group>"; };
 		8609AAF52207C53900A6D0FB /* CardViewController.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = CardViewController.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		861A5DD321DAF4A6009357AE /* UITabBarController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+Extensions.swift"; sourceTree = "<group>"; };
 		8643465A21FBE685008DAA27 /* DebugNav.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugNav.swift; sourceTree = "<group>"; };
@@ -230,7 +228,6 @@
 				869738A021D48F8900F5090F /* ViewBorderable.swift */,
 				8643465A21FBE685008DAA27 /* DebugNav.swift */,
 				8609AAF12207C31600A6D0FB /* CardViewController.swift */,
-				8609AAF32207C45C00A6D0FB /* CardViewController.storyboard */,
 				8609AAF52207C53900A6D0FB /* CardViewController.playground */,
 				8609AAF02207C30800A6D0FB /* System */,
 				869738A221D48F8900F5090F /* Style */,
@@ -444,7 +441,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8609AAF42207C45C00A6D0FB /* CardViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

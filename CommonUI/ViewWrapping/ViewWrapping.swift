@@ -14,8 +14,8 @@ import UIKit
 public protocol ViewWrapping {
     associatedtype View: UIView & ViewModelConfigurable
     var wrappedView: View { get }
-    var highlightColor: UIColor { get }
-    var nonHighlightColor: UIColor { get }
+//    var highlightColor: UIColor { get }
+//    var nonHighlightColor: UIColor { get }
 }
 
 public extension ViewWrapping {
