@@ -73,4 +73,11 @@ public class Button: UIButton {
             }, completion: nil)
         }
     }
+	
+	public override var intrinsicContentSize: CGSize {
+		let size = super.intrinsicContentSize
+		let newSize = CGSize(width: size.width + titleEdgeInsets.left + titleEdgeInsets.right,
+							 height: size.height + titleEdgeInsets.top + titleEdgeInsets.bottom)
+		return size
+	}
 }
