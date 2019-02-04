@@ -44,7 +44,7 @@ extension CardViewController {
 public class CardViewController<WrappedView: UIView & ViewModelConfigurable>: UIViewController, ViewModelConfigurable {
 	
 	var titleView: UIView!
-	var titleLabel: UILabel!
+	var titleLabel: Label!
 	var contentView: UIView!
 	
 	let cornerRadius: CGFloat = 8
@@ -63,9 +63,11 @@ public class CardViewController<WrappedView: UIView & ViewModelConfigurable>: UI
 	public override func viewDidLoad() {
 		super.viewDidLoad()
 		
+		view.clipsToBounds = true
+		
 		titleView = UIView(frame: .zero)
-		titleView.layoutMargins.left = Layout.spacing + Layout.spacingSmall
-		titleView.layoutMargins.right = Layout.spacing + Layout.spacingSmall
+//		titleView.layoutMargins.left = Layout.spacing + Layout.spacingSmall
+//		titleView.layoutMargins.right = Layout.spacing + Layout.spacingSmall
 		titleView.layoutMargins.top = Layout.spacing
 		titleView.layoutMargins.bottom = Layout.spacing
 		titleView.setContentCompressionResistancePriority(.required, for: .vertical)
@@ -74,7 +76,7 @@ public class CardViewController<WrappedView: UIView & ViewModelConfigurable>: UI
 		titleView.setContentHuggingPriority(.required, for: .horizontal)
 		
 		titleLabel = Label(frame: .zero)
-		titleLabel.text = "hi"
+		titleLabel.numberOfLines = 0
 		titleView.addSubview(titleLabel)
 		titleLabel.activateConstraints(toMarginsOf: titleView)
 		
@@ -99,13 +101,14 @@ public class CardViewController<WrappedView: UIView & ViewModelConfigurable>: UI
 		
 		// Outer shadow
 		view.layer.shadowOffset = CGSize(width: 0, height: 4)
-		view.layer.shadowOpacity = 1
+		view.layer.shadowOpacity = 0.8
 		view.layer.shadowRadius = 8
 		view.layer.shadowColor = view.layer.borderColor
 	}
 	
 	public func configure(with viewModel: ViewModel) {
-		
+		titleLabel.attributedText = viewModel.title
+		configure(colorTheme: viewModel.colorTheme)
 	}
 	
 	private func configure(colorTheme: ColorTheme) {
@@ -113,7 +116,6 @@ public class CardViewController<WrappedView: UIView & ViewModelConfigurable>: UI
 		view.layer.shadowColor = view.layer.borderColor
 		titleView.backgroundColor = colorTheme.titleBackground
 		contentView.backgroundColor = colorTheme.contentBackground
-
 	}
 	
 }
