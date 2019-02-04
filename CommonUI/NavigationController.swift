@@ -10,13 +10,24 @@ import Foundation
 
 /// Includes a `UIPercentDrivenInteractiveTransition` for popping/pushing. 
 public class NavigationController: UINavigationController {
-    var interactivePopTransition: UIPercentDrivenInteractiveTransition?
-    
+	
+	/// Whether a user can slide left to pop a view controller
+	public var isSlideToPopEnabled = true {
+		didSet {
+			panRecognizer.isEnabled = isSlideToPopEnabled
+			if !isSlideToPopEnabled {
+				interactivePopTransition?.cancel()
+			}
+		}
+	}
+	
+    private var interactivePopTransition: UIPercentDrivenInteractiveTransition?
+	private var panRecognizer: UIPanGestureRecognizer!
+	
     override public func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
-        
-        let panRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture))
+        panRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture))
         view.addGestureRecognizer(panRecognizer)
     }
     

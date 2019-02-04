@@ -40,6 +40,7 @@ extension UIViewController {
         return storyboard.instantiateViewController(withIdentifier: storyboardIdentifier) as! VC
     }
 }
+
 extension ViewModelConfigurable where Self: UIViewController {
     public init(viewModel: ViewModel) {
         self.init(nibName: nil, bundle: nil)
