@@ -10,15 +10,22 @@ import Foundation
 
 // MARK: - CardViewController
 
-public class CardViewController<WrappedView: UIView & ViewModelConfigurable>: UIViewController, ViewModelConfigurable {
+public class CardViewController<WrappedViewController: UIViewController, ContentView>: UIViewController
+//	, ViewModelConfigurable
+	where WrappedViewController: ViewModelConfigurable,
+	ContentView: UIView
+//	ContentView: ViewModelConfigurable,
+//	WrappedViewController.ViewModel == ContentView.ViewModel
+{
 	
-	public let cardView: CardView<WrappedView>
-	public var wrappedView: WrappedView {
-		return cardView.wrappedView
-	}
+	public typealias ViewModel = WrappedViewController.ViewModel
+	
+	public let wrappedViewController: WrappedViewController
+	public let cardView: CardView<ContentView>
 
-	public init(wrapping wrappedView: WrappedView) {
-		self.cardView = CardView(wrapping: wrappedView)
+	public init(wrapping wrappedViewController: WrappedViewController) {
+		self.wrappedViewController = wrappedViewController
+		self.cardView = CardView<ContentView>(wrapping: wrappedViewController.view as! ContentView)
 		super.init(nibName: nil, bundle: nil)
 	}
 	
@@ -32,7 +39,18 @@ public class CardViewController<WrappedView: UIView & ViewModelConfigurable>: UI
 		cardView.activateConstraints(to: view)
 	}
 	
-	public func configure(with viewModel: CardView<WrappedView>.ViewModel) {
-		cardView.configure(with: viewModel)
+//	public func configure(with viewModel: ViewModel) {
+//		cardView.configure(with: viewModel as! CardView<ContentView>.ViewModel)
+//	}
+}
+
+extension CardViewController: ViewModelConfigurable
+	where WrappedViewController: ViewModelConfigurable,
+	ContentView: ViewModelConfigurable,
+	WrappedViewController.ViewModel == ContentView.ViewModel
+{
+	
+	public func configure(with viewModel: ViewModel) {
+		cardView.configure(with: viewModel as! CardView<ContentView>.ViewModel)
 	}
 }

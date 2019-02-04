@@ -11,13 +11,12 @@ import Foundation
 // MARK: - CardView.ViewModel
 
 extension CardView {
-	
-	public struct ViewModel {
+	public struct CardViewModel<WrappedView: ViewModelConfigurable> {
 		public let colorTheme: ColorTheme
 		public let title: NSAttributedString
 		public let content: WrappedView.ViewModel
 		
-		public init(colorTheme: ColorTheme, title: NSAttributedString, content: WrappedView.ViewModel) {
+		public init(colorTheme: ColorTheme = ColorTheme.defaultColorTheme, title: NSAttributedString, content: WrappedView.ViewModel) {
 			self.colorTheme = colorTheme
 			self.title = title
 			self.content = content
@@ -25,6 +24,13 @@ extension CardView {
 	}
 	
 	public struct ColorTheme {
+		public static var defaultColorTheme: ColorTheme {
+			return ColorTheme(title: .black,
+							  titleBackground: #colorLiteral(red: 0.9102776878, green: 0.9102776878, blue: 0.9102776878, alpha: 1),
+							  contentBackground: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1),
+							  outerBorder: #colorLiteral(red: 0.6595522474, green: 0.6595522474, blue: 0.6595522474, alpha: 1))
+		}
+		
 		public let title: UIColor?
 		public let titleBackground: UIColor
 		public let contentBackground: UIColor
@@ -41,7 +47,7 @@ extension CardView {
 
 // MARK: - CardView
 
-public class CardView<WrappedView: UIView & ViewModelConfigurable>: UIView, ViewModelConfigurable {
+public class CardView<WrappedView: UIView>: UIView {
 	
 	public let titleView = UIView(frame: .zero)
 	public let titleLabel = Label(frame: .zero)
@@ -103,16 +109,20 @@ public class CardView<WrappedView: UIView & ViewModelConfigurable>: UIView, View
 		layer.shadowColor = layer.borderColor
 	}
 	
-	public func configure(with viewModel: ViewModel) {
-		titleLabel.attributedText = viewModel.title
-		configure(colorTheme: viewModel.colorTheme)
-	}
-	
-	private func configure(colorTheme: ColorTheme) {
+	public func configure(colorTheme: ColorTheme) {
 		layer.borderColor = colorTheme.outerBorder.cgColor
 		layer.shadowColor = layer.borderColor
 		titleView.backgroundColor = colorTheme.titleBackground
 		contentView.backgroundColor = colorTheme.contentBackground
 	}
+}
+
+extension CardView: ViewModelConfigurable where WrappedView: ViewModelConfigurable {
 	
+	public typealias ViewModel = CardViewModel<WrappedView>
+	
+	public func configure(with viewModel: ViewModel) {
+		titleLabel.attributedText = viewModel.title
+		configure(colorTheme: viewModel.colorTheme)
+	}
 }
