@@ -18,6 +18,13 @@ public extension UIView {
         case margins
         case safe
     }
+	
+	enum Edge {
+		case leading
+		case trailing
+		case top
+		case bottom
+	}
     
     @discardableResult
 	func anchorConstraints(to view: UIView, insets: UIEdgeInsets = .zero) -> AnchorConstraints {
@@ -30,12 +37,29 @@ public extension UIView {
         )
 	}
 	
-    @discardableResult 
-    func activateConstraints(to view: UIView, insets: UIEdgeInsets = .zero) -> AnchorConstraints {
-        translatesAutoresizingMaskIntoConstraints = false
-        let anchorConstraints = self.anchorConstraints(to: view, insets: insets)
-        NSLayoutConstraint.activate(anchorConstraints)
-        return anchorConstraints
+	@discardableResult
+	func activateConstraints(to view: UIView, insets: UIEdgeInsets = .zero) -> AnchorConstraints {
+		translatesAutoresizingMaskIntoConstraints = false
+		let anchorConstraints = self.anchorConstraints(to: view, insets: insets)
+		NSLayoutConstraint.activate(anchorConstraints)
+		return anchorConstraints
+	}
+	
+	func activateConstraints(to view: UIView, exceptFor edgeExceptions: [Edge]) {
+		translatesAutoresizingMaskIntoConstraints = false
+		let anchorConstraints = self.anchorConstraints(to: view)
+		if !edgeExceptions.contains(.leading) {
+			anchorConstraints.leading.activate()
+		}
+		if !edgeExceptions.contains(.trailing) {
+			anchorConstraints.trailing.activate()
+		}
+		if !edgeExceptions.contains(.top) {
+			anchorConstraints.top.activate()
+		}
+		if !edgeExceptions.contains(.bottom) {
+			anchorConstraints.bottom.activate()
+		}
 	}
 	
     @discardableResult

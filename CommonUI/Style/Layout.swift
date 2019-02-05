@@ -31,10 +31,12 @@ public enum Layout {
     public static let minEstimatedCellHeight: CGFloat = 44
 	
 	// MARK: - Borders
+	/// 1
+	public static let borderSmall: CGFloat = 1
 	/// 2
-	public static let borderSmall: CGFloat = 2
+	public static let borderMedium: CGFloat = 2
 	/// 6
-	public static let borderMedium: CGFloat = 6
+	public static let borderLarge: CGFloat = 6
     
     // MARK: — Corners
 	/// 4
