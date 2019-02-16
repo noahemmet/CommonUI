@@ -17,9 +17,6 @@ public protocol ViewModelConfigurable {
 }
 
 public extension ViewModelConfigurable {
-	func configure(with viewModel: ViewModel) {
-		try! tryConfigure(with: viewModel)
-	}
 	
 	func tryConfigure(with viewModel: ViewModel) throws {
 		configure(with: viewModel)
