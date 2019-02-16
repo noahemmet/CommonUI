@@ -42,9 +42,9 @@ extension UIViewController {
 }
 
 extension ViewModelConfigurable where Self: UIViewController {
-    public init(viewModel: ViewModel) {
+    public init(viewModel: ViewModel) throws {
         self.init(nibName: nil, bundle: nil)
         self.loadViewIfNeeded()
-        self.configure(with: viewModel)
+        try self.tryConfigure(with: viewModel)
     }
 }

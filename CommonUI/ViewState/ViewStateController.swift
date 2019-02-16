@@ -140,19 +140,35 @@ open class ViewStateController<
     }
     
     open func configure(successViewController viewController: SuccessViewController, with viewModel: SuccessViewController.ViewModel) {
-        viewController.configure(with: viewModel)
+		do {
+			try viewController.configure(with: viewModel)
+		} catch let error {
+			self.handleError(error)
+		}
     }
     
     open func configure(failureViewController viewController: FailureViewController, with viewModel: FailureViewController.ViewModel) {
-        viewController.configure(with: viewModel)
+		do {
+			try viewController.configure(with: viewModel)
+		} catch let error {
+			self.handleError(error)
+		}
     }
     
     open func configure(emptyViewController viewController: EmptyViewController, with viewModel: EmptyViewController.ViewModel) {
-        viewController.configure(with: viewModel)
+		do {
+			try viewController.configure(with: viewModel)
+		} catch let error {
+			self.handleError(error)
+		}
     }
     
     open func configure(loadingViewController viewController: LoadingViewController, with viewModel: LoadingViewController.ViewModel) {
-        viewController.configure(with: viewModel)
+		do {
+			try viewController.configure(with: viewModel)
+		} catch let error {
+			self.handleError(error)
+		}
     }
     
     private func viewController(for viewState: ControllerViewState) -> ViewController {
@@ -230,6 +246,12 @@ open class ViewStateController<
             self.didTransition(to: newViewControllerType, from: oldViewController, animated: animated)
         }
     }
+	
+	open func handleError(_ error: Error, animated: Bool = true) {
+		let viewError = FailureViewController.viewModel(from: error)
+		let errorState = ControllerViewState(viewError)
+		self.transition(to: errorState, from: self.viewState, animated: animated, completion: nil)
+	}
 }
 
 // MARK: - CustomSuccessViewStateController

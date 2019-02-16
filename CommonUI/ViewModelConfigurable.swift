@@ -13,6 +13,13 @@ import Foundation
 public protocol ViewModelConfigurable {
     associatedtype ViewModel
     func configure(with viewModel: ViewModel)
+	func tryConfigure(with viewModel: ViewModel) throws
+}
+
+public extension ViewModelConfigurable {
+	func tryConfigure(with viewModel: ViewModel) throws {
+		configure(with: viewModel)
+	}
 }
 
 public typealias ViewControllerModelConfigurable = UIViewController & ViewModelConfigurable

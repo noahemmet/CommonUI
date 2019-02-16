@@ -30,7 +30,7 @@ public class DefaultFailureViewController: UIViewController, ErrorViewModelConfi
     public weak var delegate: DefaultFailureViewControllerDelegate?
     
     public class func present(from presenter: UIViewController, with error: Error, animated: Bool) {
-        let failureViewController = DefaultFailureViewController(viewModel: .loadFailed(error))
+        let failureViewController = try! DefaultFailureViewController(viewModel: .loadFailed(error))
         presenter.navigationController?.pushViewController(failureViewController, animated: animated)
     }
     
