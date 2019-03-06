@@ -9,11 +9,15 @@
 import Foundation
 
 public enum Animation {
+	/// 0.5 seconds
     public static let defaultDuration: TimeInterval = 0.5
+	/// 0.15 seconds
     public static let shortDuration: TimeInterval = 0.15
+	/// 0.15 seconds
     public static let deselectionDelay: TimeInterval = 0.15
     
     /// The amount of time to elapse between presenting a view controller and loading its transition screen.
+	/// 0.01 seconds
     public static let minLoadViewAppearAnimation: TimeInterval = 0.01
     /// Returns true if a load has taken longer than `minLoadViewAppearAnimation`.
     public static func shouldAnimateAfterLoad(since start: Date) -> Bool {
@@ -24,6 +28,7 @@ public enum Animation {
 }
 
 extension Animation {
+	/// 0.4 seconds
     public static let minimumDelay: TimeInterval = 0.4
     public static func afterMinimumDelay(_ delay: TimeInterval = minimumDelay, handler: @escaping () -> Void) {
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + delay, execute: handler)
