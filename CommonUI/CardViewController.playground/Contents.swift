@@ -13,7 +13,7 @@ let container = UIView(frame: CGRect(width: 400, height: 500))
 container.backgroundColor = #colorLiteral(red: 0.8976886334, green: 0.8976886334, blue: 0.8976886334, alpha: 1)
 
 let wrappedVC = WrappedViewController(nibName: nil, bundle: nil)
-wrappedVC.view.backgroundColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
+wrappedVC.view.backgroundColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
 
 let cardViewController = CardViewController(wrapping: wrappedVC)
 container.addSubview(cardViewController.view)
