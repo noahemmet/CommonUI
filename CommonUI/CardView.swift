@@ -111,7 +111,7 @@ public class CardView<WrappedView: UIView>: UIView {
 	
 	public func configure(colorTheme: ColorTheme) {
 		layer.borderColor = colorTheme.outerBorder.cgColor
-		layer.shadowColor = UIColor.black.cgColor
+		layer.shadowColor = UIColor.black.cgColor
 		titleView.backgroundColor = colorTheme.titleBackground
 		contentView.backgroundColor = colorTheme.contentBackground
 	}
