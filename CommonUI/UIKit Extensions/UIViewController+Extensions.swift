@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+// MARK: - Storyboards
+
 public protocol ViewControllerStoryboardInstantiatable: class {
     static func fromStoryboard() -> Self
     static func fromStoryboard(using bundle: Bundle) -> Self
@@ -47,4 +49,15 @@ extension ViewModelConfigurable where Self: UIViewController {
         self.loadViewIfNeeded()
         try self.tryConfigure(with: viewModel)
     }
+}
+
+// MARK: - Convenience
+
+public extension UIViewController {
+	func addChildViewController(_ child: UIViewController) {
+		addChild(child)
+		view.addSubview(child.view)
+		child.didMove(toParent: self)
+		child.view.activateConstraints(to: self.view)
+	}
 }
