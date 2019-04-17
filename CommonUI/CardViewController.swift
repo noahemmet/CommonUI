@@ -11,7 +11,7 @@ import Foundation
 // MARK: - CardViewController
 
 public class CardViewController<WrappedViewController: UIViewController, ContentView>: UIViewController
-//	, ViewModelConfigurable
+, ViewModelConfigurable
 	where WrappedViewController: ViewModelConfigurable,
 	ContentView: UIView
 //	ContentView: ViewModelConfigurable,
@@ -39,18 +39,18 @@ public class CardViewController<WrappedViewController: UIViewController, Content
 		cardView.activateConstraints(to: view)
 	}
 	
+	public func configure(with viewModel: ViewModel) {
+		fatalError()
+	}
+}
+
+//extension CardViewController: ViewModelConfigurable
+//	where WrappedViewController: ViewModelConfigurable,
+//	ContentView: ViewModelConfigurable,
+//	WrappedViewController.ViewModel == ContentView.ViewModel
+//{
+//
 //	public func configure(with viewModel: ViewModel) {
 //		cardView.configure(with: viewModel as! CardView<ContentView>.ViewModel)
 //	}
-}
-
-extension CardViewController: ViewModelConfigurable
-	where WrappedViewController: ViewModelConfigurable,
-	ContentView: ViewModelConfigurable,
-	WrappedViewController.ViewModel == ContentView.ViewModel
-{
-	
-	public func configure(with viewModel: ViewModel) {
-		cardView.configure(with: viewModel as! CardView<ContentView>.ViewModel)
-	}
-}
+//}
