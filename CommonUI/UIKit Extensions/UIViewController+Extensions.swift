@@ -54,10 +54,16 @@ extension ViewModelConfigurable where Self: UIViewController {
 // MARK: - Convenience
 
 public extension UIViewController {
-	func addChildViewController(_ child: UIViewController) {
+	enum ChildViewControllerConstraintActivation {
+		case view
+		case margins
+	}
+	
+	@discardableResult
+	func addChildViewController(_ child: UIViewController, insets: UIEdgeInsets = .zero, horizontal: UIView.AxisConstraint = .view, vertical: UIView.AxisConstraint = .view) -> AnchorConstraints {
 		addChild(child)
 		view.addSubview(child.view)
 		child.didMove(toParent: self)
-		child.view.activateConstraints(to: self.view)
+		return child.view.activateConstraints(to: view, insets: insets, horizontal: horizontal, vertical: vertical)
 	}
 }
