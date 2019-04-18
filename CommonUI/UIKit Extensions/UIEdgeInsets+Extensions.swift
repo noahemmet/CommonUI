@@ -30,4 +30,24 @@ public extension UIEdgeInsets {
     var inverted: UIEdgeInsets {
         return UIEdgeInsets(top: -top, left: -left, bottom: -bottom, right: -right)
     }
+	
+	var horizontal: (left: CGFloat, right: CGFloat) {
+		get {
+			return (left: left, right: right)
+		}
+		set {
+			left = newValue.left
+			right = newValue.right
+		}
+	}
+	
+	var vertical: (top: CGFloat, bottom: CGFloat) {
+		get {
+			return (top: top, bottom: bottom)
+		}
+		set {
+			top = newValue.top
+			bottom = newValue.bottom
+		}
+	}
 }
