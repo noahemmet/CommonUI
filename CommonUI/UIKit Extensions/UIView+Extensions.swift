@@ -58,6 +58,14 @@ extension UIView {
             subview.setBackgroundColors(to: backgroundColor)
         }
     }
+	
+	public var findFirstResponder: UIResponder? {
+		if self.isFirstResponder {
+			return self
+		}
+		let firstResponder = subviews.first { $0.findFirstResponder }
+		return firstResponder
+	}
 }
 
 // MARK: - Constraints
