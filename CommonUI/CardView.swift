@@ -69,10 +69,8 @@ public class CardView<WrappedView: UIView>: UIView {
 	
 	func commonInit() {
 		
-		//		titleView.layoutMargins.left = Layout.spacing + Layout.spacingSmall
-		//		titleView.layoutMargins.right = Layout.spacing + Layout.spacingSmall
-		titleView.layoutMargins.top = Layout.spacing
-		//		titleView.layoutMargins.bottom = Layout.spacing
+		titleView.layoutMargins.top = Layout.spacing + 2
+		titleView.layoutMargins.bottom = Layout.spacing
 		titleView.setContentCompressionResistancePriority(.required, for: .vertical)
 		titleView.setContentCompressionResistancePriority(.required, for: .horizontal)
 		titleView.setContentHuggingPriority(.required, for: .vertical)
@@ -81,6 +79,8 @@ public class CardView<WrappedView: UIView>: UIView {
 		titleLabel.numberOfLines = 0
 		titleView.addSubview(titleLabel)
 		titleLabel.activateConstraints(toMarginsOf: titleView)
+		titleLabel.setContentCompressionResistancePriority(.required, for: .vertical)
+		titleLabel.setContentHuggingPriority(.required, for: .vertical)
 		
 		contentView.addSubview(wrappedView)
 		wrappedView.activateConstraints(toMarginsOf: contentView)
