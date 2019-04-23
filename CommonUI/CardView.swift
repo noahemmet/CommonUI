@@ -102,7 +102,6 @@ public class CardView<WrappedView: UIView>: UIView {
 		layer.borderWidth = 2
 		layer.cornerRadius = cornerRadius
 		
-		return
 		// Outer shadow
 		layer.shadowOffset = CGSize(width: 0, height: 4)
 		layer.shadowOpacity = 0.2
