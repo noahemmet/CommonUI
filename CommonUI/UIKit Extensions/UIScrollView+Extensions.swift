@@ -16,8 +16,8 @@ public extension UIScrollView {
 		return isAtEnd
 	}
 	
-	func scrollToEnd(animated: Bool) {
-		let bottomOffset = CGPoint(x: 0, y: contentSize.height - bounds.size.height + contentInset.bottom)
+	func scrollToEnd(plus extraY: CGFloat = 0, animated: Bool) {
+		let bottomOffset = CGPoint(x: 0, y: contentSize.height - bounds.size.height + contentInset.bottom + extraY)
 		setContentOffset(bottomOffset, animated: animated)
 	}
 }
