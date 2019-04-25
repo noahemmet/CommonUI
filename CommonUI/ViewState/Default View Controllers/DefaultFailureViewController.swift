@@ -70,11 +70,14 @@ public class DefaultFailureViewController: UIViewController, ErrorViewModelConfi
         secondaryButton.addTarget(self, action: #selector(secondaryButtonTapped), for: .primaryActionTriggered)
 		
         stackView = UIStackView(arrangedSubviews: [scrollView, reloadButton, secondaryButton])
-		stackView.spacing = 8
+		stackView.spacing = Layout.spacing
 		stackView.isLayoutMarginsRelativeArrangement = true
         stackView.axis = .vertical
         view.addSubview(stackView)
-        stackView.activateConstraints(to: view, horizontal: .view, vertical: .margins)
+		stackView.activateConstraints(to: view,
+									  insets: UIEdgeInsets(bottom: -Layout.spacing),
+									  horizontal: .view,
+									  vertical: .margins)
     }
 	
     public func configure(with viewModel: CustomSuccessViewStateError) {
