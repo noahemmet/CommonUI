@@ -68,7 +68,7 @@ public enum CustomSuccessViewStateError: Error {
 
 public extension ViewState where E == CustomSuccessViewStateError {
     
-    public init(_ handler: () throws -> ViewState<SuccessViewModel, E, LoadingViewModel, EmptyViewModel>) {
+    init(_ handler: () throws -> ViewState<SuccessViewModel, E, LoadingViewModel, EmptyViewModel>) {
         do {
             self = try handler()
         } catch let error as E {

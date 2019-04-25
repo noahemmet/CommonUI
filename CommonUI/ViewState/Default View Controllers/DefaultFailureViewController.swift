@@ -36,14 +36,27 @@ public class DefaultFailureViewController: UIViewController, ErrorViewModelConfi
     
     public override func viewDidLoad() {
         super.viewDidLoad()
+		
+		view.preservesSuperviewLayoutMargins = true
         view.backgroundColor = AppStyle.background
+
         errorView = TextView(frame: .zero)
 		errorView.font = UIFont.preferredFont(forTextStyle: .body)
 		errorView.setContentHuggingPriority(.required, for: .vertical)
+		errorView.setContentCompressionResistancePriority(.required, for: .vertical)
+		errorView.textContainerInset.left = Layout.spacingMedium
+		errorView.textContainerInset.right = Layout.spacingMedium
 		errorView.isEditable = false
 		errorView.isSelectable = true
-		errorView.isScrollEnabled = true
-		errorView.alwaysBounceVertical = true
+		errorView.isScrollEnabled = false
+
+		
+		let scrollView = UIScrollView(frame: .zero)
+		scrollView.addSubview(errorView)
+		scrollView.preservesSuperviewLayoutMargins = true
+		errorView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).activate()
+		errorView.activateConstraints(to: scrollView)
+		
         reloadButton = UIButton(type: .custom)
         reloadButton.setTitle("Reload", for: .normal)
         reloadButton.setTitleColor(AppStyle.tint, for: .normal)
@@ -56,14 +69,14 @@ public class DefaultFailureViewController: UIViewController, ErrorViewModelConfi
         secondaryButton.setTitleColor(AppStyle.tintHighlight, for: .highlighted)
         secondaryButton.addTarget(self, action: #selector(secondaryButtonTapped), for: .primaryActionTriggered)
 		
-        stackView = UIStackView(arrangedSubviews: [errorView, reloadButton, secondaryButton])
+        stackView = UIStackView(arrangedSubviews: [scrollView, reloadButton, secondaryButton])
 		stackView.spacing = 8
 		stackView.isLayoutMarginsRelativeArrangement = true
         stackView.axis = .vertical
         view.addSubview(stackView)
-        stackView.activateConstraints(toMarginsOf: view)
+        stackView.activateConstraints(to: view, horizontal: .view, vertical: .margins)
     }
-    
+	
     public func configure(with viewModel: CustomSuccessViewStateError) {
         errorView.text = "\(viewModel)"
     }
