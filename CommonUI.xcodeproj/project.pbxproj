@@ -16,6 +16,7 @@
 		8643466321FFCC7E008DAA27 /* IndexPath+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643466221FFCC7E008DAA27 /* IndexPath+Extensions.swift */; };
 		864A57FB21DECD4700C40306 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864A57F921DECD4700C40306 /* Label.swift */; };
 		864A57FC21DECD4700C40306 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864A57FA21DECD4700C40306 /* TextView.swift */; };
+		868F1FB5227193C100FF4200 /* UIScrollView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868F1FB4227193C100FF4200 /* UIScrollView+Extensions.swift */; };
 		8697387521D48F5900F5090F /* CommonUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8697386B21D48F5900F5090F /* CommonUI.framework */; };
 		869738C521D48F8900F5090F /* ViewWrapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8697388A21D48F8900F5090F /* ViewWrapping.swift */; };
 		869738C621D48F8900F5090F /* SelectionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8697388B21D48F8900F5090F /* SelectionAnimator.swift */; };
@@ -86,6 +87,7 @@
 		8643466221FFCC7E008DAA27 /* IndexPath+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IndexPath+Extensions.swift"; sourceTree = "<group>"; };
 		864A57F921DECD4700C40306 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		864A57FA21DECD4700C40306 /* TextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
+		868F1FB4227193C100FF4200 /* UIScrollView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Extensions.swift"; sourceTree = "<group>"; };
 		8697386B21D48F5900F5090F /* CommonUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CommonUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8697387421D48F5900F5090F /* CommonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CommonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8697388621D48F8900F5090F /* CommonUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonUITests.swift; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 				8697389C21D48F8900F5090F /* AutoLayout+Extensions.swift */,
 				8643466221FFCC7E008DAA27 /* IndexPath+Extensions.swift */,
 				8697389D21D48F8900F5090F /* UIBezier+Extensions.swift */,
+				868F1FB4227193C100FF4200 /* UIScrollView+Extensions.swift */,
 			);
 			path = "UIKit Extensions";
 			sourceTree = "<group>";
@@ -517,6 +520,7 @@
 				869738D621D48F8900F5090F /* AutoLayout+Extensions.swift in Sources */,
 				869738C721D48F8900F5090F /* UIViewController+Extensions.swift in Sources */,
 				869738ED21D48F8900F5090F /* BezeledButton.swift in Sources */,
+				868F1FB5227193C100FF4200 /* UIScrollView+Extensions.swift in Sources */,
 				8643465D21FBE6C6008DAA27 /* Platform.swift in Sources */,
 				869738CF21D48F8900F5090F /* UITabBar+Extensions.swift in Sources */,
 				869738EF21D48F8900F5090F /* LabelView.swift in Sources */,

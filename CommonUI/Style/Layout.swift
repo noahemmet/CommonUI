@@ -15,7 +15,9 @@ public enum Layout {
     public static let spacing: CGFloat = 8
 	/// 16
     public static let spacingMedium: CGFloat = 16
+	/// 8 (spacing)
     public static let hMarginInset: CGFloat = spacing
+	/// 8 (spacing)
     public static let vMarginInset: CGFloat = spacing
     
     // MARK: - Buttons
