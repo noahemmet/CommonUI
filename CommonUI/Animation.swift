@@ -9,8 +9,8 @@
 import Foundation
 
 public enum Animation {
-	/// 0.5 seconds
-    public static let defaultDuration: TimeInterval = 0.5
+	/// 0.3 seconds
+    public static let defaultDuration: TimeInterval = 0.3
 	/// 0.15 seconds
     public static let shortDuration: TimeInterval = 0.15
 	/// 0.15 seconds
