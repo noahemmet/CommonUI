@@ -115,7 +115,7 @@ open class TextView: UITextView, ViewModelConfigurable {
     }
     
     private func updateConstraintsForPlaceholderLabel() {
-		placeholderConstraints.top.constant = textContainerInset.top //- 1
+		placeholderConstraints.top.constant = textContainerInset.top
 		placeholderConstraints.bottom.constant = textContainerInset.bottom
 		placeholderConstraints.leading.constant = textContainerInset.left
 		placeholderConstraints.trailing.constant = textContainerInset.right
