@@ -10,7 +10,7 @@ import Foundation
 
 public enum DebugNav {
 	public static func go(_ handler: @escaping () -> Void) {
-		if Platform.isSimulator {
+		if Platform.isSimulator || true {
 			DispatchQueue.main.async {
 				handler()
 			}
