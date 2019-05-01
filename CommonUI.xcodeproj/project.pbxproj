@@ -64,6 +64,7 @@
 		869738F121D48F8900F5090F /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869738C021D48F8900F5090F /* NavigationController.swift */; };
 		869738F821D490AE00F5090F /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 869738F721D490AE00F5090F /* Common.framework */; };
 		86C90DE82204FA76009A2983 /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C90DE72204FA76009A2983 /* Keyboard.swift */; };
+		86F3B47A22794985001B9666 /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F3B47922794985001B9666 /* Env.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,6 +143,7 @@
 		869738C121D48F8900F5090F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		869738F721D490AE00F5090F /* Common.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Common.framework; path = Carthage/Build/iOS/Common.framework; sourceTree = "<group>"; };
 		86C90DE72204FA76009A2983 /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
+		86F3B47922794985001B9666 /* Env.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Env.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,6 +233,7 @@
 				8697389F21D48F8900F5090F /* Animation.swift */,
 				869738A021D48F8900F5090F /* ViewBorderable.swift */,
 				8643465A21FBE685008DAA27 /* DebugNav.swift */,
+				86F3B47922794985001B9666 /* Env.swift */,
 				8609AAF12207C31600A6D0FB /* CardViewController.swift */,
 				8609AAF622081A9400A6D0FB /* CardView.swift */,
 				8609AAF52207C53900A6D0FB /* CardViewController.playground */,
@@ -497,6 +500,7 @@
 				861A5DD421DAF4A6009357AE /* UITabBarController+Extensions.swift in Sources */,
 				869738D921D48F8900F5090F /* Animation.swift in Sources */,
 				869738EA21D48F8900F5090F /* DefaultFailureViewController.swift in Sources */,
+				86F3B47A22794985001B9666 /* Env.swift in Sources */,
 				869738DC21D48F8900F5090F /* Layout.swift in Sources */,
 				869738CE21D48F8900F5090F /* UINavigationBar+Extensions.swift in Sources */,
 				869738D021D48F8900F5090F /* NSAttributedString+Extensions.swift in Sources */,
