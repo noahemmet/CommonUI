@@ -229,22 +229,27 @@ open class ViewStateController<
         
         // Subclassers can override this function
         willTransition(to: newViewControllerType, from: oldViewController, animated: animated)
-        
-        // Animate fade transition
-        let duration: TimeInterval = animated ? Animation.shortDuration : 0
-        UIView.animate(withDuration: duration, animations: { 
-            newViewController.view.alpha = 1
-            oldViewController?.view.alpha = 0
-            
-        }) { (finished) in
-            // Remove oldViewController from self
-            oldViewController?.willMove(toParent: nil)
-            oldViewController?.removeFromParent()
-            oldViewController?.view.removeFromSuperview()
-            completion?(toViewState)
-            // Subclassers can override this function
-            self.didTransition(to: newViewControllerType, from: oldViewController, animated: animated)
-        }
+		
+		let animations: () -> Void = {
+			newViewController.view.alpha = 1
+			oldViewController?.view.alpha = 0
+		}
+		let animationCompletion: (Bool) -> Void = { _ in
+			// Remove oldViewController from self
+			oldViewController?.willMove(toParent: nil)
+			oldViewController?.removeFromParent()
+			oldViewController?.view.removeFromSuperview()
+			completion?(toViewState)
+			// Subclassers can override this function
+			self.didTransition(to: newViewControllerType, from: oldViewController, animated: animated)
+		}
+		if animated {
+			// Animate fade transition
+			UIView.animate(withDuration: Animation.shortDuration, animations: animations, completion: animationCompletion)
+		} else {
+			animations()
+			animationCompletion(true)
+		}
     }
 	
 	open func handleError(_ error: Error, animated: Bool = true) {
