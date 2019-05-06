@@ -9,7 +9,6 @@
 import UIKit
 import Common
 
-#if canImport(UIKit)
 public extension UIBezierPath {
     convenience init?(lineFragment: LineFragment) {
         switch lineFragment {
@@ -32,15 +31,13 @@ public extension UIBezierPath {
         case unknown
     }
     
-    func data() -> Data {
-        let data = NSKeyedArchiver.archivedData(withRootObject: self)
+    func data() throws -> Data {
+        let data = try NSKeyedArchiver.archivedData(withRootObject: self, requiringSecureCoding: false)
         return data
     }
     
     static func from(data: Data) throws -> UIBezierPath {
-        guard let bezierPath = NSKeyedUnarchiver.unarchiveObject(with: data) as? UIBezierPath else {
-            throw ThrownError(CodingError.unknown)
-        }
+        let bezierPath = try NSKeyedUnarchiver.unarchivedObject(ofClass: UIBezierPath.self, from: data).unwrap(orThrow: ThrownError(CodingError.unknown))
         return bezierPath
     }
     
@@ -100,4 +97,3 @@ public extension UIBezierPath {
 //        }
 //    }
 }
-#endif
