@@ -99,6 +99,18 @@ public extension UITableView {
 // Misc
 
 public extension UITableView {
+	
+	var lastIndexPath: IndexPath? {
+		let numRows = self.numberOfRows(inSection: numberOfSections-1)
+		let indexPath = IndexPath(row: numRows-1, section: numberOfSections-1)
+		return indexPath
+	}
+	
+	func scrollToLastRow(position: UITableView.ScrollPosition, animated: Bool) {
+		if let lastIndexPath = lastIndexPath {
+			scrollToRow(at: lastIndexPath, at: position, animated: animated)
+		}
+	}
     
     func resize() {
         let currentOffset = contentOffset 
