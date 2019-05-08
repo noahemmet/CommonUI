@@ -38,7 +38,7 @@ open class WrapperTableCell<View: UIView>: UITableViewCell, ViewWrapping, ViewMo
 //		viewWrapper.setContentHuggingPriority(.required, for: .horizontal)
         wrappedView.translatesAutoresizingMaskIntoConstraints = false
         wrappedView.activateConstraints(to: contentView)
-//        viewWrapper.preservesSuperviewLayoutMargins = true
+        wrappedView.preservesSuperviewLayoutMargins = true
     }
     
     public var isSelectable: Bool = true
