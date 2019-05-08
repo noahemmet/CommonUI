@@ -189,7 +189,10 @@ public extension NSLayoutConstraint {
     }
 	
 	@discardableResult
-	func activate() -> NSLayoutConstraint {
+	func activate(priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
+		if let priority = priority {
+			self.priority = priority
+		}
 		self.isActive = true
 		return self
 	}

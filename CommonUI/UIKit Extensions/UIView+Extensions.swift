@@ -52,12 +52,13 @@ extension UIView {
 // MARK: - UI
 
 extension UIView {
-   public func setBackgroundColors(to backgroundColor: UIColor) {
+	@objc
+	open func setBackgroundColors(to backgroundColor: UIColor) {
         self.backgroundColor = backgroundColor
         for subview in subviews {
             subview.setBackgroundColors(to: backgroundColor)
         }
-    }
+	}
 	
 	public var findFirstResponder: UIResponder? {
 		if self.isFirstResponder {
