@@ -12,58 +12,63 @@ import Foundation
 
 open class WrapperTableCell<View: UIView>: UITableViewCell, ViewWrapping, ViewModelConfigurable where View: ViewModelConfigurable {
     
-    private let viewWrapper: ViewWrapper<View>
-    
+//    private let viewWrapper: ViewWrapper<View>
+	
     public let wrappedView: View = {
         return View.fromXibOrFile()
     }()
     
     public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        viewWrapper = .init(around: wrappedView)
+//        viewWrapper = .init(around: wrappedView)
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         commonInit()
     }
     
     public required init?(coder aDecoder: NSCoder) {
-        viewWrapper = .init(around: wrappedView)
+//        viewWrapper = .init(around: wrappedView)
         super.init(coder: aDecoder)
         commonInit()
     }
     
     private func commonInit() {
-        contentView.addSubview(viewWrapper)
-		viewWrapper.setContentCompressionResistancePriority(.required, for: .vertical)
-		viewWrapper.setContentCompressionResistancePriority(.required, for: .horizontal)
-		viewWrapper.setContentHuggingPriority(.required, for: .vertical)
-		viewWrapper.setContentHuggingPriority(.required, for: .horizontal)
-        viewWrapper.translatesAutoresizingMaskIntoConstraints = false
-        viewWrapper.activateConstraints(to: contentView)
-        viewWrapper.preservesSuperviewLayoutMargins = true
+        contentView.addSubview(wrappedView)
+//		viewWrapper.setContentCompressionResistancePriority(.required, for: .vertical)
+//		viewWrapper.setContentCompressionResistancePriority(.required, for: .horizontal)
+//		viewWrapper.setContentHuggingPriority(.required, for: .vertical)
+//		viewWrapper.setContentHuggingPriority(.required, for: .horizontal)
+        wrappedView.translatesAutoresizingMaskIntoConstraints = false
+        wrappedView.activateConstraints(to: contentView)
+//        viewWrapper.preservesSuperviewLayoutMargins = true
     }
     
-    public var isSelectable: Bool { 
-        get { return viewWrapper.isSelectable }
-        set { viewWrapper.isSelectable = isSelectable }
-    }
-    
-    open override var isSelected: Bool {
-        didSet { viewWrapper.isSelected = isSelected }
-    }
-    
-    open override var isHighlighted: Bool {
-        didSet { viewWrapper.isHighlighted = isHighlighted }
-    }
-    
-    public var highlightColor: UIColor {
-        set { viewWrapper.highlightColor = highlightColor; isHighlighted = false }
-        get { return viewWrapper.highlightColor }
-    
-    }
-    
-    public var nonHighlightColor: UIColor { 
-        set { viewWrapper.nonHighlightColor = nonHighlightColor; isHighlighted = false }
-        get { return viewWrapper.nonHighlightColor }
-    }
+    public var isSelectable: Bool = true
+//	{
+//        get { return viewWrapper.isSelectable }
+//        set { viewWrapper.isSelectable = isSelectable }
+//    }
+	
+//    open override var isSelected: Bool
+//		{
+//        didSet { viewWrapper.isSelected = isSelected }
+//    }
+	
+//    open override var isHighlighted: Bool
+//		{
+//        didSet { viewWrapper.isHighlighted = isHighlighted }
+//    }
+	
+    public var highlightColor: UIColor = .white
+//	{
+//        set { viewWrapper.highlightColor = highlightColor; isHighlighted = false }
+//        get { return viewWrapper.highlightColor }
+//
+//    }
+	
+    public var nonHighlightColor: UIColor = .white
+//	{
+//        set { viewWrapper.nonHighlightColor = nonHighlightColor; isHighlighted = false }
+//        get { return viewWrapper.nonHighlightColor }
+//    }
 
 }
 
