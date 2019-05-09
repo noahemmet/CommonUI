@@ -170,33 +170,41 @@ open class ViewStateController<
 			self.handleError(error)
 		}
     }
-    
-    private func viewController(for viewState: ControllerViewState) -> ViewController {
+	
+	private func getViewController(for viewState: ControllerViewState) -> ViewController {
+		switch viewState {
+		case .success:
+			let viewController = self.getSuccessViewController()
+			successViewControllerDidLoad?(viewController)
+			return .success(viewController)
+		case .failure:
+			let viewController = self.getFailureViewController()
+			failureViewControllerDidLoad?(viewController)
+			return .failure(viewController)
+		case .loading:
+			let viewController = getLoadingViewController()
+			loadingViewControllerDidLoad?(viewController)
+			return .loading(viewController)
+		case .empty:
+			let viewController = self.getEmptyViewController()
+			emptyViewControllerDidLoad?(viewController)
+			return .empty(viewController)
+		}
+	}
+    private func configureViewController(for viewState: ControllerViewState) {
         switch viewState {
         case .success(let viewModel):
             let viewController = self.getSuccessViewController()
-            viewController.loadViewIfNeeded()
-            configure(successViewController: viewController, with: viewModel)
-			successViewControllerDidLoad?(viewController)
-            return .success(viewController)
+			configure(successViewController: viewController, with: viewModel)
         case .failure(let viewModel):
             let viewController = self.getFailureViewController()
-            viewController.loadViewIfNeeded()
-            configure(failureViewController: viewController, with: viewModel)
-			failureViewControllerDidLoad?(viewController)
-            return .failure(viewController)
+			configure(failureViewController: viewController, with: viewModel)
         case .loading(let viewModel):
             let viewController = getLoadingViewController()
-            viewController.loadViewIfNeeded()
             configure(loadingViewController: viewController, with: viewModel)
-			loadingViewControllerDidLoad?(viewController)
-            return .loading(viewController)
         case .empty(let viewModel):
             let viewController = self.getEmptyViewController()
-            viewController.loadViewIfNeeded()
             configure(emptyViewController: viewController, with: viewModel)
-			emptyViewControllerDidLoad?(viewController)
-            return .empty(viewController)
         }
     }
     
@@ -210,7 +218,7 @@ open class ViewStateController<
         
         // Add newViewController to self and configure view
         let oldViewController = currentViewController
-        let newViewControllerType = self.viewController(for: toViewState)
+        let newViewControllerType = self.getViewController(for: toViewState)
         let newViewController = newViewControllerType.uiViewController
         guard oldViewController != newViewController else {
             // This can happen when cancelling an interactive drag, or when refreshing an active screen.
@@ -226,6 +234,7 @@ open class ViewStateController<
         view.addSubview(newViewController.view)
         newViewController.didMove(toParent: self)
         newViewController.view.activateConstraints(to: self.view)
+		configureViewController(for: toViewState)
         
         // Subclassers can override this function
         willTransition(to: newViewControllerType, from: oldViewController, animated: animated)
