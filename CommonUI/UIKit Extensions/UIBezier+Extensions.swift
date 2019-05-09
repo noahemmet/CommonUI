@@ -10,22 +10,22 @@ import UIKit
 import Common
 
 public extension UIBezierPath {
-    convenience init?(lineFragment: LineFragment) {
-        switch lineFragment {
-        case .free(let touchPoints):
-            let points = touchPoints.map { $0.center }
-            let path = Path(catmullRomPoints: points, closed: false, alpha: 1)
-            self.init(cgPath: path.toCGPath())
-        case .straight(let lines):
-            let linePoints = lines.map { ($0.center, $1.center) }
-            let mostRecent = linePoints.last!
-            let points = [mostRecent.0, mostRecent.1]
-            let path = Path(catmullRomPoints: points, closed: false, alpha: 1)
-            self.init(cgPath: path.toCGPath())
-        case .finished:
-            return nil
-        }
-    }
+//    convenience init?(lineFragment: LineFragment) {
+//        switch lineFragment {
+//        case .free(let touchPoints):
+//            let points = touchPoints.map { $0.center }
+//            let path = Path(catmullRomPoints: points, closed: false, alpha: 1)
+//            self.init(cgPath: path.toCGPath())
+//        case .straight(let lines):
+//            let linePoints = lines.map { ($0.center, $1.center) }
+//            let mostRecent = linePoints.last!
+//            let points = [mostRecent.0, mostRecent.1]
+//            let path = Path(catmullRomPoints: points, closed: false, alpha: 1)
+//            self.init(cgPath: path.toCGPath())
+//        case .finished:
+//            return nil
+//        }
+//    }
     
     enum CodingError: Error {
         case unknown
