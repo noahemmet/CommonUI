@@ -48,10 +48,16 @@ public class DefaultLoadingViewController: UIViewController, ViewModelConfigurab
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.spinnerView.alpha = 0
+		let delay: TimeInterval
+		if let viewModel = viewModel {
+			delay = viewModel.animate ? viewModel.animationDelay : 0
+		} else {
+			delay = 0
+		}
         UIViewPropertyAnimator.runningPropertyAnimator(
             withDuration: Animation.defaultDuration,
-            delay: viewModel.animate ? viewModel.animationDelay : 0, 
-            options: [], 
+            delay: delay,
+            options: [],
             animations: { 
                 self.spinnerView.startAnimating()
                 self.spinnerView.alpha = 1

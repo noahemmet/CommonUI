@@ -222,6 +222,7 @@ open class ViewStateController<
         let newViewController = newViewControllerType.uiViewController
         guard oldViewController != newViewController else {
             // This can happen when cancelling an interactive drag, or when refreshing an active screen.
+			configureViewController(for: toViewState)
             completion?(toViewState)
             return
         }
