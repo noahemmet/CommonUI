@@ -92,6 +92,9 @@ public extension UITableView {
         let estimatedRowHeights: [(rowCount: Int, height: CGFloat)] = estimatedSectionHeights.map { (rowCount: self.numberOfRows(inSection: $0.section), height: $0.height) }
         let averageHeight = estimatedRowHeights.map { CGFloat($0.rowCount) * $0.height }.average
         let rowHeight = averageHeight / CGFloat(sectionCount)
+		if rowHeight.isNaN || rowHeight.isZero {
+			return 1 // returning 0 is illegal
+		}
         return rowHeight
     }
 }
