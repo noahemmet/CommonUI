@@ -9,7 +9,7 @@
 import Foundation
 
 public enum Env {
-	private static let flip: Bool = false
+	private static let flip: Bool = true
 	public static let v1: Bool = !flip
 	public static let v2: Bool = flip
 }
