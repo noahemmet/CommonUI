@@ -32,10 +32,10 @@ open class WrapperTableCell<View: UIView>: UITableViewCell, ViewWrapping, ViewMo
     
     private func commonInit() {
         contentView.addSubview(wrappedView)
-//		viewWrapper.setContentCompressionResistancePriority(.required, for: .vertical)
-//		viewWrapper.setContentCompressionResistancePriority(.required, for: .horizontal)
-//		viewWrapper.setContentHuggingPriority(.required, for: .vertical)
-//		viewWrapper.setContentHuggingPriority(.required, for: .horizontal)
+		wrappedView.setContentCompressionResistancePriority(.required, for: .vertical)
+		wrappedView.setContentCompressionResistancePriority(.required, for: .horizontal)
+		wrappedView.setContentHuggingPriority(.required, for: .vertical)
+		wrappedView.setContentHuggingPriority(.required, for: .horizontal)
         wrappedView.translatesAutoresizingMaskIntoConstraints = false
         wrappedView.activateConstraints(to: contentView)
         wrappedView.preservesSuperviewLayoutMargins = true
