@@ -9,8 +9,8 @@
 import Foundation
 
 public enum AppStyle {
-    public static let tint = #colorLiteral(red: 0.8089362517, green: 0.2463555701, blue: 0.1762614311, alpha: 1)
-    public static let tintHighlight = #colorLiteral(red: 0.6848644578, green: 0.06011440208, blue: 0.3527197487, alpha: 1)
+    public static let tint = #colorLiteral(red: 0.6029995142, green: 0.3311645284, blue: 0.5556180002, alpha: 1)
+    public static let tintHighlight = #colorLiteral(red: 0.5, green: 0.2745976743, blue: 0.4607118141, alpha: 1)
     public static let border = #colorLiteral(red: 0.8722080444, green: 0.8790758243, blue: 0.8790758243, alpha: 1)
     public static let highlight = #colorLiteral(red: 0.904626315, green: 0.9189854629, blue: 0.9189854629, alpha: 1)
 //    public static let border = #colorLiteral(red: 0.8843342118, green: 0.7981871653, blue: 0.8477525364, alpha: 1)
