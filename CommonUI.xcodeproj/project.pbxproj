@@ -16,6 +16,7 @@
 		8643466321FFCC7E008DAA27 /* IndexPath+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643466221FFCC7E008DAA27 /* IndexPath+Extensions.swift */; };
 		864A57FB21DECD4700C40306 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864A57F921DECD4700C40306 /* Label.swift */; };
 		864A57FC21DECD4700C40306 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864A57FA21DECD4700C40306 /* TextView.swift */; };
+		864C5A752294B97600DD8BB0 /* TextFieldStackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864C5A742294B97600DD8BB0 /* TextFieldStackViewController.swift */; };
 		868F1FB5227193C100FF4200 /* UIScrollView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868F1FB4227193C100FF4200 /* UIScrollView+Extensions.swift */; };
 		8697387521D48F5900F5090F /* CommonUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8697386B21D48F5900F5090F /* CommonUI.framework */; };
 		869738C521D48F8900F5090F /* ViewWrapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8697388A21D48F8900F5090F /* ViewWrapping.swift */; };
@@ -88,6 +89,7 @@
 		8643466221FFCC7E008DAA27 /* IndexPath+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IndexPath+Extensions.swift"; sourceTree = "<group>"; };
 		864A57F921DECD4700C40306 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		864A57FA21DECD4700C40306 /* TextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
+		864C5A742294B97600DD8BB0 /* TextFieldStackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldStackViewController.swift; sourceTree = "<group>"; };
 		868F1FB4227193C100FF4200 /* UIScrollView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Extensions.swift"; sourceTree = "<group>"; };
 		8697386B21D48F5900F5090F /* CommonUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CommonUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8697387421D48F5900F5090F /* CommonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CommonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -237,6 +239,7 @@
 				8609AAF12207C31600A6D0FB /* CardViewController.swift */,
 				8609AAF622081A9400A6D0FB /* CardView.swift */,
 				8609AAF52207C53900A6D0FB /* CardViewController.playground */,
+				864C5A742294B97600DD8BB0 /* TextFieldStackViewController.swift */,
 				8609AAF02207C30800A6D0FB /* System */,
 				869738A221D48F8900F5090F /* Style */,
 				869738A521D48F8900F5090F /* Touches */,
@@ -545,6 +548,7 @@
 				864A57FC21DECD4700C40306 /* TextView.swift in Sources */,
 				869738E521D48F8900F5090F /* ViewState.swift in Sources */,
 				869738D221D48F8900F5090F /* CALayer+Extensions.swift in Sources */,
+				864C5A752294B97600DD8BB0 /* TextFieldStackViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
