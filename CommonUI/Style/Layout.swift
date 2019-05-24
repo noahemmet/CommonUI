@@ -22,6 +22,8 @@ public enum Layout {
     
     // MARK: - Buttons
 	/// 44
+	public static let smallButtonSize: CGSize = CGSize(dimension: 34)
+	/// 44
     public static let minButtonSize: CGSize = CGSize(dimension: 44)
 	/// 48
     public static let minButtonSizeSmallMedium: CGSize = CGSize(dimension: 48)
