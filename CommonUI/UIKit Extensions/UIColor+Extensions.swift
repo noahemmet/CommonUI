@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Common
 
 public extension UIColor {
 	
@@ -56,6 +57,9 @@ public extension UIColor {
 
 public extension UIColor {
 	
+	var color: Color {
+		return Color(self)
+	}
 	
 	var hexValue: String {
 		var r: CGFloat = 0
