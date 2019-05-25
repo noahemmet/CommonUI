@@ -64,6 +64,7 @@
 		869738F021D48F8900F5090F /* ViewModelConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869738BF21D48F8900F5090F /* ViewModelConfigurable.swift */; };
 		869738F121D48F8900F5090F /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869738C021D48F8900F5090F /* NavigationController.swift */; };
 		869738F821D490AE00F5090F /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 869738F721D490AE00F5090F /* Common.framework */; };
+		86BBD17922993AF000EC83A4 /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BBD17822993AF000EC83A4 /* Color+Extensions.swift */; };
 		86C90DE82204FA76009A2983 /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C90DE72204FA76009A2983 /* Keyboard.swift */; };
 		86F3B47A22794985001B9666 /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F3B47922794985001B9666 /* Env.swift */; };
 /* End PBXBuildFile section */
@@ -144,6 +145,7 @@
 		869738C021D48F8900F5090F /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		869738C121D48F8900F5090F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		869738F721D490AE00F5090F /* Common.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Common.framework; path = Carthage/Build/iOS/Common.framework; sourceTree = "<group>"; };
+		86BBD17822993AF000EC83A4 /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
 		86C90DE72204FA76009A2983 /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
 		86F3B47922794985001B9666 /* Env.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Env.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -266,6 +268,7 @@
 				8697389021D48F8900F5090F /* UIEdgeInsets+Extensions.swift */,
 				8697389121D48F8900F5090F /* UIFont+Extensions.swift */,
 				8697389221D48F8900F5090F /* UIColor+Extensions.swift */,
+				86BBD17822993AF000EC83A4 /* Color+Extensions.swift */,
 				8697389321D48F8900F5090F /* UIImage+Extensions.swift */,
 				8697389421D48F8900F5090F /* UINavigationBar+Extensions.swift */,
 				8697389521D48F8900F5090F /* UITabBar+Extensions.swift */,
@@ -528,6 +531,7 @@
 				869738C721D48F8900F5090F /* UIViewController+Extensions.swift in Sources */,
 				869738ED21D48F8900F5090F /* BezeledButton.swift in Sources */,
 				868F1FB5227193C100FF4200 /* UIScrollView+Extensions.swift in Sources */,
+				86BBD17922993AF000EC83A4 /* Color+Extensions.swift in Sources */,
 				8643465D21FBE6C6008DAA27 /* Platform.swift in Sources */,
 				869738CF21D48F8900F5090F /* UITabBar+Extensions.swift in Sources */,
 				869738EF21D48F8900F5090F /* LabelView.swift in Sources */,
