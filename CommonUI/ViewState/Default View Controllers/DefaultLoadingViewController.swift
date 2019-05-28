@@ -29,16 +29,7 @@ extension DefaultLoadingViewController {
 
 public class DefaultLoadingViewController: UIViewController, ViewModelConfigurable {
     var spinnerView: UIActivityIndicatorView!
-    var viewModel: ViewModel!
-	
-	public init(viewModel: ViewModel = .init()) {
-		self.viewModel = viewModel
-		super.init(nibName: nil, bundle: nil)
-	}
-	
-	required init?(coder aDecoder: NSCoder) {
-		super.init(coder: aDecoder)
-	}
+    var viewModel: ViewModel = .init()
 	
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,12 +48,8 @@ public class DefaultLoadingViewController: UIViewController, ViewModelConfigurab
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.spinnerView.alpha = 0
-		let delay: TimeInterval
-		if let viewModel = viewModel {
-			delay = viewModel.animate ? viewModel.animationDelay : 0
-		} else {
-			delay = 0
-		}
+		let delay: TimeInterval = viewModel.animate ? viewModel.animationDelay : 0
+		
         UIViewPropertyAnimator.runningPropertyAnimator(
             withDuration: Animation.defaultDuration,
             delay: delay,
