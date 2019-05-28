@@ -30,7 +30,16 @@ extension DefaultLoadingViewController {
 public class DefaultLoadingViewController: UIViewController, ViewModelConfigurable {
     var spinnerView: UIActivityIndicatorView!
     var viewModel: ViewModel!
-    
+	
+	public init(viewModel: ViewModel = .init()) {
+		self.viewModel = viewModel
+		super.init(nibName: nil, bundle: nil)
+	}
+	
+	required init?(coder aDecoder: NSCoder) {
+		super.init(coder: aDecoder)
+	}
+	
     public override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = AppStyle.background
