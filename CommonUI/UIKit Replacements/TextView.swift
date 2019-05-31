@@ -119,27 +119,6 @@ open class TextView: UITextView, ViewModelConfigurable {
 		placeholderConstraints.bottom.constant = textContainerInset.bottom
 		placeholderConstraints.leading.constant = textContainerInset.left
 		placeholderConstraints.trailing.constant = textContainerInset.right
-//		placeholderLabel.textColor = .white
-//        var newConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-(\(textContainerInset.left + textContainer.lineFragmentPadding))-[placeholder]",
-//            options: [],
-//            metrics: nil,
-//            views: ["placeholder": placeholderLabel])
-//        newConstraints += NSLayoutConstraint.constraints(withVisualFormat: "V:|-(\(textContainerInset.top))-[placeholder]",
-//            options: [],
-//            metrics: nil,
-//            views: ["placeholder": placeholderLabel])
-//        newConstraints.append(NSLayoutConstraint(
-//            item: placeholderLabel,
-//            attribute: .width,
-//            relatedBy: .equal,
-//            toItem: self,
-//            attribute: .width,
-//            multiplier: 1.0,
-//            constant: -(textContainerInset.left + textContainerInset.right + textContainer.lineFragmentPadding * 2.0)
-//        ))
-//        removeConstraints(placeholderLabelConstraints)
-//        addConstraints(newConstraints)
-//        placeholderLabelConstraints = newConstraints
     }
     
     @objc private func textDidChange() {
