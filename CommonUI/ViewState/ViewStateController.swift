@@ -226,12 +226,11 @@ open class ViewStateController<
             completion?(toViewState)
             return
         }
-        newViewController.view.translatesAutoresizingMaskIntoConstraints = false
-        
-        newViewController.view.alpha = 0
-        newViewController.view.backgroundColor = oldViewController?.view.backgroundColor
         currentViewController = newViewController
         addChild(newViewController)
+		newViewController.view.translatesAutoresizingMaskIntoConstraints = false
+		newViewController.view.alpha = 0
+		newViewController.view.backgroundColor = oldViewController?.view.backgroundColor
         view.addSubview(newViewController.view)
         newViewController.didMove(toParent: self)
         newViewController.view.activateConstraints(to: self.view)

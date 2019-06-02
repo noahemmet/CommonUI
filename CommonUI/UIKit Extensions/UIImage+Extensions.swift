@@ -20,4 +20,12 @@ extension UIImage {
         let image = UIImage(cgImage: imageRef, scale: self.scale, orientation: self.imageOrientation)
         return image
     }
+	
+	public func scaled(to newSize: CGSize) -> UIImage {
+		let renderer = UIGraphicsImageRenderer(size: newSize)
+		let image = renderer.image { _ in
+			self.draw(in: CGRect(origin: .zero, size: newSize))
+		}
+		return image
+	}
 }
