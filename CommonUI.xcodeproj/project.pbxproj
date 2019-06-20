@@ -89,6 +89,7 @@
 		8643465C21FBE6C6008DAA27 /* Platform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
 		8643466021FFC287008DAA27 /* UICollectionViewFlowLayout+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewFlowLayout+Extensions.swift"; sourceTree = "<group>"; };
 		8643466221FFCC7E008DAA27 /* IndexPath+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IndexPath+Extensions.swift"; sourceTree = "<group>"; };
+		86474E2022BB655C00039631 /* CommonUIX */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CommonUIX; sourceTree = "<group>"; };
 		864A57F921DECD4700C40306 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		864A57FA21DECD4700C40306 /* TextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		864C5A742294B97600DD8BB0 /* TextFieldStackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldStackViewController.swift; sourceTree = "<group>"; };
@@ -203,6 +204,7 @@
 		8697386121D48F5900F5090F = {
 			isa = PBXGroup;
 			children = (
+				86474E2022BB655C00039631 /* CommonUIX */,
 				8697388921D48F8900F5090F /* CommonUI */,
 				8697388521D48F8900F5090F /* CommonUITests */,
 				8697386C21D48F5900F5090F /* Products */,

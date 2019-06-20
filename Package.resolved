@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Common",
+        "repositoryURL": "https://github.com/noahemmet/Common",
+        "state": {
+          "branch": "spm",
+          "revision": "eb9fbe8a7c265ba0ee011429765f89af633f7555",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
