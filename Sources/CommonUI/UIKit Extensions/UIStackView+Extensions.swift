@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 public extension UIStackView {
     func setArrangedSubviews(_ subviews: [UIView]) {

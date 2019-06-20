@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 extension UIImage {
     public func crop(in rect: CGRect) -> UIImage {

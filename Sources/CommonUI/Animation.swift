@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 public enum Animation {
 	/// 0.3 seconds

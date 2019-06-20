@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import UIKit
 import Common
 
 public protocol ErrorViewModelConfigurable: ViewModelConfigurable where ViewModel: Error {

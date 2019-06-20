@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 public struct SelectionAnimator {
     public var scalingView: UIView

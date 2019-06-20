@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 public enum Platform {
 	public static var isSimulator: Bool {

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 public class Border: UIView {
     public enum Visibility {

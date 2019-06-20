@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 public protocol ViewHighlightable {
     var highlightColor: UIColor { get }

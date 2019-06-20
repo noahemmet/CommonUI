@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 public enum DebugNav {
 	public static func go(_ handler: @escaping () -> Void) {

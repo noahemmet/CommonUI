@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import UIKit
 
 public protocol XibViewInstantiatable: class {
     static func fromXib() -> Self

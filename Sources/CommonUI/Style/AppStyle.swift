@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 public enum AppStyle {
     public static let tint = #colorLiteral(red: 0.6029995142, green: 0.3311645284, blue: 0.5556180002, alpha: 1)

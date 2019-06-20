@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 extension CALayer {
     public func image(withSize size: CGSize, backgroundColor: CGColor?) -> UIImage? {

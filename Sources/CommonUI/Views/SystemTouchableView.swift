@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 public protocol SystemTouchableViewDelegate: class {
     func touchesBegan(_ touches: Set<UITouch>)

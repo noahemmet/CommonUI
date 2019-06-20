@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 public extension NSMutableAttributedString {
     func append(_ string: String, attributes: [NSAttributedString.Key: Any] = [:]) {

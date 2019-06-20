@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 public extension UINavigationController {
     func pushNewStack(startingWith viewController: UIViewController, animated: Bool) {

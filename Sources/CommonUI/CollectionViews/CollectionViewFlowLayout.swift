@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 open class CollectionViewFlowLayout: UICollectionViewFlowLayout {
     open override func invalidationContext(forPreferredLayoutAttributes preferredAttributes: UICollectionViewLayoutAttributes, withOriginalAttributes originalAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutInvalidationContext {

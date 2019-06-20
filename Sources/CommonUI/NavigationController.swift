@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 /// Includes a `UIPercentDrivenInteractiveTransition` for popping/pushing. 
 public class NavigationController: UINavigationController {

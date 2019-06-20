@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 public extension UITabBar {
     static let defaultHeight: CGFloat = 44

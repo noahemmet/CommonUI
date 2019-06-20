@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 public enum Keyboard {
 	public static let defaultExpectedHeight: CGFloat = 253

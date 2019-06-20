@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 public class BezeledButton: UIView {
     public let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .light))

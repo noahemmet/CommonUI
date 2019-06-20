@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 public enum Env {
 	private static let flip: Bool = true
