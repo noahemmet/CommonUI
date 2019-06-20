@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -65,6 +65,7 @@
 		869738F121D48F8900F5090F /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869738C021D48F8900F5090F /* NavigationController.swift */; };
 		869738F821D490AE00F5090F /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 869738F721D490AE00F5090F /* Common.framework */; };
 		86BBD17922993AF000EC83A4 /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BBD17822993AF000EC83A4 /* Color+Extensions.swift */; };
+		86C82C1122BB602200E602EE /* Common in Frameworks */ = {isa = PBXBuildFile; productRef = 86C82C1022BB602200E602EE /* Common */; };
 		86C90DE82204FA76009A2983 /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C90DE72204FA76009A2983 /* Keyboard.swift */; };
 		86F3B47A22794985001B9666 /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F3B47922794985001B9666 /* Env.swift */; };
 /* End PBXBuildFile section */
@@ -156,6 +157,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				869738F821D490AE00F5090F /* Common.framework in Frameworks */,
+				86C82C1122BB602200E602EE /* Common in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,6 +394,9 @@
 			dependencies = (
 			);
 			name = CommonUI;
+			packageProductDependencies = (
+				86C82C1022BB602200E602EE /* Common */,
+			);
 			productName = CommonUI;
 			productReference = 8697386B21D48F5900F5090F /* CommonUI.framework */;
 			productType = "com.apple.product-type.framework";
@@ -440,6 +445,9 @@
 				en,
 			);
 			mainGroup = 8697386121D48F5900F5090F;
+			packageReferences = (
+				86C82C0F22BB602200E602EE /* XCRemoteSwiftPackageReference "Common" */,
+			);
 			productRefGroup = 8697386C21D48F5900F5090F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -795,6 +803,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		86C82C0F22BB602200E602EE /* XCRemoteSwiftPackageReference "Common" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/noahemmet/Common.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		86C82C1022BB602200E602EE /* Common */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 86C82C0F22BB602200E602EE /* XCRemoteSwiftPackageReference "Common" */;
+			productName = Common;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8697386221D48F5900F5090F /* Project object */;
 }
