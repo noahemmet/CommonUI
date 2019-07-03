@@ -110,9 +110,10 @@ public class CardView<WrappedView: UIView>: UIView {
 		layer.shadowColor = layer.borderColor
 	}
 	
-	public func configure(colorTheme: ColorTheme) {
+	public func configure(with colorTheme: ColorTheme) {
 		layer.borderColor = colorTheme.outerBorder.cgColor
 		layer.shadowColor = UIColor.black.cgColor
+		titleLabel.textColor = colorTheme.title
 		titleView.backgroundColor = colorTheme.titleBackground
 		contentView.backgroundColor = colorTheme.contentBackground
 	}
@@ -124,6 +125,6 @@ extension CardView: ViewModelConfigurable where WrappedView: ViewModelConfigurab
 	
 	public func configure(with viewModel: ViewModel) {
 		titleLabel.attributedText = viewModel.title
-		configure(colorTheme: viewModel.colorTheme)
+		configure(with: viewModel.colorTheme)
 	}
 }
