@@ -37,10 +37,10 @@ public extension UIView {
     private static let topTrailingBorderConstraintKey = "topTrailingBorderConstraintIdentifier"
     private static let bottomLeadingBorderConstraintKey = "bottomLeadingBorderConstraintIdentifier"
     private static let bottomTrailingBorderConstraintKey = "bottomTrailingBorderConstraintIdentifier"
-    public static let defaultSectionBorderThickness: CGFloat = 1
-    public static let defaultRowBorderThickness: CGFloat = 1 / UIScreen.main.scale
-    public static let defaultSectionInset: CGFloat = 0
-    public static let defaultRowInset: CGFloat = 16
+	static let defaultSectionBorderThickness: CGFloat = 1
+	static let defaultRowBorderThickness: CGFloat = 1 / UIScreen.main.scale
+	static let defaultSectionInset: CGFloat = 0
+	static let defaultRowInset: CGFloat = 16
     
     var topLeadingBorderConstraint: NSLayoutConstraint! {
         let constraint = self.constraints.first(where: {$0.identifier == UIView.topLeadingBorderConstraintKey })
@@ -160,7 +160,7 @@ public extension UIView {
     } 
     
     @discardableResult
-    public func addTopBorder() -> Border {
+	func addTopBorder() -> Border {
         let border = Border(frame: .zero)
         border.tag = ViewTags.topBorder
         border.translatesAutoresizingMaskIntoConstraints = false
@@ -176,7 +176,7 @@ public extension UIView {
     }
     
     @discardableResult
-    public func addBottomBorder() -> Border {
+	func addBottomBorder() -> Border {
         let border = Border(frame: .zero)
         border.tag = ViewTags.bottomBorder
         border.translatesAutoresizingMaskIntoConstraints = false

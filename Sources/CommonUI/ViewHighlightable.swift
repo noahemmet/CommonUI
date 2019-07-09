@@ -17,8 +17,8 @@ public protocol ViewHighlightable {
 }
 
 public extension ViewHighlightable {
-    public var highlightColor: UIColor { return AppStyle.highlight }
-    public var nonHighlightColor: UIColor { return AppStyle.background }
+	var highlightColor: UIColor { return AppStyle.highlight }
+	var nonHighlightColor: UIColor { return AppStyle.background }
 }
 
 //extension UIView: ViewHighlightable {

@@ -99,7 +99,9 @@ extension NavigationController: UINavigationControllerDelegate {
             } else {
                 return SlidingPopTransition()
             }
-        }
+		@unknown default:
+			return nil
+		}
     }
 	
     public func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
