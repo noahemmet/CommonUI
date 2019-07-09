@@ -36,8 +36,8 @@ public class DefaultLoadingViewController: UIViewController, ViewModelConfigurab
         super.viewDidLoad()
         view.backgroundColor = AppStyle.background
         
-        spinnerView = UIActivityIndicatorView(style: .gray)
-        spinnerView.color = AppStyle.darkGray
+		spinnerView = UIActivityIndicatorView(style: .medium)
+        spinnerView.color = AppStyle.secondaryText
         spinnerView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(spinnerView)
         NSLayoutConstraint.activate([
