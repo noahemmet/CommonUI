@@ -55,7 +55,6 @@ public class CardView<WrappedView: UIView>: UIView {
 	public let contentView = UIView(frame: .zero)
 	
 	public let wrappedView: WrappedView
-	public var colorTheme: ColorTheme
 	
 	let cornerRadius: CGFloat = 8
 	
