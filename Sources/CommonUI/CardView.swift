@@ -26,10 +26,10 @@ extension CardView {
 	
 	public struct ColorTheme {
 		public static var defaultColorTheme: ColorTheme {
-			return ColorTheme(title: .black,
-							  titleBackground: #colorLiteral(red: 0.9102776878, green: 0.9102776878, blue: 0.9102776878, alpha: 1),
-							  contentBackground: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1),
-							  outerBorder: #colorLiteral(red: 0.6595522474, green: 0.6595522474, blue: 0.6595522474, alpha: 1))
+			return ColorTheme(title: AppStyle.primaryText,
+							  titleBackground: AppStyle.background,
+							  contentBackground: AppStyle.background2,
+							  outerBorder: AppStyle.border)
 		}
 		
 		public let title: UIColor?
@@ -55,6 +55,7 @@ public class CardView<WrappedView: UIView>: UIView {
 	public let contentView = UIView(frame: .zero)
 	
 	public let wrappedView: WrappedView
+	public var colorTheme: ColorTheme
 	
 	let cornerRadius: CGFloat = 8
 	
