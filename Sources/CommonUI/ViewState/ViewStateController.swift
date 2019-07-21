@@ -235,8 +235,6 @@ open class ViewStateController<
         view.addSubview(newViewController.view)
         newViewController.didMove(toParent: self)
         newViewController.view.activateConstraints(to: self.view)
-		newViewController.view.setNeedsUpdateConstraints()
-		newViewController.view.updateConstraintsIfNeeded()
 		configureViewController(for: toViewState)
         
         // Subclassers can override this function
