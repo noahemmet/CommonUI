@@ -68,6 +68,22 @@ extension UIView {
 		let firstResponder = subviews.first { $0.findFirstResponder }
 		return firstResponder
 	}
+	
+	func mask(rect maskRect: CGRect, invert: Bool = false) {
+		let maskLayer = CAShapeLayer()
+		let path = CGMutablePath()
+		if invert {
+			path.addRect(bounds)
+		}
+		path.addRect(maskRect)
+		
+		maskLayer.path = path
+		if (invert) {
+			maskLayer.fillRule = .evenOdd
+		}
+		layer.mask = maskLayer
+	}
+
 }
 
 // MARK: - Constraints
