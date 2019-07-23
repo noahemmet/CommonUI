@@ -69,7 +69,7 @@ extension UIView {
 		return firstResponder
 	}
 	
-	func mask(rect maskRect: CGRect, invert: Bool = false) {
+	public func mask(rect maskRect: CGRect, invert: Bool = false) {
 		let maskLayer = CAShapeLayer()
 		let path = CGMutablePath()
 		if invert {
