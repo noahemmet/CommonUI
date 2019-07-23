@@ -98,6 +98,7 @@ public extension UIView {
     }
     
     func configureBorders(sectionStart: Bool, sectionEnd: Bool, top: Border.Visibility = .automatic, bottom: Border.Visibility = .automatic, rowInset leadingRowInset: CGFloat? = nil) {
+		// In general, show the top border instead of the bottom one.
         let _ = self.findOrCreateBorders()
         let topLeading: CGFloat
         let bottomLeading: CGFloat
@@ -112,8 +113,8 @@ public extension UIView {
             topLeading = leadingRowInset ?? UIView.defaultRowInset
             topBorder.isHidden = false
         case .hide:
-            topLeading = 0
-            topBorder.isHidden = true
+            topLeading = leadingRowInset ?? UIView.defaultRowInset
+            topBorder.isHidden = sectionStart
         }
         switch bottom {
         case .automatic:
@@ -127,7 +128,7 @@ public extension UIView {
             bottomBorder.isHidden = false
         case .hide:
             bottomLeading = 0
-            bottomBorder.isHidden = true
+            bottomBorder.isHidden = sectionEnd
         }
         configureInsetConstraints(topLeading: topLeading, bottomLeading: bottomLeading)
     }
