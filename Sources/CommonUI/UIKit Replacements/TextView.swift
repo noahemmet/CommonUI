@@ -13,10 +13,6 @@ import Common
 @IBDesignable
 open class TextView: UITextView, ViewModelConfigurable {
     
-    private enum Constants {
-        static let defaultiOSPlaceholderColor = UIColor(red: 0.0, green: 0.0, blue: 0.0980392, alpha: 0.22)
-    }
-    
     public let placeholderLabel: UILabel = UILabel()
     
 //    private var placeholderLabelConstraints = [NSLayoutConstraint]()
@@ -34,7 +30,7 @@ open class TextView: UITextView, ViewModelConfigurable {
         }
     }
     
-    @IBInspectable open var placeholderColor: UIColor = TextView.Constants.defaultiOSPlaceholderColor {
+    @IBInspectable open var placeholderColor: UIColor = .secondaryLabel {
         didSet {
             placeholderLabel.textColor = placeholderColor
         }
