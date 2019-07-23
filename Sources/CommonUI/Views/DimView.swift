@@ -17,9 +17,9 @@ public class DimView: UIView {
 		didSet {
 			if let cutoutFrame = cutoutFrame {
 				let cutoutView = self.cutoutView ?? UIView(frame: .zero)
-				self.cutoutView = cutoutView
-				cutoutView.backgroundColor = .white
+				cutoutView.backgroundColor = .black
 				cutoutView.frame = cutoutFrame
+				self.cutoutView = cutoutView
 			} else {
 				cutoutView = nil
 			}
