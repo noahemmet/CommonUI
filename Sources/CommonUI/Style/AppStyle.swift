@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 public enum AppStyle {
-	public static let tint = UIColor() { traitCollection in
+	public static var tint = UIColor() { traitCollection in
 		switch traitCollection.userInterfaceStyle {
 		case .dark:
 			return #colorLiteral(red: 0.8331652398, green: 0.2827561127, blue: 0.3445956183, alpha: 1)
@@ -21,7 +21,7 @@ public enum AppStyle {
 		}
 	}
 	
-	public static let tintHighlight = UIColor() { traitCollection in
+	public static var tintHighlight = UIColor() { traitCollection in
 		switch traitCollection.userInterfaceStyle {
 		case .dark:
 			return #colorLiteral(red: 0.8331652398, green: 0.2827561127, blue: 0.3445956183, alpha: 1)
