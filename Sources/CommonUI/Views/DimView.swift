@@ -44,7 +44,7 @@ public class DimView: UIView {
 	
 	public override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
 		print(point)
-		if layer.mask?.frame.contains(point) == true {
+		if cutoutFrame?.contains(point) == true {
 			print(false)
 			return false
 		}
