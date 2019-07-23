@@ -10,9 +10,20 @@ import UIKit
 public class DimView: UIView {
 	public let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
 	public var onTap: (_:(DimView) -> Void)?
-	public var isShowing: Bool = false {
+	
+	public var cutoutView: UIView?
+	public var cutoutFrame: CGRect? {
+		
 		didSet {
-			alpha = isShowing ? 1 : 0
+			if let cutoutFrame = cutoutFrame {
+				let cutoutView = self.cutoutView ?? UIView(frame: .zero)
+				self.cutoutView = cutoutView
+				cutoutView.backgroundColor = .white
+				cutoutView.frame = cutoutFrame
+			} else {
+				cutoutView = nil
+			}
+			self.mask = cutoutView
 		}
 	}
 	
