@@ -33,6 +33,8 @@ public class Button: UIButton {
         titleEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
         heightAnchor.constraint(greaterThanOrEqualToConstant: 48).isActive = true
 		
+		spinner.color = UIColor.label.inverse
+		
         addSubview(spinner)
         let spinnerConstraints = spinner.constraints(toMarginsOf: self)
         NSLayoutConstraint.activate([
