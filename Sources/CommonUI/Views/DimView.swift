@@ -17,7 +17,7 @@ public class DimView: UIView {
 		didSet {
 			
 			if let cutoutFrame = cutoutFrame {
-				self.mask(rect: cutoutFrame, invert: true)
+				self.mask(rect: cutoutFrame, invert: false)
 			} else {
 				self.layer.mask = nil
 			}
