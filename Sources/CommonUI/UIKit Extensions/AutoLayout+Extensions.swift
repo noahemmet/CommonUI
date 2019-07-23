@@ -39,6 +39,17 @@ public extension UIView {
 	}
 	
 	@discardableResult
+	func anchorConstraints(toMarginsOf view: UIView, insets: UIEdgeInsets = .zero) -> AnchorConstraints {
+		translatesAutoresizingMaskIntoConstraints = false
+		return (
+			leading: self.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor, constant: insets.left),
+			trailing: self.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor, constant: insets.right),
+			top: self.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: insets.top),
+			bottom: self.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: insets.bottom)
+		)
+	}
+	
+	@discardableResult
 	func activateConstraints(to view: UIView, insets: UIEdgeInsets = .zero) -> AnchorConstraints {
 		translatesAutoresizingMaskIntoConstraints = false
 		let anchorConstraints = self.anchorConstraints(to: view, insets: insets)
@@ -49,6 +60,23 @@ public extension UIView {
 	func activateConstraints(to view: UIView, exceptFor edgeExceptions: [Edge]) {
 		translatesAutoresizingMaskIntoConstraints = false
 		let anchorConstraints = self.anchorConstraints(to: view)
+		if !edgeExceptions.contains(.leading) {
+			anchorConstraints.leading.activate()
+		}
+		if !edgeExceptions.contains(.trailing) {
+			anchorConstraints.trailing.activate()
+		}
+		if !edgeExceptions.contains(.top) {
+			anchorConstraints.top.activate()
+		}
+		if !edgeExceptions.contains(.bottom) {
+			anchorConstraints.bottom.activate()
+		}
+	}
+	
+	func activateConstraints(toMarginsOf view: UIView, exceptFor edgeExceptions: [Edge]) {
+		translatesAutoresizingMaskIntoConstraints = false
+		let anchorConstraints = self.anchorConstraints(toMarginsOf: view)
 		if !edgeExceptions.contains(.leading) {
 			anchorConstraints.leading.activate()
 		}
