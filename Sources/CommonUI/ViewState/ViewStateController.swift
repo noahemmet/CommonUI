@@ -58,10 +58,10 @@ open class ViewStateController<
     // MARK: ViewControllers
     
     private weak var currentViewController: UIViewController!
-    public weak var successViewController: SuccessViewController?
-    public weak var failureViewController: FailureViewController?
-    public weak var loadingViewController: LoadingViewController?
-    public weak var emptyViewController: EmptyViewController?
+    public var successViewController: SuccessViewController?
+    public var failureViewController: FailureViewController?
+    public var loadingViewController: LoadingViewController?
+    public var emptyViewController: EmptyViewController?
     
     // MARK: ViewControllerDidLoad Closures
     
