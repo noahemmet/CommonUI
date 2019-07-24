@@ -13,6 +13,7 @@ public class Button: UIButton {
     
     public let spinner = UIActivityIndicatorView(frame: .zero)
     public private(set) var isProcessing: Bool = false
+	public var onTap: (() -> Void)?
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -42,6 +43,9 @@ public class Button: UIButton {
             spinnerConstraints.bottom,
             spinnerConstraints.trailing,
             ])
+		
+		// You can use a target or a closure for taps.
+		self.addTarget(self, action: #selector(handleTap), for: .primaryActionTriggered)
     }
     
     public override func didMoveToSuperview() {
@@ -76,6 +80,11 @@ public class Button: UIButton {
             }, completion: nil)
         }
     }
+	
+	@objc
+	private func handleTap() {
+		onTap?()
+	}
 	
 	public override var intrinsicContentSize: CGSize {
 		let size = super.intrinsicContentSize
