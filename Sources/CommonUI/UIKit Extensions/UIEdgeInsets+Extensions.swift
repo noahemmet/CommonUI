@@ -12,11 +12,11 @@ import UIKit
 public extension UIEdgeInsets {
     
     init(dimension: CGFloat) {
-        self.init(top: dimension, left: dimension, bottom: -dimension, right: -dimension)
+        self.init(top: dimension, left: dimension, bottom: dimension, right: dimension)
     }
     
     init(horizontal: CGFloat, vertical: CGFloat) {
-        self.init(top: vertical, left: horizontal, bottom: -vertical, right: -horizontal)
+        self.init(top: vertical, left: horizontal, bottom: vertical, right: horizontal)
     }
 	
 	init(top: CGFloat? = nil, left: CGFloat? = nil, bottom: CGFloat? = nil, right: CGFloat? = nil) {
