@@ -20,6 +20,7 @@ public class DimView: UIView {
 				self.layer.mask = nil
 			}
 			setNeedsLayout()
+			layoutIfNeeded()
 		}
 	}
 	
