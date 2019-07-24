@@ -69,13 +69,13 @@ extension UIView {
 		return firstResponder
 	}
 	
-	public func mask(rect maskRect: CGRect, invert: Bool = false) {
+	public func mask(rect maskRect: CGRect, cornerRadius: CGFloat = 0, invert: Bool = false) {
 		let maskLayer = CAShapeLayer()
 		let path = CGMutablePath()
 		if invert {
 			path.addRect(bounds)
 		}
-		path.addRect(maskRect)
+		path.addRoundedRect(in: maskRect, cornerWidth: cornerRadius, cornerHeight: cornerRadius)
 		
 		maskLayer.path = path
 		if (invert) {
