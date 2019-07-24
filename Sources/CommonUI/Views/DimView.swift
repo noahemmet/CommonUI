@@ -37,6 +37,7 @@ public class DimView: UIView {
 		backgroundColor = UIColor(white: 0.0, alpha: 0.4) // mimic the default dimmingviews as close as possible
 		
 		let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+		tapGestureRecognizer.cancelsTouchesInView = false
 		addGestureRecognizer(tapGestureRecognizer)
 	}
 	
@@ -47,8 +48,10 @@ public class DimView: UIView {
 	
 	public override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
 		if cutoutFrame?.contains(point) == true {
+			// Tapped within the mask
 			return false
 		}
+		// Tapped outside the mask
 		return true
 	}
 }
