@@ -15,6 +15,13 @@ public class Button: UIButton {
     public private(set) var isProcessing: Bool = false
 	public var onTap: (() -> Void)?
     
+	public convenience init(highlightColor: UIColor, nonHighlightColor: UIColor) {
+		self.init(frame: .zero)
+		self.highlightColor = highlightColor
+		self.nonHighlightColor = nonHighlightColor
+		commonInit()
+	}
+	
     public override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -28,8 +35,8 @@ public class Button: UIButton {
     func commonInit() {
         layer.cornerRadius = 6
         
-        setTitleColor(AppStyle.background, for: .normal)
-        setTitleColor(AppStyle.highlight, for: .normal)
+        setTitleColor(UIColor.label.inverse, for: .normal)
+        setTitleColor(UIColor.secondaryLabel.inverse, for: .normal)
         
         titleEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
         heightAnchor.constraint(greaterThanOrEqualToConstant: 48).isActive = true
