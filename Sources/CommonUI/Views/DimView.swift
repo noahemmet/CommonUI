@@ -8,7 +8,6 @@
 import UIKit
 
 public class DimView: UIView {
-	public let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
 	public var onTap: (_:(DimView) -> Void)?
 	
 	public var cutoutFrame: CGRect? {
@@ -36,6 +35,8 @@ public class DimView: UIView {
 	
 	private func commonInit() {
 		backgroundColor = UIColor(white: 0.0, alpha: 0.4) // mimic the default dimmingviews as close as possible
+		
+		let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
 		addGestureRecognizer(tapGestureRecognizer)
 	}
 	
