@@ -13,7 +13,7 @@ public enum AppStyle {
 	public static var tint = UIColor() { traitCollection in
 		switch traitCollection.userInterfaceStyle {
 		case .dark:
-			return #colorLiteral(red: 0.8331652398, green: 0.2827561127, blue: 0.3445956183, alpha: 1)
+			return #colorLiteral(red: 0.8331652398, green: 0.4039638253, blue: 0.3784723405, alpha: 1)
 		case .light, .unspecified:
 			fallthrough
 		@unknown default:
