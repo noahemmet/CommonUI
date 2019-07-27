@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import SwiftUI
 import UIKit
 
-public class BezeledButton: UIView {
+public final class BezeledButton: UIView {
     public let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .light))
     public let button = Button(frame: .zero)
     public let subButton = UIButton(frame: .zero)
@@ -52,4 +53,17 @@ public class BezeledButton: UIView {
 //        let shouldForwardToButton = (button.point(inside: convertedToButtonTouch, with: event) && button.isUserInteractionEnabled)
 //        return shouldForwardToButton
 //    }
+}
+
+extension BezeledButton: UIViewRepresentable {
+	
+	public func makeUIView(context: Context) -> BezeledButton {
+		return BezeledButton(frame: .zero)
+	}
+	
+	public func updateUIView(_ uiView: BezeledButton, context: Context) {
+		context.coordinator
+	}
+	
+	
 }
