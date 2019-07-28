@@ -12,7 +12,11 @@ import UIKit
 public class Button: UIButton {
     
     public let spinner = UIActivityIndicatorView(frame: .zero)
-    public private(set) var isProcessing: Bool = false
+	public private(set) var isProcessing: Bool = false {
+		didSet {
+			self.isUserInteractionEnabled = !isProcessing
+		}
+	}
 	public var onTap: (() -> Void)?
     
 	public convenience init(highlightColor: UIColor, nonHighlightColor: UIColor) {
