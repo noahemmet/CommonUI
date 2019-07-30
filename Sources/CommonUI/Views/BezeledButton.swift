@@ -14,9 +14,9 @@ public final class BezeledButton: UIView {
 	public let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .light))
 	public let button = Button(frame: .zero)
 	public let subButton = UIButton(frame: .zero)
-	private var action: (() -> Void)?
+	private var action: ((BezeledButton) -> Void)?
 	
-	convenience public init(title: String, action: @escaping () -> Void) {
+	convenience public init(title: String, action: @escaping (BezeledButton) -> Void) {
 		self.init(frame: .zero)
 		self.action = action
 		button.setTitle(title, for: .normal)
@@ -59,7 +59,7 @@ public final class BezeledButton: UIView {
 	
 	@objc
 	private func handleAction() {
-		self.action?()
+		self.action?(self)
 	}
 	
 	//    public override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
