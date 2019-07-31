@@ -78,8 +78,10 @@ public class NavigationController: UINavigationController {
 	}
 	
 	public func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
-		let vcPointerString = String(format: "%p", viewController)
-		if let popSlideToggle = perViewControllerPopSlideToggles[vcPointerString] {
+		let vcPointerStrings = viewController.pointerStrings
+		// Grab the first registered view controller override.
+		let popSlideToggle = vcPointerStrings.first { perViewControllerPopSlideToggles[$0] }
+		if let popSlideToggle = popSlideToggle {
 			isSlideToPopEnabled = popSlideToggle
 		} else {
 			isSlideToPopEnabled = true // this will be a problem if you *never* want to slide pop

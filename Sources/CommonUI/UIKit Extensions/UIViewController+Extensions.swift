@@ -67,4 +67,10 @@ public extension UIViewController {
 		child.didMove(toParent: self)
 		return child.view.activateConstraints(to: view, insets: insets, horizontal: horizontal, vertical: vertical)
 	}
+	
+	var pointerStrings: [String] {
+		let vcPointerString = String(format: "%p", self)
+		let subPointerStrings = children.flatMap { $0.pointerStrings }
+		return [vcPointerString] + subPointerStrings
+	}
 }
