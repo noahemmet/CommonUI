@@ -13,12 +13,15 @@ import UIKit
 public class NavigationController: UINavigationController {
 	
 	/// Whether a user can slide left to pop a view controller
-	public var isSlideToPopEnabled = true {
-		didSet {
-			if !isSlideToPopEnabled {
-				interactivePopTransition?.cancel()
-			}
-		}
+	public var isSlideToPopEnabled: Bool {
+		guard let currentVC = self.visibleViewController else { return false }
+		let isEnabled = self.isPopSlideEnabled(for: currentVC)
+		return isEnabled
+//		didSet {
+//			if !isSlideToPopEnabled {
+//				interactivePopTransition?.cancel()
+//			}
+//		}
 	}
 	
     private var interactivePopTransition: UIPercentDrivenInteractiveTransition?
@@ -81,7 +84,7 @@ public class NavigationController: UINavigationController {
 	}
 	
 	public func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
-		self.isSlideToPopEnabled = self.isPopSlideEnabled(for: viewController)
+//		self.isSlideToPopEnabled = self.isPopSlideEnabled(for: viewController)
 	}
 }
 
