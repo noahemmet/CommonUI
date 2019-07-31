@@ -108,6 +108,7 @@ extension NavigationController: UINavigationControllerDelegate {
     }
 	
     public func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+		guard isSlideToPopEnabled else { return nil }
         if animationController is SlidingPopTransition {
             return interactivePopTransition
         } else {
