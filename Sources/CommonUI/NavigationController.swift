@@ -92,6 +92,7 @@ public class NavigationController: UINavigationController {
 extension NavigationController: UINavigationControllerDelegate {
 	
     public func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+		guard isSlideToPopEnabled else { return nil }
         switch operation {
         case .none, .push:
             return nil
