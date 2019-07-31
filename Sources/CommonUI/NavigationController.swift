@@ -15,7 +15,6 @@ public class NavigationController: UINavigationController {
 	/// Whether a user can slide left to pop a view controller
 	public var isSlideToPopEnabled = true {
 		didSet {
-			panRecognizer.isEnabled = isSlideToPopEnabled
 			if !isSlideToPopEnabled {
 				interactivePopTransition?.cancel()
 			}
@@ -33,6 +32,8 @@ public class NavigationController: UINavigationController {
     }
 	
     @objc func handlePanGesture(_ recognizer: UIPanGestureRecognizer) {
+		guard isSlideToPopEnabled else { return }
+		
         // Calculate how far the user has dragged across the view
         var progress = recognizer.translation(in: view).x / view.bounds.size.width
         progress = min(1, max(0, progress))
@@ -71,21 +72,16 @@ public class NavigationController: UINavigationController {
 		
 	}
 	
-	func popSlide(for viewController: UIViewController) -> Bool? {
-		let vcPointerString = String(format: "%p", viewController)
-		let enabled = perViewControllerPopSlideToggles[vcPointerString]
-		return enabled
-	}
-	
-	public func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+	/// Defaults to `true` if there is no override.
+	private func isPopSlideEnabled(for viewController: UIViewController) -> Bool {
 		let vcPointerStrings = viewController.pointerStrings
 		// Grab the first registered view controller override.
 		let popSlideToggle = vcPointerStrings.first { perViewControllerPopSlideToggles[$0] }
-		if let popSlideToggle = popSlideToggle {
-			isSlideToPopEnabled = popSlideToggle
-		} else {
-			isSlideToPopEnabled = true // this will be a problem if you *never* want to slide pop
-		}
+		return popSlideToggle ?? true
+	}
+	
+	public func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+		self.isSlideToPopEnabled = self.isPopSlideEnabled(for: viewController)
 	}
 }
 
@@ -93,6 +89,7 @@ extension NavigationController: UINavigationControllerDelegate {
 	
     public func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
 		guard isSlideToPopEnabled else { return nil }
+		
         switch operation {
         case .none, .push:
             return nil
