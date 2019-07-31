@@ -228,13 +228,10 @@ open class ViewStateController<
             return
         }
         currentViewController = newViewController
+		addChildViewController(newViewController)
         addChild(newViewController)
-		newViewController.view.translatesAutoresizingMaskIntoConstraints = false
 		newViewController.view.alpha = 0
 		newViewController.view.backgroundColor = oldViewController?.view.backgroundColor
-        view.addSubview(newViewController.view)
-        newViewController.didMove(toParent: self)
-        newViewController.view.activateConstraints(to: self.view)
 		configureViewController(for: toViewState)
         
         // Subclassers can override this function

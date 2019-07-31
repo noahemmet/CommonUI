@@ -70,7 +70,8 @@ public extension UIViewController {
 	
 	var pointerStrings: [String] {
 		let vcPointerString = String(format: "%p", self)
-		let subPointerStrings = children.flatMap { $0.pointerStrings }
-		return [vcPointerString] + subPointerStrings
+		let navChildPointerStrings = (self as? UINavigationController)?.viewControllers.flatMap { $0.pointerStrings } ?? []
+		let childPointerStrings = children.flatMap { $0.pointerStrings }
+		return [vcPointerString] + navChildPointerStrings + childPointerStrings
 	}
 }
