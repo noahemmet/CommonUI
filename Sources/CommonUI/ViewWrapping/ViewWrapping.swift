@@ -28,21 +28,13 @@ public extension ViewWrapping {
 
 /// A wrapper around a subview. Can handle selection/highlights/accessories.
 class ViewWrapper<Wrapped: UIView>: UIView {
-    let stackView: UIStackView
+//    let stackView: UIStackView
     unowned var wrappedView: Wrapped
     
     init(around wrappedView: Wrapped) {
-        stackView = UIStackView(arrangedSubviews: [wrappedView])
-        stackView.axis = .horizontal
-        stackView.alignment = .center
-        stackView.distribution = .fillProportionally
-        stackView.spacing = 8
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-//        stackView.preservesSuperviewLayoutMargins = true
         self.wrappedView = wrappedView
         super.init(frame: .zero)
         self.addSubview(wrappedView)
-        wrappedView.preservesSuperviewLayoutMargins = true
         wrappedView.setContentCompressionResistancePriority(.required, for: .vertical)
         wrappedView.setContentCompressionResistancePriority(.required, for: .horizontal)
         wrappedView.activateConstraints(to: self)
@@ -138,24 +130,24 @@ class ViewWrapper<Wrapped: UIView>: UIView {
     
     private func configureAccessories() {
         return
-        defer { needsAccessoryConfiguration = false }
-        let arrangedViews: [UIView?] = stackView.arrangedSubviews
-        var expectedArrangedViews: [UIView?] = [wrappedView]
-        if showDisclosureArrow, expectedArrangedViews.contains(disclosureArrow) == false {
-//            disclosureArrow = UIImageView(image: Asset.play.image)
-            disclosureArrow?.useAutoLayout()
-            disclosureArrow?.contentMode = .scaleAspectFill
-//            disclosureArrow?.activateConstraints(ofSize: Asset.play.image.size)
-            expectedArrangedViews.append(disclosureArrow)
-        } else {
-            disclosureArrow = nil
-        }
-        guard arrangedViews != expectedArrangedViews else {
-            // Accessories are already configured.
-            return
-        }
-        let flattenedViews = expectedArrangedViews.compactMap { $0 }
-        stackView.setArrangedSubviews(flattenedViews)
+//        defer { needsAccessoryConfiguration = false }
+//        let arrangedViews: [UIView?] = stackView.arrangedSubviews
+//        var expectedArrangedViews: [UIView?] = [wrappedView]
+//        if showDisclosureArrow, expectedArrangedViews.contains(disclosureArrow) == false {
+////            disclosureArrow = UIImageView(image: Asset.play.image)
+//            disclosureArrow?.useAutoLayout()
+//            disclosureArrow?.contentMode = .scaleAspectFill
+////            disclosureArrow?.activateConstraints(ofSize: Asset.play.image.size)
+//            expectedArrangedViews.append(disclosureArrow)
+//        } else {
+//            disclosureArrow = nil
+//        }
+//        guard arrangedViews != expectedArrangedViews else {
+//            // Accessories are already configured.
+//            return
+//        }
+//        let flattenedViews = expectedArrangedViews.compactMap { $0 }
+//        stackView.setArrangedSubviews(flattenedViews)
     }
     
     /// Set this to false after configuring the accessories.

@@ -37,9 +37,7 @@ open class WrapperTableCell<View: UIView>: UITableViewCell, ViewWrapping, ViewMo
 		wrappedView.setContentCompressionResistancePriority(.required, for: .horizontal)
 		wrappedView.setContentHuggingPriority(.required, for: .vertical)
 		wrappedView.setContentHuggingPriority(.required, for: .horizontal)
-        wrappedView.translatesAutoresizingMaskIntoConstraints = false
         wrappedView.activateConstraints(to: contentView)
-        wrappedView.preservesSuperviewLayoutMargins = true
     }
     
     public var isSelectable: Bool = true
@@ -94,11 +92,7 @@ open class ControllerWrapperTableCell<ViewController: UIViewController>: UITable
 	
 	private func commonInit() {
 		contentView.addSubview(wrappedController.view)
-		wrappedController.view.translatesAutoresizingMaskIntoConstraints = false
 		wrappedController.view.activateConstraints(to: contentView)
-		wrappedController.view.preservesSuperviewLayoutMargins = true
-		contentView.preservesSuperviewLayoutMargins = true
-		preservesSuperviewLayoutMargins = true
 	}
 	
 	public func configure(with viewModel: ViewController.ViewModel) {
@@ -130,11 +124,7 @@ public class WrapperTableSectionView<View: UIView>: UITableViewHeaderFooterView,
     
     private func commonInit() {
         contentView.addSubview(viewWrapper)
-        viewWrapper.translatesAutoresizingMaskIntoConstraints = false
         viewWrapper.activateConstraints(to: contentView)
-        viewWrapper.preservesSuperviewLayoutMargins = true
-        contentView.preservesSuperviewLayoutMargins = true
-        preservesSuperviewLayoutMargins = true
     }
     
     public var highlightColor: UIColor {
