@@ -17,11 +17,6 @@ public class NavigationController: UINavigationController {
 		guard let currentVC = self.visibleViewController else { return false }
 		let isEnabled = self.isPopSlideEnabled(for: currentVC)
 		return isEnabled
-//		didSet {
-//			if !isSlideToPopEnabled {
-//				interactivePopTransition?.cancel()
-//			}
-//		}
 	}
 	
     private var interactivePopTransition: UIPercentDrivenInteractiveTransition?
