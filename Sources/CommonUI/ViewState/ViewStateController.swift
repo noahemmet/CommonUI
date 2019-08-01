@@ -229,7 +229,6 @@ open class ViewStateController<
         }
         currentViewController = newViewController
 		addChildViewController(newViewController)
-        addChild(newViewController)
 		newViewController.view.alpha = 0
 		newViewController.view.backgroundColor = oldViewController?.view.backgroundColor
 		configureViewController(for: toViewState)
