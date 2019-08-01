@@ -231,6 +231,8 @@ open class ViewStateController<
 		addChildViewController(newViewController)
 		newViewController.view.alpha = 0
 		newViewController.view.backgroundColor = oldViewController?.view.backgroundColor
+		newViewController.view.setNeedsUpdateConstraints()
+		newViewController.view.updateConstraintsIfNeeded()
 		configureViewController(for: toViewState)
         
         // Subclassers can override this function
