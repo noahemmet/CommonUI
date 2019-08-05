@@ -8,12 +8,14 @@
 
 import Foundation
 import SwiftUI
+import Combine
 import UIKit
 
 public final class BezeledButton: UIView {
 	public let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .light))
 	public let button = Button(frame: .zero)
 	public let subButton = UIButton(frame: .zero)
+	public let onAction = PassthroughSubject<BezeledButton, Never>()
 	private var action: ((BezeledButton) -> Void)?
 	
 	convenience public init(title: String, action: @escaping (BezeledButton) -> Void) {
@@ -59,6 +61,7 @@ public final class BezeledButton: UIView {
 	
 	@objc
 	private func handleAction() {
+		self.onAction.send(self)
 		self.action?(self)
 	}
 	
@@ -76,8 +79,6 @@ extension BezeledButton: UIViewRepresentable {
 	}
 	
 	public func updateUIView(_ uiView: BezeledButton, context: Context) {
-		context.coordinator
+		
 	}
-	
-	
 }
