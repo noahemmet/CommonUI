@@ -36,7 +36,7 @@ open class ViewStateController<
 		case loading(LoadingViewController)
 		case empty(EmptyViewController)
 		
-		///
+		/// Returns the associated value as a `UIViewController`.
 		public var uiViewController: UIViewController {
 			switch self {
 			case .success(let successViewController): return successViewController
@@ -54,11 +54,14 @@ open class ViewStateController<
 			self.viewStateDidChange()
 		}
 	}
-	open func viewStateDidChange() { /* Override */ }
+	
+	/// Subclassers can override.
+	open func viewStateDidChange() { }
 	
 	
 	// MARK: ViewControllers
 	
+	/// The currently displayed view controller
 	private weak var currentViewController: UIViewController!
 	public var successViewController: SuccessViewController?
 	public var failureViewController: FailureViewController?
@@ -92,12 +95,8 @@ open class ViewStateController<
 	
 	open override func viewDidLoad() {
 		super.viewDidLoad()
+		// Load the first view controller.
 		transition(to: viewState, from: nil, animated: false, completion: nil)
-	}
-	
-	open override func viewWillAppear(_ animated: Bool) {
-		super.viewWillAppear(animated)
-		//        load(with: , animated: animated, completion: nil)
 	}
 	
 	// MARK: - GetViewControllers
@@ -142,6 +141,8 @@ open class ViewStateController<
 		return emptyViewController
 	}
 	
+	// MARK: Configuring ViewControllers
+	
 	open func configure(successViewController viewController: SuccessViewController, with viewModel: SuccessViewController.ViewModel) {
 		do {
 			try viewController.tryConfigure(with: viewModel)
@@ -174,6 +175,7 @@ open class ViewStateController<
 		}
 	}
 	
+	/// Returns a `ViewController` enum for a given view state.
 	private func getViewController(for viewState: ControllerViewState) -> ViewController {
 		switch viewState {
 		case .success:
@@ -194,6 +196,8 @@ open class ViewStateController<
 			return .empty(viewController)
 		}
 	}
+	
+	/// Configures a view controller for a given view state.
 	private func configureViewController(for viewState: ControllerViewState) {
 		switch viewState {
 		case .success(let viewModel):
@@ -213,10 +217,13 @@ open class ViewStateController<
 	
 	// MARK: - Transitions
 	
-	open func willTransition(to toViewController: ViewController, from fromViewController: UIViewController?, animated: Bool) { /* Override */ }
+	/// Subclassers can override 
+	open func willTransition(to toViewController: ViewController, from fromViewController: UIViewController?, animated: Bool) { }
 	
+	/// Subclassers can override
 	open func didTransition(to toViewController: ViewController, from fromViewController: UIViewController?, animated: Bool) { /* Override */ }
 	
+	/// Transitions to a new view state. Handles child/parent view controller loading and offloading.
 	open func transition(to toViewState: ControllerViewState, from fromViewState: ControllerViewState?, animated: Bool, completion: ((ControllerViewState) -> Void)?) {
 		
 		// Add newViewController to self and configure view
@@ -269,13 +276,6 @@ open class ViewStateController<
 	}
 }
 
-// MARK: - CustomSuccessViewStateController
-
-
-/// A typealias for `ViewStateController`, generic over a `SuccessViewController`, with `DefaultFooViewController` defaults for the rest. 
-//public typealias CustomSuccessViewStateController<SuccessViewController: ViewControllerModelConfigurable> = ViewStateController<CustomSuccessViewModelProvider<SuccessViewController.ViewModel>, DefaultLoadingViewController, DefaultEmptyViewController, SuccessViewController, DefaultFailureViewController>
-
-
 // MARK: - Defaults
 
 extension ViewStateController where LoadingViewController: DefaultLoadingViewController {
@@ -284,15 +284,4 @@ extension ViewStateController where LoadingViewController: DefaultLoadingViewCon
 		let loadingViewModel = DefaultLoadingViewController.ViewModel()
 		self.transition(to: .loading(loadingViewModel), from: self.viewState, animated: animated, completion: nil)
 	}
-	//    public convenience init() {
-	//        let loadingViewState: ViewStateController.ControllerViewState = .loading(DefaultLoadingViewController.ViewModel())
-	//        self.init(initialViewState: loadingViewState)
-	//    }
 }
-//
-//extension ViewStateController2: DefaultFailureViewControllerDelegate {
-//    public func defaultFailureViewController(_ defaultFailureViewController: DefaultFailureViewController, didTapReloadButton reloadButton: UIButton) {
-//        
-//        self.load(animated: true, completion: nil)
-//    }
-//}
