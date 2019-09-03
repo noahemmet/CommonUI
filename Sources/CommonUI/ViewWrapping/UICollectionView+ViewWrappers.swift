@@ -11,6 +11,7 @@ import UIKit
 
 // MARK: - UICollectionViewCell
 
+/// Wraps a UIView inside of a CollectionViewCell, for easy reuse between collection views and table views.
 open class WrapperCollectionCell<View: UIView>: UICollectionViewCell, ViewWrapping, ViewModelConfigurable where View: ViewModelConfigurable {
     
     public class func wrapping(view: View) -> WrapperCollectionCell<View>? {
@@ -78,6 +79,7 @@ open class WrapperCollectionCell<View: UIView>: UICollectionViewCell, ViewWrappi
 
 // MARK: - UICollectionReusableView
 
+/// Wraps a UIView inside of a UICollectionReusableView, for easy reuse between collection views and table views.
 open class WrapperCollectionReusableView<View: UIView>: UICollectionReusableView, ViewWrapping, ViewModelConfigurable where View: ViewModelConfigurable {
     
     private let viewWrapper: ViewWrapper<View>
