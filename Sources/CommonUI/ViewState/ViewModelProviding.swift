@@ -44,13 +44,13 @@ public struct CustomSuccessViewModelProvider<SuccessViewModel>: ViewModelProvidi
     public typealias ViewStateType = ViewState<SuccessViewModel, FailureViewModel, LoadingViewModel, EmptyViewModel>
     public typealias ViewStateHandler = (Context) -> ViewStateType
     
-    public let endpointResponder: EndpointResponder!
+//    public let endpointResponder: EndpointResponder!
     private var viewStateHandler: ViewStateHandler
     
-    public init(with endpointResponder: EndpointResponder!, handler viewStateHandler: @escaping ViewStateHandler) {
-        self.endpointResponder = endpointResponder
-        self.viewStateHandler = viewStateHandler
-    }
+//    public init(with endpointResponder: EndpointResponder!, handler viewStateHandler: @escaping ViewStateHandler) {
+//        self.endpointResponder = endpointResponder
+//        self.viewStateHandler = viewStateHandler
+//    }
     
     public func requestViewStateModel(for context: Void, response: Response) {
         fatalError()
