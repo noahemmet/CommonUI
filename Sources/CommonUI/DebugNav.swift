@@ -11,7 +11,6 @@ import UIKit
 
 public enum DebugNav {
 	public static func go(after delay: TimeInterval = 0, _ handler: @escaping () -> Void) {
-		return
 		#if DEBUG
 		if Platform.isSimulator {
 			DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
