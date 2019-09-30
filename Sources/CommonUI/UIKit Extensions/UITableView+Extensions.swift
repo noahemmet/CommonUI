@@ -109,6 +109,9 @@ public extension UITableView {
 			return nil
 		}
 		let numRows = self.numberOfRows(inSection: numberOfSections-1)
+		guard numRows > 0 else {
+			return nil
+		}
 		let indexPath = IndexPath(row: numRows-1, section: numberOfSections-1)
 		return indexPath
 	}
