@@ -31,15 +31,15 @@ public enum AppStyle {
 			return #colorLiteral(red: 0.8167913732, green: 0.2771992187, blue: 0.3378234171, alpha: 1)
 		}
 	}
-    public static let border = UIColor.separator
-    public static let highlight = UIColor.systemGray
-    public static let background = UIColor.systemBackground
+	public static let border = UIColor.separator
+	public static let highlight = UIColor.systemGray
+	public static let background = UIColor.systemBackground
 	public static let background2 = UIColor.secondarySystemBackground
-    public static let placeholderText = UIColor.placeholderText
-    public static let primaryText = UIColor.label
-    public static let secondaryText = UIColor.secondaryLabel
-    
-    public static let emptyScreen = #colorLiteral(red: 0.8974830419, green: 0.8710281861, blue: 0.956780246, alpha: 1)
-    
-    public static let emptyPersona = #colorLiteral(red: 0.711852964, green: 0.6482803742, blue: 0.956780246, alpha: 1)
+	public static let placeholderText = UIColor.placeholderText
+	public static let primaryText = UIColor.label
+	public static let secondaryText = UIColor.secondaryLabel
+	
+	public static let emptyScreen = #colorLiteral(red: 0.8974830419, green: 0.8710281861, blue: 0.956780246, alpha: 1)
+	
+	public static let emptyPersona = #colorLiteral(red: 0.711852964, green: 0.6482803742, blue: 0.956780246, alpha: 1)
 }
