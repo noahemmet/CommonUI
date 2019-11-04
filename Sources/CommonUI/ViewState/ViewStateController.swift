@@ -1,11 +1,3 @@
-//
-//  ViewStateController.swift
-//  CommonUI
-//
-//  Created by Noah Emmet on 6/23/18.
-//  Copyright © 2018 Sticks. All rights reserved.
-//
-
 import Foundation
 import UIKit
 import Common
