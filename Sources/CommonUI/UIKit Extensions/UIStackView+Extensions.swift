@@ -31,6 +31,7 @@ public extension UIStackView {
 	}
 	
 	func removeArrangedSubviews(after index: Int) {
+    guard index < arrangedSubviews.count - 1 else { return }
 		for _ in index ..< arrangedSubviews.count {
 			let lastIndex = arrangedSubviews.count - 1
 			removeArrangedSubview(at: lastIndex)
