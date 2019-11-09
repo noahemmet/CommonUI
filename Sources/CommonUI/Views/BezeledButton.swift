@@ -1,11 +1,3 @@
-//
-//  BezeledButton.swift
-//  CommonUI
-//
-//  Created by Noah Emmet on 8/1/18.
-//  Copyright © 2018 Sticks. All rights reserved.
-//
-
 import Foundation
 import SwiftUI
 import Combine
@@ -38,6 +30,8 @@ public final class BezeledButton: UIView {
 		addTopBorder()
 		
 		button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .body).bold()
+    button.setTitleColor(AppStyle.background, for: .normal)
+    button.setTitleColor(AppStyle.background2, for: .highlighted)
 		button.addTarget(self, action: #selector(handleAction), for: .primaryActionTriggered)
 		
 		subButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .body).bold()
