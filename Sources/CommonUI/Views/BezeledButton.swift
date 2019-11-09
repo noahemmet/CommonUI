@@ -41,8 +41,8 @@ public final class BezeledButton: UIView {
 		button.addTarget(self, action: #selector(handleAction), for: .primaryActionTriggered)
 		
 		subButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .body).bold()
-		subButton.setTitleColor(AppStyle.primaryText, for: .normal)
-		subButton.setTitleColor(AppStyle.secondaryText, for: .highlighted)
+		subButton.setTitleColor(AppStyle.background, for: .normal)
+		subButton.setTitleColor(AppStyle.background2, for: .highlighted)
 		subButton.isHidden = true
 		
 		blurView.setContentCompressionResistancePriority(.required, for: .vertical)
