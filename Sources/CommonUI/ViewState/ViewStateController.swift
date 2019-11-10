@@ -260,7 +260,15 @@ open class ViewStateController<
 			animationCompletion(true)
 		}
 	}
-	
+  
+  open func handleError(animated: Bool = true, handler: () throws -> Void) {
+    do {
+      try handler()
+    } catch let error {
+      self.handleError(error, animated: animated)
+    }
+  }
+  
 	open func handleError(_ error: Error, animated: Bool = true) {
 		let viewError = FailureViewController.viewModel(from: error)
 		let errorState = ControllerViewState(viewError)
