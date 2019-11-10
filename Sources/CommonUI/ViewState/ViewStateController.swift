@@ -136,35 +136,19 @@ open class ViewStateController<
 	// MARK: Configuring ViewControllers
 	
 	open func configure(successViewController viewController: SuccessViewController, with viewModel: SuccessViewController.ViewModel) {
-		do {
-			try viewController.tryConfigure(with: viewModel)
-		} catch let error {
-			self.handleError(error)
-		}
+    self.attempt { try viewController.tryConfigure(with: viewModel) }
 	}
 	
 	open func configure(failureViewController viewController: FailureViewController, with viewModel: FailureViewController.ViewModel) {
-		do {
-			try viewController.tryConfigure(with: viewModel)
-		} catch let error {
-			self.handleError(error)
-		}
+		self.attempt { try viewController.tryConfigure(with: viewModel) }
 	}
 	
 	open func configure(emptyViewController viewController: EmptyViewController, with viewModel: EmptyViewController.ViewModel) {
-		do {
-			try viewController.tryConfigure(with: viewModel)
-		} catch let error {
-			self.handleError(error)
-		}
+		self.attempt { try viewController.tryConfigure(with: viewModel) }
 	}
 	
 	open func configure(loadingViewController viewController: LoadingViewController, with viewModel: LoadingViewController.ViewModel) {
-		do {
-			try viewController.tryConfigure(with: viewModel)
-		} catch let error {
-			self.handleError(error)
-		}
+		self.attempt { try viewController.tryConfigure(with: viewModel) }
 	}
 	
 	/// Returns a `ViewController` enum for a given view state.
@@ -261,7 +245,7 @@ open class ViewStateController<
 		}
 	}
   
-  open func handleError(animated: Bool = true, handler: () throws -> Void) {
+  open func attempt(animated: Bool = true, handler: () throws -> Void) {
     do {
       try handler()
     } catch let error {
