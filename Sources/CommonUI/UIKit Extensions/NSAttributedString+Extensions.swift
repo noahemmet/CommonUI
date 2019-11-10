@@ -26,7 +26,13 @@ public extension NSMutableAttributedString {
 }
 
 public extension String {
-	func attributed(font: UIFont = .preferredFont(forTextStyle: .body)) -> NSAttributedString {
-		return NSAttributedString(string: self, attributes: [.font: font])
+	func attributed(
+    font: UIFont = .preferredFont(forTextStyle: .body),
+    color: UIColor = AppStyle.primaryText) -> NSAttributedString {
+		return NSAttributedString(
+      string: self,
+      attributes: [
+        .font: font,
+        .foregroundColor: color])
 	}
 }
