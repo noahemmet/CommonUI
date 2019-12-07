@@ -22,7 +22,12 @@ public protocol ViewModelProviding {
   associatedtype FailureViewModel: Error
   associatedtype LoadingViewModel
   associatedtype EmptyViewModel
-  typealias ProviderViewState = ViewState<SuccessViewModel, FailureViewModel, LoadingViewModel, EmptyViewModel>
+  typealias ProviderViewState = ViewState<
+    SuccessViewModel,
+    FailureViewModel,
+    LoadingViewModel,
+    EmptyViewModel
+  >
   typealias Response = (ProviderViewState) -> Void
   func requestViewStateModel(for context: Context, response: @escaping Response)
 }
@@ -41,7 +46,12 @@ public struct CustomSuccessViewModelProvider<SuccessViewModel>: ViewModelProvidi
   public typealias LoadingViewModel = DefaultLoadingViewController.ViewModel
   public typealias EmptyViewModel = DefaultEmptyViewController.ViewModel
   public typealias FailureViewModel = DefaultFailureViewController.ViewModel
-  public typealias ViewStateType = ViewState<SuccessViewModel, FailureViewModel, LoadingViewModel, EmptyViewModel>
+  public typealias ViewStateType = ViewState<
+    SuccessViewModel,
+    FailureViewModel,
+    LoadingViewModel,
+    EmptyViewModel
+  >
   public typealias ViewStateHandler = (Context) -> ViewStateType
 
 //    public let endpointResponder: EndpointResponder!

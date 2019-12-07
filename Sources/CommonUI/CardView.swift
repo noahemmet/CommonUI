@@ -17,7 +17,11 @@ extension CardView {
     public let title: NSAttributedString
     public let content: WrappedView.ViewModel
     
-    public init(colorTheme: ColorTheme = ColorTheme.defaultColorTheme, title: NSAttributedString, content: WrappedView.ViewModel) {
+    public init(
+      colorTheme: ColorTheme = ColorTheme.defaultColorTheme,
+      title: NSAttributedString,
+      content: WrappedView.ViewModel
+    ) {
       self.colorTheme = colorTheme
       self.title = title
       self.content = content
@@ -26,10 +30,12 @@ extension CardView {
   
   public struct ColorTheme {
     public static var defaultColorTheme: ColorTheme {
-      return ColorTheme(title: AppStyle.primaryText,
-                        titleBackground: AppStyle.background,
-                        contentBackground: AppStyle.background2,
-                        outerBorder: AppStyle.border)
+      return ColorTheme(
+        title: AppStyle.primaryText,
+        titleBackground: AppStyle.background,
+        contentBackground: AppStyle.background2,
+        outerBorder: AppStyle.border
+      )
     }
     
     public let title: UIColor?
@@ -37,7 +43,12 @@ extension CardView {
     public let contentBackground: UIColor
     public let outerBorder: UIColor
     
-    public init(title: UIColor?, titleBackground: UIColor, contentBackground: UIColor, outerBorder: UIColor) {
+    public init(
+      title: UIColor?,
+      titleBackground: UIColor,
+      contentBackground: UIColor,
+      outerBorder: UIColor
+    ) {
       self.title = title
       self.titleBackground = titleBackground
       self.contentBackground = contentBackground

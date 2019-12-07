@@ -27,7 +27,10 @@ public extension UITableView {
   }
   
   func registerCell<VC: UIViewController & ViewModelConfigurable>(wrapping type: VC.Type) {
-    self.register(ControllerWrapperTableCell<VC>.self, forCellReuseIdentifier: String(describing: type))
+    self.register(
+      ControllerWrapperTableCell<VC>.self,
+      forCellReuseIdentifier: String(describing: type)
+    )
   }
   
   func registerCellFromNib<V: UIView & ViewModelConfigurable>(wrapping type: V.Type) {
@@ -49,7 +52,10 @@ public extension UITableView {
   }
   
   func registerHeaderFooterView<V: UIView & ViewModelConfigurable>(wrapping type: V.Type) {
-    self.register(WrapperTableSectionView<V>.self, forHeaderFooterViewReuseIdentifier: String(describing: type))
+    self.register(
+      WrapperTableSectionView<V>.self,
+      forHeaderFooterViewReuseIdentifier: String(describing: type)
+    )
   }
   
   // MARK: Dequeue Cells
@@ -59,13 +65,23 @@ public extension UITableView {
     return cell
   }
   
-  func dequeueCell<V: UIView & ViewModelConfigurable>(wrapping type: V.Type, at indexPath: IndexPath) -> WrapperTableCell<V> {
-    let cell = self.dequeueReusableCell(withIdentifier: String(describing: type), for: indexPath) as! WrapperTableCell<V>
+  func dequeueCell<V: UIView & ViewModelConfigurable>(
+    wrapping type: V.Type,
+    at indexPath: IndexPath
+  ) -> WrapperTableCell<V> {
+    let cell = self.dequeueReusableCell(withIdentifier: String(describing: type), for: indexPath) as! WrapperTableCell<
+      V
+    >
     return cell
   }
   
-  func dequeueCell<VC: UIViewController & ViewModelConfigurable>(wrapping type: VC.Type, at indexPath: IndexPath) -> ControllerWrapperTableCell<VC> {
-    let cell = self.dequeueReusableCell(withIdentifier: String(describing: type), for: indexPath) as! ControllerWrapperTableCell<VC>
+  func dequeueCell<VC: UIViewController & ViewModelConfigurable>(
+    wrapping type: VC.Type,
+    at indexPath: IndexPath
+  ) -> ControllerWrapperTableCell<VC> {
+    let cell = self.dequeueReusableCell(withIdentifier: String(describing: type), for: indexPath) as! ControllerWrapperTableCell<
+      VC
+    >
     return cell
   }
   
@@ -76,8 +92,12 @@ public extension UITableView {
     return view
   }
   
-  func dequeueHeaderFooterView<V: UIView & ViewModelConfigurable>(wrapping type: V.Type) -> WrapperTableSectionView<V> {
-    let view = self.dequeueReusableHeaderFooterView(withIdentifier: String(describing: type)) as! WrapperTableSectionView<V>
+  func dequeueHeaderFooterView<V: UIView & ViewModelConfigurable>(wrapping type: V.Type) -> WrapperTableSectionView<
+    V
+  > {
+    let view = self.dequeueReusableHeaderFooterView(withIdentifier: String(describing: type)) as! WrapperTableSectionView<
+      V
+    >
     return view
   }
 }
@@ -88,8 +108,14 @@ public extension UITableView {
   typealias EstimateSectionHeight = (Int) -> CGFloat
   func estimatedHeight(with estimate: EstimateSectionHeight) -> CGFloat {
     let sectionCount = self.numberOfSections
-    let estimatedSectionHeights: [(section: Int, height: CGFloat)] = (0..<sectionCount).map { (section: $0, height: estimate($0))}
-    let estimatedRowHeights: [(rowCount: Int, height: CGFloat)] = estimatedSectionHeights.map { (rowCount: self.numberOfRows(inSection: $0.section), height: $0.height) }
+    let estimatedSectionHeights: [(section: Int, height: CGFloat)] = (0..<sectionCount).map { (
+      section: $0,
+      height: estimate($0)
+    )}
+    let estimatedRowHeights: [(rowCount: Int, height: CGFloat)] = estimatedSectionHeights.map { (
+      rowCount: self.numberOfRows(inSection: $0.section),
+      height: $0.height
+    ) }
     let averageHeight = estimatedRowHeights.map { CGFloat($0.rowCount) * $0.height }.average
     let rowHeight = averageHeight / CGFloat(sectionCount)
     if rowHeight.isNaN || rowHeight.isZero {

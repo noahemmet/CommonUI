@@ -38,7 +38,10 @@ extension UIViewController: ViewControllerStoryboardInstantiatable {
 }
 
 extension UIViewController {
-  private class func instantiateFromStoryboard<VC: UIViewController>(_ storyboard: UIStoryboard, type: VC.Type) -> VC {
+  private class func instantiateFromStoryboard<VC: UIViewController>(
+    _ storyboard: UIStoryboard,
+    type: VC.Type
+  ) -> VC {
     return storyboard.instantiateViewController(withIdentifier: storyboardIdentifier) as! VC
   }
 }
@@ -60,11 +63,21 @@ public extension UIViewController {
   }
 
   @discardableResult
-  func addChildViewController(_ child: UIViewController, insets: UIEdgeInsets = .zero, horizontal: UIView.AxisConstraint = .view, vertical: UIView.AxisConstraint = .view) -> AnchorConstraints {
+  func addChildViewController(
+    _ child: UIViewController,
+    insets: UIEdgeInsets = .zero,
+    horizontal: UIView.AxisConstraint = .view,
+    vertical: UIView.AxisConstraint = .view
+  ) -> AnchorConstraints {
     addChild(child)
     view.addSubview(child.view)
     child.didMove(toParent: self)
-    return child.view.activateConstraints(to: view, insets: insets, horizontal: horizontal, vertical: vertical)
+    return child.view.activateConstraints(
+      to: view,
+      insets: insets,
+      horizontal: horizontal,
+      vertical: vertical
+    )
   }
 
   var pointerStrings: [String] {

@@ -15,8 +15,14 @@ public protocol ErrorViewModelConfigurable: ViewModelConfigurable where ViewMode
 }
 
 public protocol DefaultFailureViewControllerDelegate: class {
-  func defaultFailureViewController(_ defaultFailureViewController: DefaultFailureViewController, didTapReloadButton reloadButton: UIButton)
-  func defaultFailureViewController(_ defaultFailureViewController: DefaultFailureViewController, didTapSecondaryButton secondaryButton: UIButton)
+  func defaultFailureViewController(
+    _ defaultFailureViewController: DefaultFailureViewController,
+    didTapReloadButton reloadButton: UIButton
+  )
+  func defaultFailureViewController(
+    _ defaultFailureViewController: DefaultFailureViewController,
+    didTapSecondaryButton secondaryButton: UIButton
+  )
 }
 
 public class DefaultFailureViewController: UIViewController, ErrorViewModelConfigurable {
@@ -62,23 +68,33 @@ public class DefaultFailureViewController: UIViewController, ErrorViewModelConfi
     reloadButton.setTitle("Reload", for: .normal)
     reloadButton.setTitleColor(AppStyle.tint, for: .normal)
     reloadButton.setTitleColor(AppStyle.tintHighlight, for: .highlighted)
-    reloadButton.addTarget(self, action: #selector(reloadButtonTapped), for: .primaryActionTriggered)
+    reloadButton.addTarget(
+      self,
+      action: #selector(reloadButtonTapped),
+      for: .primaryActionTriggered
+    )
     
     secondaryButton = UIButton(type: .custom)
     secondaryButton.setTitle("Log Out", for: .normal)
     secondaryButton.setTitleColor(AppStyle.tint, for: .normal)
     secondaryButton.setTitleColor(AppStyle.tintHighlight, for: .highlighted)
-    secondaryButton.addTarget(self, action: #selector(secondaryButtonTapped), for: .primaryActionTriggered)
+    secondaryButton.addTarget(
+      self,
+      action: #selector(secondaryButtonTapped),
+      for: .primaryActionTriggered
+    )
     
     stackView = UIStackView(arrangedSubviews: [scrollView, reloadButton, secondaryButton])
     stackView.spacing = Layout.spacing
     stackView.isLayoutMarginsRelativeArrangement = true
     stackView.axis = .vertical
     view.addSubview(stackView)
-    stackView.activateConstraints(to: view,
-                                  insets: UIEdgeInsets(bottom: -Layout.spacing),
-                                  horizontal: .view,
-                                  vertical: .margins)
+    stackView.activateConstraints(
+      to: view,
+      insets: UIEdgeInsets(bottom: -Layout.spacing),
+      horizontal: .view,
+      vertical: .margins
+    )
   }
   
   public func configure(with viewModel: CustomSuccessViewStateError) {

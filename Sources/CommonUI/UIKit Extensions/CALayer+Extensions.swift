@@ -28,7 +28,13 @@ extension CALayer {
 // MARK: - Drawing
 
 extension CAShapeLayer {
-  public func drawDashedBorder(insetBy inset: UIEdgeInsets = .zero, color: UIColor, width borderWidth: CGFloat = 4, corner: CGFloat = 4, pattern: [CGFloat] = [4, 1]) {
+  public func drawDashedBorder(
+    insetBy inset: UIEdgeInsets = .zero,
+    color: UIColor,
+    width borderWidth: CGFloat = 4,
+    corner: CGFloat = 4,
+    pattern: [CGFloat] = [4, 1]
+  ) {
     fillColor = UIColor.clear.cgColor
     strokeColor = color.cgColor
     cornerRadius = corner
@@ -40,8 +46,14 @@ extension CAShapeLayer {
     let borderInset = borderWidth / 2
     let leftTop = CGPoint(x: inset.left + borderInset, y: inset.top + borderInset)
     let rightTop = CGPoint(x: bounds.width - inset.right - borderInset, y: inset.top + borderInset)
-    let rightBottom = CGPoint(x: bounds.width - inset.right - borderInset, y: bounds.height - inset.bottom)
-    let leftBottom = CGPoint(x: inset.left + borderInset, y: bounds.height - inset.bottom - borderInset)
+    let rightBottom = CGPoint(
+      x: bounds.width - inset.right - borderInset,
+      y: bounds.height - inset.bottom
+    )
+    let leftBottom = CGPoint(
+      x: inset.left + borderInset,
+      y: bounds.height - inset.bottom - borderInset
+    )
     path.move(to: leftTop)
     path.addLine(to: rightTop)
     path.addLine(to: rightBottom)

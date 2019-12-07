@@ -19,7 +19,12 @@ open class ViewStateController<
   public typealias FailureViewModel = FailureViewController.ViewModel
   public typealias LoadingViewModel = LoadingViewController.ViewModel
   public typealias EmptyViewModel = EmptyViewController.ViewModel
-  public typealias ControllerViewState = ViewState<SuccessViewModel, FailureViewModel, LoadingViewModel, EmptyViewModel>
+  public typealias ControllerViewState = ViewState<
+    SuccessViewModel,
+    FailureViewModel,
+    LoadingViewModel,
+    EmptyViewModel
+  >
   
   /// An enum of possible view controllers 
   public enum ViewController {
@@ -145,19 +150,31 @@ open class ViewStateController<
   
   // MARK: Configuring ViewControllers
   
-  open func configure(successViewController viewController: SuccessViewController, with viewModel: SuccessViewController.ViewModel) {
+  open func configure(
+    successViewController viewController: SuccessViewController,
+    with viewModel: SuccessViewController.ViewModel
+  ) {
     self.attempt { try viewController.tryConfigure(with: viewModel) }
   }
   
-  open func configure(failureViewController viewController: FailureViewController, with viewModel: FailureViewController.ViewModel) {
+  open func configure(
+    failureViewController viewController: FailureViewController,
+    with viewModel: FailureViewController.ViewModel
+  ) {
     self.attempt { try viewController.tryConfigure(with: viewModel) }
   }
   
-  open func configure(emptyViewController viewController: EmptyViewController, with viewModel: EmptyViewController.ViewModel) {
+  open func configure(
+    emptyViewController viewController: EmptyViewController,
+    with viewModel: EmptyViewController.ViewModel
+  ) {
     self.attempt { try viewController.tryConfigure(with: viewModel) }
   }
   
-  open func configure(loadingViewController viewController: LoadingViewController, with viewModel: LoadingViewController.ViewModel) {
+  open func configure(
+    loadingViewController viewController: LoadingViewController,
+    with viewModel: LoadingViewController.ViewModel
+  ) {
     self.attempt { try viewController.tryConfigure(with: viewModel) }
   }
   
@@ -204,13 +221,26 @@ open class ViewStateController<
   // MARK: - Transitions
   
   /// Subclassers can override 
-  open func willTransition(to toViewController: ViewController, from fromViewController: UIViewController?, animated: Bool) {}
+  open func willTransition(
+    to toViewController: ViewController,
+    from fromViewController: UIViewController?,
+    animated: Bool
+  ) {}
   
   /// Subclassers can override
-  open func didTransition(to toViewController: ViewController, from fromViewController: UIViewController?, animated: Bool) { /* Override */ }
+  open func didTransition(
+    to toViewController: ViewController,
+    from fromViewController: UIViewController?,
+    animated: Bool
+  ) { /* Override */ }
   
   /// Transitions to a new view state. Handles child/parent view controller loading and offloading.
-  open func transition(to toViewState: ControllerViewState, from fromViewState: ControllerViewState?, animated: Bool, completion: ((ControllerViewState) -> Void)?) {
+  open func transition(
+    to toViewState: ControllerViewState,
+    from fromViewState: ControllerViewState?,
+    animated: Bool,
+    completion: ((ControllerViewState) -> Void)?
+  ) {
     // Add newViewController to self and configure view
     let oldViewController = currentViewController
     let newViewControllerType = self.getViewController(for: toViewState)
@@ -247,7 +277,11 @@ open class ViewStateController<
     }
     if animated {
       // Animate fade transition
-      UIView.animate(withDuration: Animation.shortDuration, animations: animations, completion: animationCompletion)
+      UIView.animate(
+        withDuration: Animation.shortDuration,
+        animations: animations,
+        completion: animationCompletion
+      )
     } else {
       animations()
       animationCompletion(true)
@@ -274,6 +308,11 @@ open class ViewStateController<
 extension ViewStateController where LoadingViewController: DefaultLoadingViewController {
   open func showLoading(animated: Bool) {
     let loadingViewModel = DefaultLoadingViewController.ViewModel()
-    self.transition(to: .loading(loadingViewModel), from: self.viewState, animated: animated, completion: nil)
+    self.transition(
+      to: .loading(loadingViewModel),
+      from: self.viewState,
+      animated: animated,
+      completion: nil
+    )
   }
 }

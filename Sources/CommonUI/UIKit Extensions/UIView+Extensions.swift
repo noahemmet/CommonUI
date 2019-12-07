@@ -76,7 +76,7 @@ extension UIView {
     path.addRoundedRect(in: maskRect, cornerWidth: cornerRadius, cornerHeight: cornerRadius)
 
     maskLayer.path = path
-    if (invert) {
+    if invert {
       maskLayer.fillRule = .evenOdd
     }
     layer.mask = maskLayer

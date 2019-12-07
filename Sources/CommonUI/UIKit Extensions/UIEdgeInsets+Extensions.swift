@@ -23,8 +23,18 @@ public extension UIEdgeInsets {
   }
   
   /// Replaces given values
-  func replacing(top: CGFloat? = nil, left: CGFloat? = nil, bottom: CGFloat? = nil, right: CGFloat? = nil) -> UIEdgeInsets {
-    return UIEdgeInsets(top: top ?? self.top, left: left ?? self.left, bottom: bottom ?? self.bottom, right: right ?? self.right)
+  func replacing(
+    top: CGFloat? = nil,
+    left: CGFloat? = nil,
+    bottom: CGFloat? = nil,
+    right: CGFloat? = nil
+  ) -> UIEdgeInsets {
+    return UIEdgeInsets(
+      top: top ?? self.top,
+      left: left ?? self.left,
+      bottom: bottom ?? self.bottom,
+      right: right ?? self.right
+    )
   }
   
   var inverted: UIEdgeInsets {

@@ -98,10 +98,16 @@ struct PostSection: SectionControlling {
   var headerViewModel: HeaderViewModel?
   var textViewModels: [TextViewModel]
   var itemControllers: [ItemControlling] {
-    var itemControllers: [ItemControlling] = textViewModels.map { DefaultItemController(item: $0, viewType: TextView.self) }
+    var itemControllers: [ItemControlling] = textViewModels.map { DefaultItemController(
+      item: $0,
+      viewType: TextView.self
+    ) }
     if let headerViewModel = headerViewModel {
       print("append")
-      let headerItemController = DefaultItemController(item: headerViewModel, viewType: HeaderView.self) 
+      let headerItemController = DefaultItemController(
+        item: headerViewModel,
+        viewType: HeaderView.self
+      ) 
       itemControllers.append(headerItemController)
     }
     return itemControllers
@@ -117,7 +123,10 @@ struct PhotoPostSection: SectionControlling {
   var imageViewModel: ImageViewModel
   var textViewModels: [TextViewModel]
   var itemControllers: [ItemControlling] {
-    var itemControllers: [ItemControlling] = textViewModels.map { DefaultItemController(item: $0, viewType: TextView.self) }
+    var itemControllers: [ItemControlling] = textViewModels.map { DefaultItemController(
+      item: $0,
+      viewType: TextView.self
+    ) }
     itemControllers.append(DefaultItemController(item: imageViewModel, viewType: ImageView.self))
     return itemControllers
   }
@@ -128,8 +137,14 @@ struct PhotoPostSection: SectionControlling {
 class TimelineListController: ListControlling {
   var sectionControllers: [SectionControlling]
   init(viewModel: TimelineViewModel) {
-    let postSections: [SectionControlling] = viewModel.postViewModels.map { PostSection(headerViewModel: $0.headerViewModel, textViewModels: $0.textViewModels) }
-    let photoPostSections: [SectionControlling] = viewModel.photoPostViewModels.map { PhotoPostSection(imageViewModel: $0.imageViewModel, textViewModels: $0.textViewModels) }
+    let postSections: [SectionControlling] = viewModel.postViewModels.map { PostSection(
+      headerViewModel: $0.headerViewModel,
+      textViewModels: $0.textViewModels
+    ) }
+    let photoPostSections: [SectionControlling] = viewModel.photoPostViewModels.map { PhotoPostSection(
+      imageViewModel: $0.imageViewModel,
+      textViewModels: $0.textViewModels
+    ) }
     self.sectionControllers = postSections + photoPostSections
   }
 }
@@ -139,10 +154,19 @@ let headerViewModel1 = HeaderViewModel(headerText: "HeaderViewModel")
 let textViewModel1 = TextViewModel(text: "TextViewModel 1")
 let textViewModel2 = TextViewModel(text: "TextViewModel 2")
 let textViewModel3 = TextViewModel(text: "TextViewModel 3")
-let postViewModel = PostViewModel(headerViewModel: headerViewModel1, textViewModels: [textViewModel1, textViewModel2])
+let postViewModel = PostViewModel(
+  headerViewModel: headerViewModel1,
+  textViewModels: [textViewModel1, textViewModel2]
+)
 let imageViewModel = ImageViewModel(image: nil)
-let photoPostViewModel = PhotoPostViewModel(imageViewModel: imageViewModel, textViewModels: [textViewModel1, textViewModel3])
-let timelineViewModel = TimelineViewModel(postViewModels: [postViewModel], photoPostViewModels: [photoPostViewModel])
+let photoPostViewModel = PhotoPostViewModel(
+  imageViewModel: imageViewModel,
+  textViewModels: [textViewModel1, textViewModel3]
+)
+let timelineViewModel = TimelineViewModel(
+  postViewModels: [postViewModel],
+  photoPostViewModels: [photoPostViewModel]
+)
 let timelineListController = TimelineListController(viewModel: timelineViewModel)
 
 let defaultListViewController = DefaultListViewController(listController: timelineListController)

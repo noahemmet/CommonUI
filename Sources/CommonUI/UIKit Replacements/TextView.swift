@@ -86,10 +86,12 @@ open class TextView: UITextView, ViewModelConfigurable {
   }
   
   func commonInit() {
-    NotificationCenter.default.addObserver(self,
-                                           selector: #selector(textDidChange),
-                                           name: UITextView.textDidChangeNotification,
-                                           object: nil)
+    NotificationCenter.default.addObserver(
+      self,
+      selector: #selector(textDidChange),
+      name: UITextView.textDidChangeNotification,
+      object: nil
+    )
     // removes padding
     textContainer.lineFragmentPadding = 0
     
@@ -132,8 +134,10 @@ open class TextView: UITextView, ViewModelConfigurable {
   }
   
   deinit {
-    NotificationCenter.default.removeObserver(self,
-                                              name: UITextView.textDidChangeNotification,
-                                              object: nil)
+    NotificationCenter.default.removeObserver(
+      self,
+      name: UITextView.textDidChangeNotification,
+      object: nil
+    )
   }
 }

@@ -31,17 +31,34 @@ public enum Animation {
 extension Animation {
   /// 0.4 seconds
   public static let minimumDelay: TimeInterval = 0.4
-  public static func afterMinimumDelay(_ delay: TimeInterval = minimumDelay, handler: @escaping () -> Void) {
+  public static func afterMinimumDelay(
+    _ delay: TimeInterval = minimumDelay,
+    handler: @escaping () -> Void
+  ) {
     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + delay, execute: handler)
   }
 }
 
 extension UIView {
   public static func spring(delay: TimeInterval = 0, animations: @escaping () -> Void) {
-    UIView.animate(withDuration: Animation.defaultDuration, delay: delay, usingSpringWithDamping: 1, initialSpringVelocity: 0.4, options: [], animations: animations, completion: nil)
+    UIView.animate(
+      withDuration: Animation.defaultDuration,
+      delay: delay,
+      usingSpringWithDamping: 1,
+      initialSpringVelocity: 0.4,
+      options: [],
+      animations: animations,
+      completion: nil
+    )
   }
 
-  public func bounceScale(to scale: CGFloat, duration: TimeInterval? = nil, dampingRatio: CGFloat = 3, firstAnimation: (() -> Void)? = nil, secondAnimation: (() -> Void)? = nil) {
+  public func bounceScale(
+    to scale: CGFloat,
+    duration: TimeInterval? = nil,
+    dampingRatio: CGFloat = 3,
+    firstAnimation: (() -> Void)? = nil,
+    secondAnimation: (() -> Void)? = nil
+  ) {
     let duration = duration ?? Animation.defaultDuration
     guard duration > 0 else {
       firstAnimation?()
@@ -53,7 +70,10 @@ extension UIView {
       firstAnimation?()
     }
     firstAnimator.addCompletion { _ in
-      let secondAnimator = UIViewPropertyAnimator(duration: duration * 2, dampingRatio: dampingRatio) { 
+      let secondAnimator = UIViewPropertyAnimator(
+        duration: duration * 2,
+        dampingRatio: dampingRatio
+      ) { 
         self.transform = .identity
         secondAnimation?()
       }

@@ -51,7 +51,13 @@ class ViewWrapper<Wrapped: UIView>: UIView {
     if let highlightableView = wrappedView as? UIView & ViewHighlightable {
       return SelectionAnimator(view: highlightableView, containerView: self)
     } else {
-      return SelectionAnimator(scalingView: wrappedView, highlightableView: self, containerView: self, highlightColor: highlightColor, nonHighlightColor: nonHighlightColor)
+      return SelectionAnimator(
+        scalingView: wrappedView,
+        highlightableView: self,
+        containerView: self,
+        highlightColor: highlightColor,
+        nonHighlightColor: nonHighlightColor
+      )
     }
   }()
   

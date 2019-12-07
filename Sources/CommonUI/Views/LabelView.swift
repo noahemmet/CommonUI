@@ -15,7 +15,11 @@ public class LabelView: UIView, ViewModelConfigurable {
     public let textColor: UIColor
     public let font: UIFont
     
-    public init(text: String, textColor: UIColor = AppStyle.primaryText, font: UIFont = UIFont.preferredFont(forTextStyle: .body)) {
+    public init(
+      text: String,
+      textColor: UIColor = AppStyle.primaryText,
+      font: UIFont = UIFont.preferredFont(forTextStyle: .body)
+    ) {
       self.text = text
       self.textColor = textColor
       self.font = font

@@ -30,7 +30,13 @@ public struct SelectionAnimator {
     self.nonHighlightColor = view.nonHighlightColor
   }
   
-  public init(scalingView: UIView, highlightableView: UIView, containerView: UIView, highlightColor: UIColor, nonHighlightColor: UIColor) {
+  public init(
+    scalingView: UIView,
+    highlightableView: UIView,
+    containerView: UIView,
+    highlightColor: UIColor,
+    nonHighlightColor: UIColor
+  ) {
     self.scalingView = scalingView
     self.highlightableViews = [highlightableView]
     self.containerView = containerView

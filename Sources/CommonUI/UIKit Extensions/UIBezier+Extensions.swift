@@ -37,7 +37,9 @@ public extension UIBezierPath {
   }
   
   static func from(data: Data) throws -> UIBezierPath {
-    let bezierPath = try NSKeyedUnarchiver.unarchivedObject(ofClass: UIBezierPath.self, from: data).unwrap(orThrow: ThrownError(CodingError.unknown))
+    let bezierPath = try NSKeyedUnarchiver.unarchivedObject(ofClass: UIBezierPath.self, from: data).unwrap(
+      orThrow: ThrownError(CodingError.unknown)
+    )
     return bezierPath
   }
   

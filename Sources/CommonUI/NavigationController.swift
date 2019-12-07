@@ -76,13 +76,22 @@ public class NavigationController: UINavigationController {
     return popSlideToggle ?? true
   }
   
-  public func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+  public func navigationController(
+    _ navigationController: UINavigationController,
+    willShow viewController: UIViewController,
+    animated: Bool
+  ) {
     //		self.isSlideToPopEnabled = self.isPopSlideEnabled(for: viewController)
   }
 }
 
 extension NavigationController: UINavigationControllerDelegate {
-  public func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+  public func navigationController(
+    _ navigationController: UINavigationController,
+    animationControllerFor operation: UINavigationController.Operation,
+    from fromVC: UIViewController,
+    to toVC: UIViewController
+  ) -> UIViewControllerAnimatedTransitioning? {
     guard isSlideToPopEnabled else { return nil }
     
     switch operation {
@@ -99,7 +108,10 @@ extension NavigationController: UINavigationControllerDelegate {
     }
   }
   
-  public func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+  public func navigationController(
+    _ navigationController: UINavigationController,
+    interactionControllerFor animationController: UIViewControllerAnimatedTransitioning
+  ) -> UIViewControllerInteractiveTransitioning? {
     guard isSlideToPopEnabled else { return nil }
     if animationController is SlidingPopTransition {
       return interactivePopTransition
@@ -116,8 +128,12 @@ class SlidingPopTransition: NSObject, UIViewControllerAnimatedTransitioning {
   
   func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
     guard
-      let fromViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from),
-      let toViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)
+      let fromViewController = transitionContext.viewController(
+        forKey: UITransitionContextViewControllerKey.from
+      ),
+      let toViewController = transitionContext.viewController(
+        forKey: UITransitionContextViewControllerKey.to
+      )
     else {
       return
     }
@@ -131,7 +147,14 @@ class SlidingPopTransition: NSObject, UIViewControllerAnimatedTransitioning {
     initialToFrame.origin.y = toViewController.view.frame.origin.y
     toViewController.view.frame = initialToFrame
     
-    let dimmingView = UIView(frame: CGRect(x: 0, y: 0, width: toViewController.view.frame.width, height: toViewController.view.frame.height))
+    let dimmingView = UIView(
+      frame: CGRect(
+        x: 0,
+        y: 0,
+        width: toViewController.view.frame.width,
+        height: toViewController.view.frame.height
+      )
+    )
     dimmingView.backgroundColor = UIColor.black
     dimmingView.alpha = 0.3
     toViewController.view.addSubview(dimmingView)
@@ -143,7 +166,12 @@ class SlidingPopTransition: NSObject, UIViewControllerAnimatedTransitioning {
       animations: {
         dimmingView.alpha = 0
         toViewController.view.frame = transitionContext.finalFrame(for: toViewController)
-        fromViewController.view.frame = CGRect(x: toViewController.view.frame.size.width, y: fromViewController.view.frame.origin.y, width: fromViewController.view.frame.size.width, height: fromViewController.view.frame.size.height)
+        fromViewController.view.frame = CGRect(
+          x: toViewController.view.frame.size.width,
+          y: fromViewController.view.frame.origin.y,
+          width: fromViewController.view.frame.size.width,
+          height: fromViewController.view.frame.size.height
+        )
       }, completion: { finished in
         dimmingView.removeFromSuperview()
         transitionContext.completeTransition(!transitionContext.transitionWasCancelled)

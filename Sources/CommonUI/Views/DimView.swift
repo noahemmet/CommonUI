@@ -35,7 +35,10 @@ public class DimView: UIView {
   private func commonInit() {
     backgroundColor = UIColor(white: 0.0, alpha: 0.4) // mimic the default dimmingviews as close as possible
     
-    let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+    let tapGestureRecognizer = UITapGestureRecognizer(
+      target: self,
+      action: #selector(handleTap(_:))
+    )
     tapGestureRecognizer.cancelsTouchesInView = false
     addGestureRecognizer(tapGestureRecognizer)
   }

@@ -12,7 +12,12 @@ import Common
 
 // MARK: - ViewState
 
-public typealias CustomSuccessViewState<SuccessViewModel> = ViewState<SuccessViewModel, CustomSuccessViewStateError, DefaultLoadingViewController.ViewModel, DefaultEmptyViewController.ViewModel>
+public typealias CustomSuccessViewState<SuccessViewModel> = ViewState<
+  SuccessViewModel,
+  CustomSuccessViewStateError,
+  DefaultLoadingViewController.ViewModel,
+  DefaultEmptyViewController.ViewModel
+>
 
 public enum ViewState<SuccessViewModel, E: Error, LoadingViewModel, EmptyViewModel> {
   case success(SuccessViewModel)

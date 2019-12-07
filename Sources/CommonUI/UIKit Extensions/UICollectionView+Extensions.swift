@@ -17,7 +17,10 @@ public extension UICollectionView {
   }
   
   func registerCell<V: UIView & ViewModelConfigurable>(wrapping type: V.Type) {
-    self.register(WrapperCollectionCell<V>.self, forCellWithReuseIdentifier: String(describing: type))
+    self.register(
+      WrapperCollectionCell<V>.self,
+      forCellWithReuseIdentifier: String(describing: type)
+    )
   }
   
   func registerCellFromNib<C: UICollectionViewCell>(ofType type: C.Type) {
@@ -32,7 +35,11 @@ public extension UICollectionView {
   
   func registerReusableView<V: UIView & ViewModelConfigurable>(wrapping type: V.Type) {
     let identifier = String(describing: type)
-    self.register(WrapperCollectionReusableView<V>.self, forSupplementaryViewOfKind: identifier, withReuseIdentifier: identifier)
+    self.register(
+      WrapperCollectionReusableView<V>.self,
+      forSupplementaryViewOfKind: identifier,
+      withReuseIdentifier: identifier
+    )
   }
   
   func registerReusableView<V: UIView>(ofType type: V.Type) {
@@ -43,24 +50,44 @@ public extension UICollectionView {
   // MARK: Dequeument
   
   func dequeueCell<C: UICollectionViewCell>(ofType type: C.Type, at indexPath: IndexPath) -> C {
-    let cell = self.dequeueReusableCell(withReuseIdentifier: String(describing: type), for: indexPath) as! C
+    let cell = self.dequeueReusableCell(
+      withReuseIdentifier: String(describing: type),
+      for: indexPath
+    ) as! C
     return cell
   }
   
-  func dequeueCell<V: UIView & ViewModelConfigurable>(wrapping type: V.Type, at indexPath: IndexPath) -> WrapperCollectionCell<V> {
-    let cell: WrapperCollectionCell<V> = self.dequeueReusableCell(withReuseIdentifier: String(describing: type), for: indexPath) as! WrapperCollectionCell
+  func dequeueCell<V: UIView & ViewModelConfigurable>(
+    wrapping type: V.Type,
+    at indexPath: IndexPath
+  ) -> WrapperCollectionCell<V> {
+    let cell: WrapperCollectionCell<V> = self.dequeueReusableCell(
+      withReuseIdentifier: String(describing: type),
+      for: indexPath
+    ) as! WrapperCollectionCell
     return cell
   }
   
   func dequeueReusableView<V: UIView>(ofType type: V.Type, at indexPath: IndexPath) -> V {
     let identifier = String(describing: type)
-    let view: V = dequeueReusableSupplementaryView(ofKind: identifier, withReuseIdentifier: identifier, for: indexPath) as! V
+    let view: V = dequeueReusableSupplementaryView(
+      ofKind: identifier,
+      withReuseIdentifier: identifier,
+      for: indexPath
+    ) as! V
     return view
   }
   
-  func dequeueReusableView<V: UIView & ViewModelConfigurable>(wrapping type: V.Type, at indexPath: IndexPath) -> WrapperCollectionReusableView<V> {
+  func dequeueReusableView<V: UIView & ViewModelConfigurable>(
+    wrapping type: V.Type,
+    at indexPath: IndexPath
+  ) -> WrapperCollectionReusableView<V> {
     let identifier = String(describing: type)
-    let view: WrapperCollectionReusableView<V> = dequeueReusableSupplementaryView(ofKind: identifier, withReuseIdentifier: identifier, for: indexPath) as! WrapperCollectionReusableView
+    let view: WrapperCollectionReusableView<V> = dequeueReusableSupplementaryView(
+      ofKind: identifier,
+      withReuseIdentifier: identifier,
+      for: indexPath
+    ) as! WrapperCollectionReusableView
     return view
   }
   

@@ -21,11 +21,13 @@ public extension UIColor {
   
   func adjust(by percentage: CGFloat) -> UIColor! {
     var r: CGFloat = 0, g: CGFloat = 0, b: CGFloat = 0, a: CGFloat = 0;
-    if (self.getRed(&r, green: &g, blue: &b, alpha: &a)) {
-      return UIColor(red: min(r + percentage / 100, 1.0),
-                     green: min(g + percentage / 100, 1.0),
-                     blue: min(b + percentage / 100, 1.0),
-                     alpha: a)
+    if self.getRed(&r, green: &g, blue: &b, alpha: &a) {
+      return UIColor(
+        red: min(r + percentage / 100, 1.0),
+        green: min(g + percentage / 100, 1.0),
+        blue: min(b + percentage / 100, 1.0),
+        alpha: a
+      )
     } else {
       return nil
     }
@@ -41,7 +43,12 @@ public extension UIColor {
     
     var hue: CGFloat = 0.0, saturation: CGFloat = 0.0, brightness: CGFloat = 0.0
     if self.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha) {
-      return UIColor(hue: 1.0 - hue, saturation: 1.0 - saturation, brightness: 1.0 - brightness, alpha: alpha)
+      return UIColor(
+        hue: 1.0 - hue,
+        saturation: 1.0 - saturation,
+        brightness: 1.0 - brightness,
+        alpha: alpha
+      )
     }
     
     var red: CGFloat = 0.0, green: CGFloat = 0.0, blue: CGFloat = 0.0
@@ -55,7 +62,7 @@ public extension UIColor {
   
   func shuffled(within maxPercentage: CGFloat) -> UIColor! {
     var r: CGFloat = 0, g: CGFloat = 0, b: CGFloat = 0, a: CGFloat = 0;
-    if (self.getRed(&r, green: &g, blue: &b, alpha: &a)) {
+    if self.getRed(&r, green: &g, blue: &b, alpha: &a) {
       let rSign: CGFloat = Bool.random() ? 1 : -1
       let rPercentage: CGFloat = CGFloat.random(in: 0..<maxPercentage) * rSign
       let gSign: CGFloat = Bool.random() ? 1 : -1
@@ -65,10 +72,12 @@ public extension UIColor {
       let red = min(r + rPercentage / 100, 1.0)
       let green = min(g + gPercentage / 100, 1.0)
       let blue = min(b + bPercentage / 100, 1.0)
-      return UIColor(red: red,
-                     green: green,
-                     blue: blue,
-                     alpha: a)
+      return UIColor(
+        red: red,
+        green: green,
+        blue: blue,
+        alpha: a
+      )
     } else {
       return nil
     }

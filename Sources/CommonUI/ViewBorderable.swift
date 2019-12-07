@@ -43,22 +43,30 @@ public extension UIView {
   static let defaultRowInset: CGFloat = 16
   
   var topLeadingBorderConstraint: NSLayoutConstraint! {
-    let constraint = self.constraints.first(where: {$0.identifier == UIView.topLeadingBorderConstraintKey })
+    let constraint = self.constraints.first(
+      where: {$0.identifier == UIView.topLeadingBorderConstraintKey }
+    )
     return constraint
   }
   
   var topTrailingBorderConstraint: NSLayoutConstraint! {
-    let constraint = self.constraints.first(where: {$0.identifier == UIView.topTrailingBorderConstraintKey })
+    let constraint = self.constraints.first(
+      where: {$0.identifier == UIView.topTrailingBorderConstraintKey }
+    )
     return constraint
   }
   
   var bottomLeadingBorderConstraint: NSLayoutConstraint! {
-    let constraint = self.constraints.first(where: {$0.identifier == UIView.bottomLeadingBorderConstraintKey })
+    let constraint = self.constraints.first(
+      where: {$0.identifier == UIView.bottomLeadingBorderConstraintKey }
+    )
     return constraint
   }
   
   var bottomTrailingBorderConstraint: NSLayoutConstraint! {
-    let constraint = self.constraints.first(where: {$0.identifier == UIView.bottomTrailingBorderConstraintKey })
+    let constraint = self.constraints.first(
+      where: {$0.identifier == UIView.bottomTrailingBorderConstraintKey }
+    )
     return constraint
   }
   
@@ -72,7 +80,12 @@ public extension UIView {
     return border
   }
   
-  private func configureInsetConstraints(topLeading: CGFloat, bottomLeading: CGFloat, topTrailing: CGFloat = 0, bottomTrailing: CGFloat = 0) {
+  private func configureInsetConstraints(
+    topLeading: CGFloat,
+    bottomLeading: CGFloat,
+    topTrailing: CGFloat = 0,
+    bottomTrailing: CGFloat = 0
+  ) {
     topLeadingBorderConstraint.constant = topLeading
     topTrailingBorderConstraint.constant = topTrailing
     bottomLeadingBorderConstraint.constant = bottomLeading
@@ -81,23 +94,65 @@ public extension UIView {
   
   // TableView
   
-  func configureBorders(at indexPath: IndexPath, in tableView: UITableView, top: Border.Visibility = .automatic, bottom: Border.Visibility = .automatic, rowInset leadingRowInset: CGFloat? = nil) {
-    configureBorders(at: indexPath, totalRows: tableView.numberOfRows(inSection: indexPath.section), top: top, bottom: bottom, rowInset: leadingRowInset ?? tableView.layoutMargins.left)
+  func configureBorders(
+    at indexPath: IndexPath,
+    in tableView: UITableView,
+    top: Border.Visibility = .automatic,
+    bottom: Border.Visibility = .automatic,
+    rowInset leadingRowInset: CGFloat? = nil
+  ) {
+    configureBorders(
+      at: indexPath,
+      totalRows: tableView.numberOfRows(inSection: indexPath.section),
+      top: top,
+      bottom: bottom,
+      rowInset: leadingRowInset ?? tableView.layoutMargins.left
+    )
   }
   
   // CollectionView
   
-  func configureBorders(at indexPath: IndexPath, in collectionView: UICollectionView, top: Border.Visibility = .automatic, bottom: Border.Visibility = .automatic, rowInset leadingRowInset: CGFloat? = nil) {
-    configureBorders(at: indexPath, totalRows: collectionView.numberOfItems(inSection: indexPath.section), top: top, bottom: bottom, rowInset: leadingRowInset)
+  func configureBorders(
+    at indexPath: IndexPath,
+    in collectionView: UICollectionView,
+    top: Border.Visibility = .automatic,
+    bottom: Border.Visibility = .automatic,
+    rowInset leadingRowInset: CGFloat? = nil
+  ) {
+    configureBorders(
+      at: indexPath,
+      totalRows: collectionView.numberOfItems(inSection: indexPath.section),
+      top: top,
+      bottom: bottom,
+      rowInset: leadingRowInset
+    )
   }
   
-  func configureBorders(at indexPath: IndexPath, totalRows: Int, top: Border.Visibility = .automatic, bottom: Border.Visibility = .automatic, rowInset leadingRowInset: CGFloat? = nil) {
+  func configureBorders(
+    at indexPath: IndexPath,
+    totalRows: Int,
+    top: Border.Visibility = .automatic,
+    bottom: Border.Visibility = .automatic,
+    rowInset leadingRowInset: CGFloat? = nil
+  ) {
     let isSectionStart = indexPath.row == 0
     let isSectionEnd = indexPath.row == totalRows - 1
-    self.configureBorders(sectionStart: isSectionStart, sectionEnd: isSectionEnd, top: top, bottom: bottom, rowInset: leadingRowInset)
+    self.configureBorders(
+      sectionStart: isSectionStart,
+      sectionEnd: isSectionEnd,
+      top: top,
+      bottom: bottom,
+      rowInset: leadingRowInset
+    )
   }
   
-  func configureBorders(sectionStart: Bool, sectionEnd: Bool, top: Border.Visibility = .automatic, bottom: Border.Visibility = .automatic, rowInset leadingRowInset: CGFloat? = nil) {
+  func configureBorders(
+    sectionStart: Bool,
+    sectionEnd: Bool,
+    top: Border.Visibility = .automatic,
+    bottom: Border.Visibility = .automatic,
+    rowInset leadingRowInset: CGFloat? = nil
+  ) {
     // In general, show the top border instead of the bottom one.
     _ = self.findOrCreateBorders()
     let topLeading: CGFloat
@@ -166,13 +221,16 @@ public extension UIView {
     border.tag = ViewTags.topBorder
     border.translatesAutoresizingMaskIntoConstraints = false
     addSubview(border)
-    let heightConstraint = border.heightAnchor.constraint(equalToConstant: UIView.defaultSectionBorderThickness)
+    let heightConstraint = border.heightAnchor.constraint(
+      equalToConstant: UIView.defaultSectionBorderThickness
+    )
     let topConstraint = border.topAnchor.constraint(equalTo: topAnchor, constant: 0)
     let leadingConstraint = border.leadingAnchor.constraint(equalTo: leadingAnchor)
     leadingConstraint.identifier = UIView.topLeadingBorderConstraintKey
     let trailingConstraint = border.trailingAnchor.constraint(equalTo: trailingAnchor)
     trailingConstraint.identifier = UIView.topTrailingBorderConstraintKey
-    NSLayoutConstraint.activate([heightConstraint, topConstraint, leadingConstraint, trailingConstraint])
+    NSLayoutConstraint.activate([heightConstraint, topConstraint, leadingConstraint,
+                                 trailingConstraint])
     return border
   }
   
@@ -182,13 +240,16 @@ public extension UIView {
     border.tag = ViewTags.bottomBorder
     border.translatesAutoresizingMaskIntoConstraints = false
     addSubview(border)
-    let heightConstraint = border.heightAnchor.constraint(equalToConstant: UIView.defaultSectionBorderThickness)
+    let heightConstraint = border.heightAnchor.constraint(
+      equalToConstant: UIView.defaultSectionBorderThickness
+    )
     let bottomConstraint = border.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0)
     let leadingConstraint = border.leadingAnchor.constraint(equalTo: leadingAnchor)
     leadingConstraint.identifier = UIView.bottomLeadingBorderConstraintKey
     let trailingConstraint = border.trailingAnchor.constraint(equalTo: trailingAnchor)
     trailingConstraint.identifier = UIView.bottomTrailingBorderConstraintKey
-    NSLayoutConstraint.activate([heightConstraint, bottomConstraint, leadingConstraint, trailingConstraint])
+    NSLayoutConstraint.activate([heightConstraint, bottomConstraint, leadingConstraint,
+                                 trailingConstraint])
     return border
   }
 }

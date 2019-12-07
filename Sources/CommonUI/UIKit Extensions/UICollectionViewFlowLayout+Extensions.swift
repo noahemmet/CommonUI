@@ -11,11 +11,11 @@ import UIKit
 
 public extension UICollectionViewFlowLayout {
   // MARK: Registration
-  
+
   func registerDecorationView<V: UIView & ViewModelConfigurable>(ofType type: V.Type) {
     let identifier = String(describing: type)
     self.register(WrapperCollectionReusableView<V>.self, forDecorationViewOfKind: identifier)
   }
-  
+
   // MARK: Dequeument
 }

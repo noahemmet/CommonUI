@@ -13,9 +13,24 @@ import Common
 public typealias TouchStream = [String: TouchPoint]
 
 public protocol SystemTouchConverterDelegate: class {
-  func touchConverter(_ touchConverter: SystemTouchConverter, didBegin newStreams: TouchStream, current: TouchStream, previous: TouchStream)
-  func touchConverter(_ touchConverter: SystemTouchConverter, didMove movedStreams: TouchStream, current: TouchStream, previous: TouchStream)
-  func touchConverter(_ touchConverter: SystemTouchConverter, didEnd endedStreams: TouchStream, current: TouchStream, previous: TouchStream)
+  func touchConverter(
+    _ touchConverter: SystemTouchConverter,
+    didBegin newStreams: TouchStream,
+    current: TouchStream,
+    previous: TouchStream
+  )
+  func touchConverter(
+    _ touchConverter: SystemTouchConverter,
+    didMove movedStreams: TouchStream,
+    current: TouchStream,
+    previous: TouchStream
+  )
+  func touchConverter(
+    _ touchConverter: SystemTouchConverter,
+    didEnd endedStreams: TouchStream,
+    current: TouchStream,
+    previous: TouchStream
+  )
 }
 
 public class SystemTouchConverter: SystemTouchableViewDelegate {
@@ -26,8 +41,13 @@ public class SystemTouchConverter: SystemTouchableViewDelegate {
   
   public static func touchStream(from uiTouches: Set<UITouch>) -> TouchStream {
     let uiTouchArray = Array(uiTouches)
-    let touchPointsByAddress: [(String, TouchPoint)] = uiTouchArray.map { ($0.address, TouchPoint($0)) }
-    let touchPointsByAddressDict: [String: TouchPoint] = Dictionary(uniqueKeysWithValues: touchPointsByAddress)
+    let touchPointsByAddress: [(String, TouchPoint)] = uiTouchArray.map { (
+      $0.address,
+      TouchPoint($0)
+    ) }
+    let touchPointsByAddressDict: [String: TouchPoint] = Dictionary(
+      uniqueKeysWithValues: touchPointsByAddress
+    )
     return touchPointsByAddressDict
   }
   

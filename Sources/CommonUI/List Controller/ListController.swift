@@ -35,7 +35,10 @@ public class CollectionListDataSource<ListController: ListControlling>: NSObject
     return listController.sectionControllers.count
   }
 
-  public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+  public func collectionView(
+    _ collectionView: UICollectionView,
+    numberOfItemsInSection section: Int
+  ) -> Int {
     let sectionController = listController.sectionControllers[section]
     return sectionController.itemControllers.count
   }
@@ -81,22 +84,36 @@ public struct SingleTypeSectionController<View: UIView & ViewModelConfigurable>:
   public var itemControllers: [ItemControlling]
 
   public init<ViewModel>(items: [ViewModel], viewType: View.Type, drawBorders: Bool = true) where ViewModel == View.ViewModel {
-    self.itemControllers = items.map { DefaultItemController<View>.init(item: $0, viewType: viewType, drawBorders: drawBorders) }
+    self.itemControllers = items.map { DefaultItemController<View>.init(
+      item: $0,
+      viewType: viewType,
+      drawBorders: drawBorders
+    ) }
   }
 }
 
 public struct DefaultItemController<View: UIView & ViewModelConfigurable>: ItemControlling {
-  public typealias Configuration = (View.ViewModel, View, WrapperCollectionCell<View>, UICollectionView, IndexPath) -> Void
+  public typealias Configuration = (
+    View.ViewModel,
+    View,
+    WrapperCollectionCell<View>,
+    UICollectionView,
+    IndexPath
+  ) -> Void
   public let item: View.ViewModel
   public var configure: Configuration?
   public var drawBorders: Bool
   public var isSelectable: Bool
 
-  public init(item: View.ViewModel, 
-              viewType: View.Type, 
-              drawBorders: Bool = true,
-              isSelectable: Bool = true,
-              configure: Configuration? = nil) {
+  public init(
+    item: View.ViewModel,
+
+    viewType: View.Type,
+
+    drawBorders: Bool = true,
+    isSelectable: Bool = true,
+    configure: Configuration? = nil
+  ) {
     self.item = item
     self.drawBorders = drawBorders
     self.isSelectable = isSelectable
@@ -139,8 +156,11 @@ public class DefaultListViewController<ListController: ListControlling>: UIViewC
   public var listController: ListController
   public let collectionView: UICollectionView
 
-  public init(listController: ListController, 
-              collectionViewLayout: UICollectionViewLayout = DefaultListViewController.defaultFlowLayout()) {
+  public init(
+    listController: ListController,
+
+    collectionViewLayout: UICollectionViewLayout = DefaultListViewController.defaultFlowLayout()
+  ) {
     self.listController = listController
     self.collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
     super.init(nibName: nil, bundle: nil)
@@ -163,7 +183,10 @@ public class DefaultListViewController<ListController: ListControlling>: UIViewC
     return listController.sectionControllers.count
   }
 
-  public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+  public func collectionView(
+    _ collectionView: UICollectionView,
+    numberOfItemsInSection section: Int
+  ) -> Int {
     let sectionController = listController.sectionControllers[section]
     return sectionController.itemControllers.count
   }
