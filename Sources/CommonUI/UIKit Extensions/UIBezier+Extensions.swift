@@ -26,34 +26,34 @@ public extension UIBezierPath {
 //            return nil
 //        }
 //    }
+  
+  enum CodingError: Error {
+    case unknown
+  }
+  
+  func data() throws -> Data {
+    let data = try NSKeyedArchiver.archivedData(withRootObject: self, requiringSecureCoding: false)
+    return data
+  }
+  
+  static func from(data: Data) throws -> UIBezierPath {
+    let bezierPath = try NSKeyedUnarchiver.unarchivedObject(ofClass: UIBezierPath.self, from: data).unwrap(orThrow: ThrownError(CodingError.unknown))
+    return bezierPath
+  }
+  
+  
+  class func random(in frame: CGRect, curves curveRange: Range<Int>) -> UIBezierPath {
+    let bezier = UIBezierPath()
+    let firstPoint = CGPoint.random(in: frame)
+    bezier.move(to: firstPoint)
     
-    enum CodingError: Error {
-        case unknown
+    let numCurves = Int.random(in: curveRange)
+    for _ in 0 ..< numCurves {
+      bezier.addQuadCurve(to: CGPoint.random(in: frame), controlPoint: CGPoint.random(in: frame))
     }
-    
-    func data() throws -> Data {
-        let data = try NSKeyedArchiver.archivedData(withRootObject: self, requiringSecureCoding: false)
-        return data
-    }
-    
-    static func from(data: Data) throws -> UIBezierPath {
-        let bezierPath = try NSKeyedUnarchiver.unarchivedObject(ofClass: UIBezierPath.self, from: data).unwrap(orThrow: ThrownError(CodingError.unknown))
-        return bezierPath
-    }
-    
-    
-    class func random(in frame: CGRect, curves curveRange: Range<Int>) -> UIBezierPath {
-        let bezier = UIBezierPath()
-        let firstPoint = CGPoint.random(in: frame)
-        bezier.move(to: firstPoint)
-        
-        let numCurves = Int.random(in: curveRange)
-        for _ in 0 ..< numCurves {
-            bezier.addQuadCurve(to: CGPoint.random(in: frame), controlPoint: CGPoint.random(in: frame))
-        }
-        return bezier
-    }
-    
+    return bezier
+  }
+  
 //    func appendTouchEvent(_ touchEvent: TouchEvent) {
 //        switch touchEvent {
 //        case .initial(let current):
@@ -87,13 +87,13 @@ public extension UIBezierPath {
 //                bezierPath.addLine(to: point)
 //            }
 //            self.init(cgPath: bezierPath.cgPath)
-////        case .mixed(let events):
-////            let firstPath = UIBezierPath(drawEvent: events[0])!
-////            let bezierPaths: [UIBezierPath] = events.flatMap { UIBezierPath(drawEvent: $0) }
-////            for path in bezierPaths {
-////                firstPath.append(path)
-////            }
-////            self.init(cgPath: firstPath.cgPath)
+  ////        case .mixed(let events):
+  ////            let firstPath = UIBezierPath(drawEvent: events[0])!
+  ////            let bezierPaths: [UIBezierPath] = events.flatMap { UIBezierPath(drawEvent: $0) }
+  ////            for path in bezierPaths {
+  ////                firstPath.append(path)
+  ////            }
+  ////            self.init(cgPath: firstPath.cgPath)
 //        }
 //    }
 }

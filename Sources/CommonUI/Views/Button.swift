@@ -10,13 +10,13 @@ import Foundation
 import UIKit
 
 public class Button: UIButton {
-  
   public let spinner = UIActivityIndicatorView(frame: .zero)
   public private(set) var isProcessing: Bool = false {
     didSet {
       self.isUserInteractionEnabled = !isProcessing
     }
   }
+  
   public var onTap: (() -> Void)?
   
   public convenience init(highlightColor: UIColor, nonHighlightColor: UIColor) {
@@ -80,11 +80,12 @@ public class Button: UIButton {
   open var highlightColor: UIColor = AppStyle.tintHighlight {
     didSet { isHighlighted = false }
   }
+  
   open var nonHighlightColor: UIColor = AppStyle.tint {
     didSet { isHighlighted = false }
   }
   
-  override open var isHighlighted: Bool {
+  open override var isHighlighted: Bool {
     didSet {
       UIView.transition(with: self, duration: Animation.shortDuration, options: [], animations: {
         self.backgroundColor = self.isHighlighted ? self.highlightColor : self.nonHighlightColor

@@ -5,55 +5,55 @@ import CommonUI
 // ItemViewModels
 
 struct HeaderViewModel {
-    var headerText: String
+  var headerText: String
 }
 
 struct TextViewModel {
-    var text: String
+  var text: String
 }
 
 struct ImageViewModel {
-    var image: UIImage?
+  var image: UIImage?
 }
 
 // SectionViewModels
 
 struct PostViewModel {
-    var headerViewModel: HeaderViewModel?
-    var textViewModels: [TextViewModel]
+  var headerViewModel: HeaderViewModel?
+  var textViewModels: [TextViewModel]
 }
 
 struct PhotoPostViewModel {
-    var imageViewModel: ImageViewModel
-    var textViewModels: [TextViewModel]
+  var imageViewModel: ImageViewModel
+  var textViewModels: [TextViewModel]
 }
 
 // ListViewModel
 
 struct TimelineViewModel {
-    var postViewModels: [PostViewModel]
-    var photoPostViewModels: [PhotoPostViewModel]
+  var postViewModels: [PostViewModel]
+  var photoPostViewModels: [PhotoPostViewModel]
 }
 
 // ItemViews
 
 class HeaderView: UILabel, ViewModelConfigurable {
-    func configure(with viewModel: HeaderViewModel) {
-        self.text = viewModel.headerText
-        self.backgroundColor = .red
-    }
+  func configure(with viewModel: HeaderViewModel) {
+    self.text = viewModel.headerText
+    self.backgroundColor = .red
+  }
 }
 
 class TextView: UILabel, ViewModelConfigurable {
-    func configure(with viewModel: TextViewModel) {
-        self.text = viewModel.text
-    }
+  func configure(with viewModel: TextViewModel) {
+    self.text = viewModel.text
+  }
 }
 
 class ImageView: UIImageView, ViewModelConfigurable {
-    func configure(with viewModel: ImageViewModel) {
-        self.image = viewModel.image
-    }
+  func configure(with viewModel: ImageViewModel) {
+    self.image = viewModel.image
+  }
 }
 
 // ItemControllers
@@ -95,43 +95,43 @@ class ImageView: UIImageView, ViewModelConfigurable {
 // Section Controllers
 
 struct PostSection: SectionControlling {
-    var headerViewModel: HeaderViewModel?
-    var textViewModels: [TextViewModel]
-    var itemControllers: [ItemControlling] {
-        var itemControllers: [ItemControlling] = textViewModels.map { DefaultItemController(item: $0, viewType: TextView.self) }
-        if let headerViewModel = headerViewModel {
-           print("append")
-            let headerItemController = DefaultItemController(item: headerViewModel, viewType: HeaderView.self) 
-            itemControllers.append(headerItemController)
-        }
-        return itemControllers
+  var headerViewModel: HeaderViewModel?
+  var textViewModels: [TextViewModel]
+  var itemControllers: [ItemControlling] {
+    var itemControllers: [ItemControlling] = textViewModels.map { DefaultItemController(item: $0, viewType: TextView.self) }
+    if let headerViewModel = headerViewModel {
+      print("append")
+      let headerItemController = DefaultItemController(item: headerViewModel, viewType: HeaderView.self) 
+      itemControllers.append(headerItemController)
     }
-    
-    init(headerViewModel: HeaderViewModel?, textViewModels: [TextViewModel]) {
-        self.headerViewModel = headerViewModel
-        self.textViewModels = textViewModels
-    }
+    return itemControllers
+  }
+
+  init(headerViewModel: HeaderViewModel?, textViewModels: [TextViewModel]) {
+    self.headerViewModel = headerViewModel
+    self.textViewModels = textViewModels
+  }
 }
 
 struct PhotoPostSection: SectionControlling {
-    var imageViewModel: ImageViewModel
-    var textViewModels: [TextViewModel]
-    var itemControllers: [ItemControlling] {
-        var itemControllers: [ItemControlling] = textViewModels.map { DefaultItemController(item: $0, viewType: TextView.self) }
-        itemControllers.append(DefaultItemController(item: imageViewModel, viewType: ImageView.self))
-        return itemControllers
-    }
+  var imageViewModel: ImageViewModel
+  var textViewModels: [TextViewModel]
+  var itemControllers: [ItemControlling] {
+    var itemControllers: [ItemControlling] = textViewModels.map { DefaultItemController(item: $0, viewType: TextView.self) }
+    itemControllers.append(DefaultItemController(item: imageViewModel, viewType: ImageView.self))
+    return itemControllers
+  }
 }
 
 // ListController
 
 class TimelineListController: ListControlling {
-    var sectionControllers: [SectionControlling]
-    init(viewModel: TimelineViewModel) {
-        let postSections: [SectionControlling] = viewModel.postViewModels.map { PostSection(headerViewModel: $0.headerViewModel, textViewModels: $0.textViewModels) }
-        let photoPostSections: [SectionControlling] = viewModel.photoPostViewModels.map { PhotoPostSection(imageViewModel: $0.imageViewModel, textViewModels: $0.textViewModels) }
-        self.sectionControllers = postSections + photoPostSections
-    }
+  var sectionControllers: [SectionControlling]
+  init(viewModel: TimelineViewModel) {
+    let postSections: [SectionControlling] = viewModel.postViewModels.map { PostSection(headerViewModel: $0.headerViewModel, textViewModels: $0.textViewModels) }
+    let photoPostSections: [SectionControlling] = viewModel.photoPostViewModels.map { PhotoPostSection(imageViewModel: $0.imageViewModel, textViewModels: $0.textViewModels) }
+    self.sectionControllers = postSections + photoPostSections
+  }
 }
 
 // DefaultListViewController

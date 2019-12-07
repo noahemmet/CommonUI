@@ -10,15 +10,15 @@ import Foundation
 import UIKit
 
 public protocol ViewHighlightable {
-    var highlightColor: UIColor { get }
-    var nonHighlightColor: UIColor { get }
-    var highlightableViews: [UIView] { get }
-    var highlightableScalableView: UIView { get }
+  var highlightColor: UIColor { get }
+  var nonHighlightColor: UIColor { get }
+  var highlightableViews: [UIView] { get }
+  var highlightableScalableView: UIView { get }
 }
 
 public extension ViewHighlightable {
-	var highlightColor: UIColor { return AppStyle.highlight }
-	var nonHighlightColor: UIColor { return AppStyle.background }
+  var highlightColor: UIColor { return AppStyle.highlight }
+  var nonHighlightColor: UIColor { return AppStyle.background }
 }
 
 //extension UIView: ViewHighlightable {

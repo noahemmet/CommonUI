@@ -11,8 +11,8 @@ import UIKit
 import Common
 
 public extension UITabBarController {
-	var orderedTabBarItemViews: [UIView] {
-		let interactionViews = tabBar.subviews.filter({$0.isUserInteractionEnabled})
-		return interactionViews.sorted(by: {$0.frame.minX < $1.frame.minX})
-	}
+  var orderedTabBarItemViews: [UIView] {
+    let interactionViews = tabBar.subviews.filter({$0.isUserInteractionEnabled})
+    return interactionViews.sorted(by: {$0.frame.minX < $1.frame.minX})
+  }
 }

@@ -10,5 +10,5 @@ import Foundation
 import UIKit
 
 public extension UINavigationBar {
-    static let defaultHeight: CGFloat = 60
+  static let defaultHeight: CGFloat = 60
 }

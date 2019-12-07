@@ -12,16 +12,15 @@ import UIKit
 // MARK: - ViewModelConfigurable Protocol
 
 public protocol ViewModelConfigurable {
-    associatedtype ViewModel
-    func configure(with viewModel: ViewModel)
-	func tryConfigure(with viewModel: ViewModel) throws
+  associatedtype ViewModel
+  func configure(with viewModel: ViewModel)
+  func tryConfigure(with viewModel: ViewModel) throws
 }
 
 public extension ViewModelConfigurable {
-	
-	func tryConfigure(with viewModel: ViewModel) throws {
-		configure(with: viewModel)
-	}
+  func tryConfigure(with viewModel: ViewModel) throws {
+    configure(with: viewModel)
+  }
 }
 
 public typealias ViewControllerModelConfigurable = UIViewController & ViewModelConfigurable
@@ -32,8 +31,8 @@ public typealias ViewControllerErrorModelConfigurable = UIViewController & Error
 
 /// Probably won't work for Storyboards/Xibs
 public protocol ViewModelInitializable {
-    associatedtype ViewModel
-    init(with viewModel: ViewModel)
+  associatedtype ViewModel
+  init(with viewModel: ViewModel)
 }
 
 public typealias ViewControllerModelInitializable = UIViewController & ViewModelInitializable
@@ -41,7 +40,7 @@ public typealias ViewControllerModelInitializable = UIViewController & ViewModel
 // MARK: - Common UIKit
 
 extension UILabel: ViewModelConfigurable {
-    public func configure(with text: String) {
-        self.text = text
-    }
+  public func configure(with text: String) {
+    self.text = text
+  }
 }

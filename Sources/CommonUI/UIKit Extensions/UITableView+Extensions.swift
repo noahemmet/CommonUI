@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 
 public extension UITableView {
-  
   // MARK: Register Cells
   
   func registerCell<C: UITableViewCell>(ofType type: C.Type) {
@@ -103,16 +102,15 @@ public extension UITableView {
 // Misc
 
 public extension UITableView {
-  
   var lastIndexPath: IndexPath? {
     guard numberOfSections > 0 else {
       return nil
     }
-    let numRows = self.numberOfRows(inSection: numberOfSections-1)
+    let numRows = self.numberOfRows(inSection: numberOfSections - 1)
     guard numRows > 0 else {
       return nil
     }
-    let indexPath = IndexPath(row: numRows-1, section: numberOfSections-1)
+    let indexPath = IndexPath(row: numRows - 1, section: numberOfSections - 1)
     return indexPath
   }
   

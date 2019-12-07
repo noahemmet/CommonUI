@@ -10,6 +10,6 @@ import Foundation
 import UIKit
 
 public enum ViewTags {
-    public static let topBorder = 400
-    public static let bottomBorder = 401
+  public static let topBorder = 400
+  public static let bottomBorder = 401
 }

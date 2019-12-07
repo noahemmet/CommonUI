@@ -1,0 +1,7 @@
+--rules anyObjectProtocol, blankLinesAroundMark, blankLinesAtEndOfScope, blankLinesAtStartOfScope, blankLinesBetweenScopes, consecutiveSpaces, duplicateImports, emptyBraces, isEmpty, linebreakAtEndOfFile, redundantBreak, redundantExtensionACL, redundantInit, redundantLet, spaceAroundBraces, spaceAroundOperators, specifiers, todos, wrapArguments
+
+--indent 2
+--enable indent
+--header strip
+--enable trailingCommas
+--wrapcollections before-first

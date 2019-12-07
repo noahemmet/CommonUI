@@ -11,6 +11,7 @@ struct FixedLineLimitModifier: ViewModifier {
   init(limit: Int? = nil) {
     self.limit = limit
   }
+
   func body(content: Content) -> some View {
     content
       .lineLimit(2)

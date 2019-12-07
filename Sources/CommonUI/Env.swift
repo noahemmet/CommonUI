@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 public enum Env {
-	private static let flip: Bool = true
-	public static let v1: Bool = !flip
-	public static let v2: Bool = flip
+  private static let flip: Bool = true
+  public static let v1: Bool = !flip
+  public static let v2: Bool = flip
 }

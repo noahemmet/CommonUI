@@ -11,22 +11,20 @@ import UIKit
 import Common
 
 extension DefaultEmptyViewController {
-    public struct ViewModel {
-        public var text: String
-        
-        public init(text: String = "Empty") {
-            self.text = text
-        }
+  public struct ViewModel {
+    public var text: String
+
+    public init(text: String = "Empty") {
+      self.text = text
     }
+  }
 }
 
 public class DefaultEmptyViewController: UIViewController, ViewModelConfigurable {
-    public override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = AppStyle.emptyScreen
-    }
-    
-    public func configure(with viewModel: ViewModel) {
-        
-    }
+  public override func viewDidLoad() {
+    super.viewDidLoad()
+    view.backgroundColor = AppStyle.emptyScreen
+  }
+
+  public func configure(with viewModel: ViewModel) {}
 }

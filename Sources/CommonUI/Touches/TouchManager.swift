@@ -29,6 +29,7 @@ public class TouchManager {
       systemTouchConverter.reset()
     }
   }
+  
   private var currentTouchPoints: [TouchPoint] = []
   private let systemTouchConverter = SystemTouchConverter()
   
@@ -57,19 +58,19 @@ public class TouchManager {
 
 extension TouchManager: SystemTouchConverterDelegate {
   public func touchConverter(_ touchConverter: SystemTouchConverter, didBegin newStreams: TouchStream, current: TouchStream, previous: TouchStream) {
-    assert(newStreams.count > 0)
-    assert(current.count > 0)
+    assert(!newStreams.isEmpty)
+    assert(!current.isEmpty)
     handleNewStream(newStreams)
   }
   
   public func touchConverter(_ touchConverter: SystemTouchConverter, didMove movedStreams: TouchStream, current: TouchStream, previous: TouchStream) {
-    assert(movedStreams.count > 0)
-    assert(current.count > 0)
+    assert(!movedStreams.isEmpty)
+    assert(!current.isEmpty)
     handleMovedStream(movedStreams)
   }
   
   public func touchConverter(_ touchConverter: SystemTouchConverter, didEnd endedStreams: TouchStream, current: TouchStream, previous: TouchStream) {
-    assert(endedStreams.count > 0)
+    assert(!endedStreams.isEmpty)
     //        assert(current.count > 0)
     handleEndedStreams(current)
   }

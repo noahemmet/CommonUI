@@ -10,14 +10,14 @@ import UIKit
 import Common
 
 public extension UIScrollView {
-	var isScrolledToEnd: Bool {
-		let bottomEdge = contentOffset.y + bounds.size.height - contentInset.bottom
-		let isAtEnd = bottomEdge >= contentSize.height
-		return isAtEnd
-	}
-	
-	func scrollToEnd(plus extraY: CGFloat = 0, animated: Bool) {
-		let bottomOffset = CGPoint(x: 0, y: contentSize.height - bounds.size.height + contentInset.bottom + extraY)
-		setContentOffset(bottomOffset, animated: animated)
-	}
+  var isScrolledToEnd: Bool {
+    let bottomEdge = contentOffset.y + bounds.size.height - contentInset.bottom
+    let isAtEnd = bottomEdge >= contentSize.height
+    return isAtEnd
+  }
+
+  func scrollToEnd(plus extraY: CGFloat = 0, animated: Bool) {
+    let bottomOffset = CGPoint(x: 0, y: contentSize.height - bounds.size.height + contentInset.bottom + extraY)
+    setContentOffset(bottomOffset, animated: animated)
+  }
 }

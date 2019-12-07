@@ -22,7 +22,7 @@ public class SystemTouchConverter: SystemTouchableViewDelegate {
   public weak var delegate: SystemTouchConverterDelegate?
   private var current: [String: TouchPoint] = [:]
   
-  public init() { }
+  public init() {}
   
   public static func touchStream(from uiTouches: Set<UITouch>) -> TouchStream {
     let uiTouchArray = Array(uiTouches)
